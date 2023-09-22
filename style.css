@@ -115,7 +115,7 @@ a.navbar-brand {
 }
 
 #sejarah {
-    margin: 0;
+    margin: 3% auto;
     height: 85vh;
     width: 100%;
     padding: 5%;
@@ -128,10 +128,35 @@ a.navbar-brand {
 
 #sejarah h2 span.teks-highlight{
     background-color: #89e852;
-    padding: 1%;
+    padding: 0.3%;
     font-weight: bold;
 }
 
 .right {
     text-align: right;
+}
+
+.gambar-sejarah {
+    background-repeat: no-repeat;
+    background-size: 100%;
+    border-radius: 30px;
+    border: none;
+    width: 100%;
+    height: 50vh;
+    object-fit: contain;
+}
+
+#limbah-cair-img {
+    background-image: url(assets/images/limbah-cair-tempe.JPG);
+}
+
+#pakan-kulit-img {
+    background-image: url(assets/images/pakan-sapi.JPG);
+    margin-bottom: 3%;
+}
+
+.isi-sejarah {
+    padding: 2%;
+    font-size: 32px;
+    text-align: justify;
 }

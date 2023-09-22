@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kim Purwoagung</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="tentangKamiStyle.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
@@ -125,16 +126,85 @@
             <div class="d-flex row">
                 <h2>Berawal dari <span class="teks-highlight">Limbah Tempe</span></h2>
             </div>
-            <div class="d-flex row">
-                <div class="col-3"></div>
-                <div class="col-9"></div>
-            </div>
-            <div class="d-flex row">
+            <div class="d-flex row konten-sejarah">
+                <div class="col-5 gambar-sejarah" id="limbah-cair-img"></div>
+                <div class="col-1"></div>
+                <div class="col-6 isi-sejarah">
+                    Purwoagung dikenal oleh industri utamanya yaitu pembuatan tempe. Olahan tempe yang mereka miliki pun bervariasi 
+                    mulai dari kripik tempe, brownies tempe, cokelat tempe, dan lain-lain. Akan tetapi, limbah tempe baik berupa air cucian kedelai maupun 
+                    kulit ari kedelai ternyata memiliki kandungan gizi yang sangat tinggi. Limbah cair tempe memiliki kandungan gizi di antaranya protein (0,42%), 
+                    lemak (0,113%), karbohidrat (0,11%), air (0,98,87%), kalsium (13,60 ppm), forfor (1,74 ppm), besi (4,55 ppm). Selain itu, limbah kulit ari yang 
+                    merupakan 10% dari total kedelai yang diolah juga memiliki kandungan gizi protein (14,45%), lemak (3,15%), serat pangan (47,01%).
+                </div>
+            <div class="d-flex row konten-sejarah">
                 <h2 class="right">Menjadi <span class="teks-highlight">Limbah Sapi</span></h2>
             </div>
             <div class="d-flex row">
-                <div class="col-9"></div>
-                <div class="col-3"></div>
+                <div class="col-6 isi-sejarah">
+                    Oleh karena kandungan proteinnya yang tinggi, limbah hasil pengolahan tempe digunakan untuk pakan sapi 
+                    untuk mengurangi limbah biologi pencemaran Sungai. Pertama, limbah hasil pengolahan tempe itu dikumpulkan melalui 
+                    tempat penggemukan sapi. Setelah itu, kotoran sapi yang dihasilkan akan dimasukkan reactor gas sehingga 
+                    terjadilah fermentasi anaerobic serta pengumpulan dan penyimpanan gas lalu akhirnya melalui selang-selang, setelah 
+                    itu gas-gas tersebut pun dialirkan ke masing-masing kompor gas rumah tangga.
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5 gambar-sejarah" id="pakan-kulit-img"></div>
+            </div>
+        </div>
+
+        <div class="d-flex-row footerPage row">
+            <div class="subscriptionInput row">
+                <div class="inginMendapat col-4">
+                    Ingin mendapatkan berita terbaru?
+                </div>
+                <div class="emailSubInput col-6">
+                    <input class="inputEmail" type="text" id="emailSubscription" name="email"
+                        placeholder="Masukkan email anda...">
+                </div>
+                <div class="col-2">
+                    <input class="tombol" type="submit" value="Submit">
+                </div>
+            </div>
+            <div class="footerInformation row">
+                <div class="infoPurwo col-5">
+                    <div class="titleInfoPurwo">
+                        Purwoagung
+                    </div>
+                    <div class="isiInfoPurwo">
+                        Kelurahan Purwantoro - Blimbing
+                    </div>
+                    <div class="isiInfoPurwo">
+                        Kota Malang - Jawa Timur
+                    </div>
+                    <div class="isiInfoPurwo2">
+                        Website Promosi KIM Purwoagung Kota Malang - Jawa Timur
+                    </div>
+                </div>
+                <div class="infoKontak col-3">
+                    <div class="titleKontak">
+                        Kontak Kami
+                    </div>
+                    <div class="isiKontakKami">
+                        JL. Tembaga No 3.
+                    </div>
+                    <div class="isiKontakKami">
+                        Kode Pos 65122
+                    </div>
+                    <div class="isiKontakKami2">
+                        081936876545
+                    </div>
+                    <div class="isiKontakKami">
+                        kimpurwoagungkotamalang@gmail.com
+                    </div>
+                </div>
+                <div class="infoMedsos col-3">
+                    <div class="titleMedsos">
+                        Media Sosial
+                    </div>
+                    <div class="isiMedsos">
+                        Instagram: @kimpurwoagung
+                    </div>
+                </div>
             </div>
         </div>
 
