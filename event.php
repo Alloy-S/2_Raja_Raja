@@ -14,7 +14,7 @@ require_once('./conn.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>SB Admin 2 - Event</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -36,7 +36,7 @@ require_once('./conn.php');
         <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
             <!-- Sidebar - Brand -->
-            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.php">
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
@@ -78,21 +78,6 @@ require_once('./conn.php');
                         <h6 class="collapse-header">Custom Components:</h6>
                         <a class="collapse-item" href="buttons.html">Buttons</a>
                         <a class="collapse-item" href="cards.html">Cards</a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produkOption"
-                    aria-expanded="true" aria-controls="produkOption">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Produk</span>
-                </a>
-                <div id="produkOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Produk Options:</h6>
-                        <a class="collapse-item" href="showProduk.php">Show</a>
-                        <a class="collapse-item" href="cards.html">Add Produk</a>
                     </div>
                 </div>
             </li>
