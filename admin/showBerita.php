@@ -30,7 +30,7 @@ function getName($n = 10)
     <title>SB Admin 2 - Dashboard</title>
 
     <!-- Custom fonts for this template-->
-    <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css"> -->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
@@ -88,17 +88,10 @@ function getName($n = 10)
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produkOption" aria-expanded="true" aria-controls="produkOption">
+                <a class="nav-link collapsed" href="#">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Produk</span>
+                    <span>Berita</span>
                 </a>
-                <div id="produkOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Produk Options:</h6>
-                        <a class="collapse-item" href="showProduk.php">Show</a>
-                        <a class="collapse-item" href="cards.html">Add Produk</a>
-                    </div>
-                </div>
             </li>
 
 
@@ -304,54 +297,54 @@ function getName($n = 10)
                 </div>
                 <!-- End of Main Content -->
                 <?php if (isset($_POST['submitAdd'])) {
-                
-                $nama = htmlspecialchars($_POST['namaBerita']);
-                $namaPenulis = htmlspecialchars($_POST['namaPenulis']);
-                // $harga = htmlspecialchars($_POST['harga']);
-                $detail = htmlspecialchars($_POST['description']);
-                // $ketersediaan = htmlspecialchars($_POST['ketersediaan']);
 
-                $target_dir = "../image/";
-                $nama_file = basename($_FILES["foto"]["name"]);
-                $target_file = $target_dir . $nama_file;
-                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                $size_file = $_FILES['foto']['size'];
+                    $nama = htmlspecialchars($_POST['namaBerita']);
+                    $namaPenulis = htmlspecialchars($_POST['namaPenulis']);
+                    // $harga = htmlspecialchars($_POST['harga']);
+                    $detail = htmlspecialchars($_POST['description']);
+                    // $ketersediaan = htmlspecialchars($_POST['ketersediaan']);
 
-                $randomString = getName(10);
-                if ($nama == "" || $namaPenulis == "" || $detail == "") {
-                    echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
-                } else {
-                    if ($nama_file != "") {
-                        if ($size_file > 5000000) {
-                            echo "<div class='alert alert-primary mt-3' role='alert'>foto tidak boleh dari 500kb</div>";
-                        } else {
-                            if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
-                                echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
+                    $target_dir = "../image/";
+                    $nama_file = basename($_FILES["foto"]["name"]);
+                    $target_file = $target_dir . $nama_file;
+                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                    $size_file = $_FILES['foto']['size'];
+
+                    $randomString = getName(10);
+                    if ($nama == "" || $namaPenulis == "" || $detail == "") {
+                        echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
+                    } else {
+                        if ($nama_file != "") {
+                            if ($size_file > 5000000) {
+                                echo "<div class='alert alert-primary mt-3' role='alert'>foto tidak boleh dari 500kb</div>";
                             } else {
-                                if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
-                                    $queryExist = mysqli_query($conn, "SELECT * FROM berita WHERE nama_artikel='$nama'");
-                                    if (mysqli_num_rows($queryExist) > 0) {
-                                        echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
-                                    } else {
-                                        $file = $target_dir . $randomString . "." . $imageFileType;
-                                        $queryAdd = mysqli_query($conn, "INSERT INTO berita (nama_artikel, nama_penulis, foto, deskripsi) VALUES ('$nama', '$namaPenulis', '$file', '$detail')");
-                                        if ($queryAdd) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
-                                            // untuk merefresh halaman
-                                            echo "<meta http-equiv='refresh' content='1.5; url=./showBerita.php'>";
-                                        } else {
-                                            echo mysqli_error($conn);
-                                        }
-                                    }
+                                if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
+                                    echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
                                 } else {
-                                    echo "<div class='alert alert-primary mt-3' role='alert'>Gagal Upload foto</div>";
+                                    if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
+                                        $queryExist = mysqli_query($conn, "SELECT * FROM berita WHERE nama_artikel='$nama'");
+                                        if (mysqli_num_rows($queryExist) > 0) {
+                                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
+                                        } else {
+                                            $file = $target_dir . $randomString . "." . $imageFileType;
+                                            $queryAdd = mysqli_query($conn, "INSERT INTO berita (nama_artikel, nama_penulis, foto, deskripsi) VALUES ('$nama', '$namaPenulis', '$file', '$detail')");
+                                            if ($queryAdd) {
+                                                echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
+                                                // untuk merefresh halaman
+                                                echo "<meta http-equiv='refresh' content='1.5; url=./showBerita.php'>";
+                                            } else {
+                                                echo mysqli_error($conn);
+                                            }
+                                        }
+                                    } else {
+                                        echo "<div class='alert alert-primary mt-3' role='alert'>Gagal Upload foto</div>";
+                                    }
                                 }
                             }
                         }
                     }
                 }
-            }
-            ?>
+                ?>
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
