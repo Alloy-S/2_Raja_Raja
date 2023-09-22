@@ -88,20 +88,6 @@ function getName($n = 10)
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produkOption" aria-expanded="true" aria-controls="produkOption">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Produk</span>
-                </a>
-                <div id="produkOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Produk Options:</h6>
-                        <a class="collapse-item" href="showProduk.php">Show</a>
-                        <a class="collapse-item" href="cards.html">Add Produk</a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true" aria-controls="berita">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Berita</span>
@@ -109,8 +95,8 @@ function getName($n = 10)
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="#">Show</a>
-                        <a class="collapse-item" href="addBerita.php">Add Berita</a>
+                        <a class="collapse-item" href="showBerita.php">Show</a>
+                        <a class="collapse-item" href="#">Add Berita</a>
                     </div>
                 </div>
             </li>
@@ -215,79 +201,46 @@ function getName($n = 10)
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Produk</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Detail Produk</h1>
+
+                    <div>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <label for="subject">Judul Berita:</label>
+                                <input type="text" class="form-control" name="namaBerita">
+                                <label for="categories">Nama Penulis:</label>
+                                <input type="text" class="form-control" name="namaPenulis">
+                                <!-- <label for="date">Date:</label>
+                                    <input type="date" class="form-control" name="date"> -->
+                                <label for="description">Description:</label>
+                                <textarea name="description" cols="10" rows="25" class="form-control"></textarea>
+
+                                <label for="foto">Foto</label>
+                                <input type="file" name="foto" id="foto" class="form-control">
+                            </div>
+                            <div class="modal-footer">
+                                <a href="showBerita.php">
+                                    <button type="button" class="btn btn-secondary">Close</button>
+                                </a>
+                                <button type="submit" class="btn btn-primary" name="submitAdd">Add</button>
+                            </div>
+                        </form>
+                    </div>
+
                     <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
                     <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <spa class="m-0 font-weight-bold text-primary">Data Event</spa>
-                        </div>
-                        <div class="card-body">
-                        
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>End</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>Foto Event</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <?php $queryEvent = mysqli_query($conn, "SELECT * FROM berita"); ?>
-                                        <?php if (mysqli_num_rows($queryEvent) == 0) : ?>
-                                            <tr>
-                                                <td colspan="6" class="text-center">Tidak Ada Data</td>
-                                            </tr>
-                                        <?php else : ?>
-                                            <?php $count = 1; ?>
-                                            <?php while ($row = mysqli_fetch_array($queryEvent)) : ?>
-                                                <tr>
-                                                    <td><?= $count; ?></td>
-                                                    <td><?= $row['nama_artikel']; ?></td>
-                                                    <td><?= $row['nama_penulis']; ?></td>
-                                                    <td><?= $row['tanggal_penulisan']; ?></td>
-                                                    <td>
-                                                        <a href="./detail-berita.php?wkwk=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
-                                                        <!-- <a href="./delete-Kategori.php?wkwk=<?= $row['id']; ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a> -->
-                                                    </td>
-                                                    <?php $count++; ?>
-
-                                                </tr>
-                                            <?php endwhile; ?>
-                                        <?php endif; ?>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
                 </div>
                 <!-- /.container-fluid -->
-              
-                
+
                 <!-- End of Main Content -->
                 <?php if (isset($_POST['submitAdd'])) {
 
                     $nama = htmlspecialchars($_POST['namaBerita']);
                     $namaPenulis = htmlspecialchars($_POST['namaPenulis']);
-                    // $harga = htmlspecialchars($_POST['harga']);
                     $detail = htmlspecialchars($_POST['description']);
-                    // $ketersediaan = htmlspecialchars($_POST['ketersediaan']);
+
 
                     $target_dir = "../image/";
                     $nama_file = basename($_FILES["foto"]["name"]);

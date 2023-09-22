@@ -82,7 +82,7 @@ require_once('../conn.php');
             <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produkOption" aria-expanded="true" aria-controls="produkOption">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Produk</span>
+                    <span>produk</span>
                 </a>
                 <div id="produkOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
@@ -94,10 +94,17 @@ require_once('../conn.php');
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="showBerita.php">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true" aria-controls="berita">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Berita</span>
                 </a>
+                <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Berita Options:</h6>
+                        <a class="collapse-item" href="showBerita.php">Show</a>
+                        <a class="collapse-item" href="addBerita.php">Add Berita</a>
+                    </div>
+                </div>
             </li>
 
 

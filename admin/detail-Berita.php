@@ -2,6 +2,12 @@
 require './session.php';
 require_once('../conn.php');
 
+
+$id = $_GET['wkwk'];
+
+$data = mysqli_query($conn, "SELECT * FROM berita WHERE id='$id'");
+$detailBerita = mysqli_fetch_array($data);
+
 function getName($n = 10)
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -109,7 +115,7 @@ function getName($n = 10)
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="#">Show</a>
+                        <a class="collapse-item" href="showBerita.php">Show</a>
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
@@ -215,121 +221,113 @@ function getName($n = 10)
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Produk</h1>
-                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
+                    <h1 class="h3 mb-2 text-gray-800">Detail Produk</h1>
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <spa class="m-0 font-weight-bold text-primary">Data Event</spa>
-                        </div>
-                        <div class="card-body">
-                        
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>End</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>Foto Event</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <?php $queryEvent = mysqli_query($conn, "SELECT * FROM berita"); ?>
-                                        <?php if (mysqli_num_rows($queryEvent) == 0) : ?>
-                                            <tr>
-                                                <td colspan="6" class="text-center">Tidak Ada Data</td>
-                                            </tr>
-                                        <?php else : ?>
-                                            <?php $count = 1; ?>
-                                            <?php while ($row = mysqli_fetch_array($queryEvent)) : ?>
-                                                <tr>
-                                                    <td><?= $count; ?></td>
-                                                    <td><?= $row['nama_artikel']; ?></td>
-                                                    <td><?= $row['nama_penulis']; ?></td>
-                                                    <td><?= $row['tanggal_penulisan']; ?></td>
-                                                    <td>
-                                                        <a href="./detail-berita.php?wkwk=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
-                                                        <!-- <a href="./delete-Kategori.php?wkwk=<?= $row['id']; ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a> -->
-                                                    </td>
-                                                    <?php $count++; ?>
+                    <div>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <label for="subject">Judul Berita:</label>
+                                <input type="text" class="form-control" name="namaBerita" value="<?= $detailBerita['nama_artikel']; ?>">
+                                <label for="categories">Nama Penulis:</label>
+                                <input type="text" class="form-control" name="namaPenulis" value="<?= $detailBerita['nama_penulis']; ?>">
+                                <!-- <label for="date">Date:</label>
+                                    <input type="date" class="form-control" name="date"> -->
+                                <label for="description">Description:</label>
+                                <textarea name="description" cols="10" rows="25" class="form-control"><?= $detailBerita['deskripsi']; ?></textarea>
 
-                                                </tr>
-                                            <?php endwhile; ?>
-                                        <?php endif; ?>
-
-                                    </tbody>
-                                </table>
+                                <div class="mt-4">
+                                    <label for="fotoSekarang">Foto Saat Ini</label>
+                                </div>
+                                <div>
+                                    <img src="<?= $detailBerita['foto']; ?>" alt="" class="img-fluid rounded mx-auto d-block">
+                                </div>
+                                <label for="foto" class="mb-4 mt-4">Upload Foto Baru</label>
+                                <input type="file" name="foto" id="foto" class="form-control">
                             </div>
-                        </div>
+                            <div class="modal-footer">
+                                <a href="showBerita.php">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                </a>
+                                <button type="submit" class="btn btn-primary" name="submitUpdate">Add</button>
+                            </div>
+                        </form>
                     </div>
+                    <?php if (isset($_POST['submitUpdate'])) {
+                        $nama = htmlspecialchars($_POST['namaBerita']);
+                        $namaPenulis = htmlspecialchars($_POST['namaPenulis']);
+                        $detail = htmlspecialchars($_POST['description']);
 
-                </div>
-                <!-- /.container-fluid -->
-              
-                
-                <!-- End of Main Content -->
-                <?php if (isset($_POST['submitAdd'])) {
+                        $target_dir = "../image/";
+                        $nama_file = basename($_FILES["foto"]["name"]);
+                        $target_file = $target_dir . $nama_file;
+                        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                        $size_file = $_FILES['foto']['size'];
 
-                    $nama = htmlspecialchars($_POST['namaBerita']);
-                    $namaPenulis = htmlspecialchars($_POST['namaPenulis']);
-                    // $harga = htmlspecialchars($_POST['harga']);
-                    $detail = htmlspecialchars($_POST['description']);
-                    // $ketersediaan = htmlspecialchars($_POST['ketersediaan']);
+                        $randomString = getName(10);
+                        if ($nama == "" || $namaPenulis == "" || $detail == "") {
+                            echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
+                        } else {
 
-                    $target_dir = "../image/";
-                    $nama_file = basename($_FILES["foto"]["name"]);
-                    $target_file = $target_dir . $nama_file;
-                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                    $size_file = $_FILES['foto']['size'];
 
-                    $randomString = getName(10);
-                    if ($nama == "" || $namaPenulis == "" || $detail == "") {
-                        echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
-                    } else {
-                        if ($nama_file != "") {
-                            if ($size_file > 5000000) {
-                                echo "<div class='alert alert-primary mt-3' role='alert'>foto tidak boleh dari 500kb</div>";
-                            } else {
-                                if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
-                                    echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
+                            if ($nama_file != '') {
+
+                                if ($size_file > 5000000) {
+                                    echo "<div class='alert alert-primary mt-3' role='alert'>foto tidak boleh dari 500kb</div>";
                                 } else {
-                                    if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
-                                        $queryExist = mysqli_query($conn, "SELECT * FROM berita WHERE nama_artikel='$nama'");
-                                        if (mysqli_num_rows($queryExist) > 0) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
-                                        } else {
-                                            $file = $target_dir . $randomString . "." . $imageFileType;
-                                            $queryAdd = mysqli_query($conn, "INSERT INTO berita (nama_artikel, nama_penulis, foto, deskripsi) VALUES ('$nama', '$namaPenulis', '$file', '$detail')");
-                                            if ($queryAdd) {
-                                                echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
-                                                // untuk merefresh halaman
-                                                echo "<meta http-equiv='refresh' content='1.5; url=./showBerita.php'>";
-                                            } else {
-                                                echo mysqli_error($conn);
-                                            }
-                                        }
+                                    if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
+                                        echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
                                     } else {
-                                        echo "<div class='alert alert-primary mt-3' role='alert'>Gagal Upload foto</div>";
+                                        if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
+                                            $queryExist = mysqli_query($conn, "SELECT * FROM produk WHERE nama='$$nama'");
+                                            if (mysqli_num_rows($queryExist) > 0) {
+                                                echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
+                                            } else {
+                                                $file = $target_dir . $randomString . "." . $imageFileType;
+                                                $queryUpdate = $queryUpdate = mysqli_query($conn, "UPDATE berita SET nama_artikel='$nama', nama_penulis='$namaPenulis', foto='$file', deskripsi='$detail' WHERE id='$id'");
+                                                if ($queryUpdate) {
+                                                    echo "<div class='alert alert-primary mt-3' role='alert'>berhasil diperbarui</div>";
+                                                    // untuk merefresh halaman
+                                                    echo "<meta http-equiv='refresh' content='1; url=./showBerita.php'>";
+                                                } else {
+                                                    echo mysqli_error($conn);
+                                                }
+                                            }
+                                        } else {
+                                            echo "<div class='alert alert-primary mt-3' role='alert'>Gagal Upload foto</div>";
+                                        }
                                     }
+                                }
+                            } else {
+                                $queryUpdate = mysqli_query($conn, "UPDATE berita SET nama_artikel='$nama', nama_penulis='$namaPenulis', deskripsi='$detail' WHERE id='$id'");
+
+                                if ($queryUpdate) {
+                                    echo "<div class='alert alert-primary mt-3' role='alert'>berhasil diperbarui</div>";
+                                    // untuk merefresh halaman
+                                    echo "<meta http-equiv='refresh' content='1; url=./showBerita.php'>";
                                 }
                             }
                         }
                     }
-                }
-                ?>
+
+                    if (isset($_POST['delete'])) {
+                        $query = mysqli_query($conn, "DELETE FROM produk WHERE id='$id'");
+                        if ($query) {
+                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Berhasil Dihapus</div>";
+                            echo "<meta http-equiv='refresh' content='1.5; url=./produk.php'>";
+                        } else {
+                            echo mysqli_error($conn);
+                        }
+                    }
+                    ?>
+                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
+
+                    <!-- DataTales Example -->
+                </div>
+                <!-- /.container-fluid -->
+
+                <!-- End of Main Content -->
+
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
