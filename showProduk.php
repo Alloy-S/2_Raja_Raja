@@ -195,43 +195,47 @@ require_once('./conn.php');
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <h6 class="m-0 font-weight-bold text-primary">Data Produk</h6>
+                            <spa class="m-0 font-weight-bold text-primary">Data Event</spa>
                         </div>
                         <div class="card-body">
+                        <!-- Button trigger modal -->
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addEvents">
+                        Add Event
+                        </button>
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
                                         <tr>
-                                            <th>Nama Produk</th>
-                                            <th>No Telp</th>
-                                            <th>Foto Produk</th>
+                                            <th>id</th>
+                                            <th>Nama Event</th>
+                                            <th>Start Date</th>
+                                            <th>End</th>
                                             <th>Action</th>
-
                                         </tr>
                                     </thead>
                                     <tfoot>
                                         <tr>
-                                            <th>Nama Produk</th>
-                                            <th>No Telp</th>
-                                            <th>Foto Produk</th>
+                                            <th>id</th>
+                                            <th>Nama Event</th>
+                                            <th>Start Date</th>
+                                            <th>Foto Event</th>
                                             <th>Action</th>
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php $queryProduk = mysqli_query($conn, "SELECT * FROM produk"); ?>
-                                        <?php if (mysqli_num_rows($queryProduk) == 0) : ?>
+                                        <?php $queryEvent = mysqli_query($conn, "SELECT * FROM list_event"); ?>
+                                        <?php if (mysqli_num_rows($queryEvent) == 0) : ?>
                                             <tr>
                                                 <td colspan="6" class="text-center">Tidak Ada Data</td>
                                             </tr>
                                         <?php else : ?>
                                             <?php $count = 1; ?>
-                                            <?php while ($row = mysqli_fetch_array($queryProduk)) : ?>
+                                            <?php while ($row = mysqli_fetch_array($queryEvent)) : ?>
                                                 <tr>
                                                     <td><?= $count; ?></td>
-                                                    <td><?= $row['nama']; ?></td>
-                                                    <td><?= $row['nama_kategori']; ?></td>
-                                                    <td><?= $row['harga']; ?></td>
-                                                    <td><?= $row['ketersediaan_stok']; ?></td>
+                                                    <td><?= $row['nama_event']; ?></td>
+                                                    <td><?= $row['start_date']; ?></td>
+                                                    <td><?= $row['end_date']; ?></td>
                                                     <td>
                                                         <a href="./produk-detail.php?wkwk=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
                                                         <!-- <a href="./delete-Kategori.php?wkwk=<?= $row['id']; ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a> -->
@@ -253,8 +257,33 @@ require_once('./conn.php');
 
                 </div>
                 <!-- /.container-fluid -->
-
-            </div>
+            <!-- Modal -->
+            <div class="modal fade" id="addEvents" tabindex="-1" role="dialog" aria-labelledby="addEventsTitle" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="eventModal">Add Event</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <label for="subject">Subject:</label>
+                                <input type="text" class="form-control" name="subject">
+                                <label for="categories">Categories:</label>
+                                <input type="text" class="form-control" name="categories">
+                                <label for="date">Date:</label>
+                                <input type="date" class="form-control" name="date">
+                                <label for="description">Description:</label>
+                                <textarea name="description" cols="1" rows="1" class="form-control"></textarea>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Add</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             <!-- End of Main Content -->
 
             <!-- Footer -->
