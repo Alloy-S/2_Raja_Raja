@@ -245,8 +245,11 @@ function getName($n = 10)
                                 <input type="file" name="foto" id="foto" class="form-control">
                             </div>
                             <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteComfirm">
+                                    Delete
+                                </button>
                                 <a href="showBerita.php">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-secondary">Close</button>
                                 </a>
                                 <button type="submit" class="btn btn-primary" name="submitUpdate">Add</button>
                             </div>
@@ -309,21 +312,45 @@ function getName($n = 10)
                         }
                     }
 
-                    if (isset($_POST['delete'])) {
-                        $query = mysqli_query($conn, "DELETE FROM produk WHERE id='$id'");
-                        if ($query) {
-                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Berhasil Dihapus</div>";
-                            echo "<meta http-equiv='refresh' content='1.5; url=./produk.php'>";
-                        } else {
-                            echo mysqli_error($conn);
-                        }
-                    }
+
                     ?>
                     <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
                     <!-- DataTales Example -->
                 </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="deleteComfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Berita</h1>
+                            </div>
+                            <div class="modal-body">
+                                Anda yakin ingin mendelete berita ini?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <form action="" method="post">
+                                    <button type="submit" class="btn btn-primary" name="delete">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <?php
+                if (isset($_POST['delete'])) {
+                    $query = mysqli_query($conn, "DELETE FROM berita WHERE id='$id'");
+                    if ($query) {
+                        echo "<div class='alert alert-primary mt-3' role='alert'>Berita Berhasil Dihapus</div>";
+                        echo "<meta http-equiv='refresh' content='0.5; url=./showBerita.php'>";
+                    } else {
+                        echo mysqli_error($conn);
+                    }
+                }
+                ?>
                 <!-- /.container-fluid -->
 
                 <!-- End of Main Content -->
