@@ -53,7 +53,7 @@ require_once('../conn.php');
                     <span>Dashboard</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="event.html">
+                <a class="nav-link" href="event.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Events</span></a>
             </li>
@@ -93,6 +93,21 @@ require_once('../conn.php');
                         <h6 class="collapse-header">Produk Options:</h6>
                         <a class="collapse-item" href="showProduk.php">Show</a>
                         <a class="collapse-item" href="cards.html">Add Produk</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#beritaOption"
+                    aria-expanded="true" aria-controls="beritaOption">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Berita</span>
+                </a>
+                <div id="beritaOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Berita Options:</h6>
+                        <a class="collapse-item" href="showBerita.php">Show</a>
+                        <a class="collapse-item" href="cards.html">Add Berita</a>
                     </div>
                 </div>
             </li>
