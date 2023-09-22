@@ -12,7 +12,7 @@
   <body>
     <div id="pengumuman">Pengumuman</div>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+    <nav class="navbar navbar-expand-lg bg-dark fixed-top">
         <div class="navbar-content container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="..." alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
@@ -27,7 +27,7 @@
                         <a class="nav-link active" aria-current="page" href="#">Biogas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Tentang Kami</a>
+                        <a class="nav-link" href="tentang-kami.php">Tentang Kami</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -88,7 +88,7 @@
 
     <main>
         <!-- Benefits -->
-        <div class="row" id="benefits">
+        <div class="d-flex row" id="benefits">
             <div class="benefit col" id="keuntungan">
                 <h2>Keuntungan</h2>
                 <ul>
@@ -107,6 +107,34 @@
                     <li>Bisa di gunakan sebagai pemanas rumah dan air panas</li>
                     <li>Pemrosesan limbah menjadi pupuk organik</li>
                 </ul>
+            </div>
+        </div>
+
+        <!-- kalkulator keuntungan -->
+        <div class="d-flex row" id="kalkulator">
+            <div class="col-3">
+                
+            </div>
+            <div class="col-9">
+
+            </div>
+        </div>
+
+        <!-- Sejarah -->
+        <div class="d-flex row" id="sejarah">
+            <div class="d-flex row">
+                <h2>Berawal dari <span class="teks-highlight">Limbah Tempe</span></h2>
+            </div>
+            <div class="d-flex row">
+                <div class="col-3"></div>
+                <div class="col-9"></div>
+            </div>
+            <div class="d-flex row">
+                <h2 class="right">Menjadi <span class="teks-highlight">Limbah Sapi</span></h2>
+            </div>
+            <div class="d-flex row">
+                <div class="col-9"></div>
+                <div class="col-3"></div>
             </div>
         </div>
 
