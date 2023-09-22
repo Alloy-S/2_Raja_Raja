@@ -13,7 +13,7 @@
   <body>
     <div id="pengumuman">Pengumuman</div>
     <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="navbar-content container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="..." alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
