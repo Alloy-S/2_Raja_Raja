@@ -113,7 +113,7 @@ $sql = mysqli_query($conn, "SELECT limbah.*, penjual.* FROM limbah INNER JOIN pe
                     <img class="fotoLimbah" src="<?= $row['foto']; ?>" alt="foto limbah">
                     <div class="container penjelasanLimbah">
                         <div class="namaPenjual"><?= $row['nama_penjual']; ?></div>
-                        <div class="merk"><?= $row['merek']; ?></div>
+                        <div class="merk"><?= $row['kategori']; ?></div>
                     </div>
 
                 </button>
@@ -134,7 +134,7 @@ $sql = mysqli_query($conn, "SELECT limbah.*, penjual.* FROM limbah INNER JOIN pe
                             </div>
                             <div class="col-6 penjelasanLimbahModal">
                                 <div class="namaPenjual"><?= $row['nama_penjual']; ?></div>
-                                <div class="merk"><?= $row['merek']; ?></div>
+                                <div class="merk"><?= $row['kategori']; ?></div>
                                 <hr>
                                 <div class="infoKontak">
                                     <div>Nomor WA: <?= $row['no_hp']; ?></div>

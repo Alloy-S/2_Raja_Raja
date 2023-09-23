@@ -157,7 +157,7 @@ function getName($n = 10)
             <div class="judulItem">
                 Daftarkan Limbah
             </div>
-            <form id="survey-form" method="post" action="">
+            <form id="survey-form" method="post" action="" enctype="multipart/form-data">
                 <div class="form-group">
                     <label id="nameItem" class="nItem "><b>Nama Jenis Limbah</b></label>
                     <div class="form-check">
@@ -166,6 +166,12 @@ function getName($n = 10)
                             <option value="cair">Cair</option>
                             <option value="padat-dan-cair">Padat dan Cair</option>
                         </select>
+                        <div>
+                            <label for="">Upload foto</label>
+                        </div>
+                        <div>
+                            <input type="file" name="foto" id="foto" class="form-control">
+                        </div>
                     </div>
                 </div>
 
@@ -177,18 +183,44 @@ function getName($n = 10)
             <?php if (isset($_POST['submit2'])) {
                 $jenis = htmlspecialchars($_POST['jenis']);
 
+                $target_dir = "image/";
+                $nama_file = basename($_FILES["foto"]["name"]);
+                $target_file = $target_dir . $nama_file;
+                $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                $size_file = $_FILES['foto']['size'];
+
+                $randomString = getName(10);
                 if ($jenis == "") {
                     echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
                 } else {
-                    $queryAdd = mysqli_query($conn, "INSERT INTO limbah (id_penjual, kategori) VALUES ('$id', '$jenis')");
-                    if ($queryAdd) {
-                        echo "<div class='alert alert-primary mt-3' role='alert'>Item Berhasil Ditambahkan</div>";
-                        // untuk merefresh halaman
+
+                    if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
+                        echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
                     } else {
-                        echo mysqli_error($conn);
+                        if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
+                            $queryExist = mysqli_query($conn, "SELECT * FROM limbah WHERE kategori='$jenis'");
+                            if (mysqli_num_rows($queryExist) > 0) {
+                                echo "<div class='alert alert-primary mt-3' role='alert'>Sudah Ada</div>";
+                            } else {
+
+                                $file = $target_dir . $randomString . "." . $imageFileType;
+                                $id = $_SESSION['key'];
+                                $queryAdd = mysqli_query($conn, "INSERT INTO limbah (id_penjual, kategori, foto) VALUES ('$id', '$jenis', '$file')");
+                                if ($queryAdd) {
+                                    echo "<div class='alert alert-primary mt-3' role='alert'>Item Berhasil Ditambahkan</div>";
+                                    // untuk merefresh halaman
+                                } else {
+                                    echo mysqli_error($conn);
+                                }
+                            }
+                        } else {
+                            echo "<div class='alert alert-primary mt-3' role='alert'>Gagal Upload foto</div>";
+                        }
                     }
                 }
             }
+
+
             ?>
         </div>
     </div>

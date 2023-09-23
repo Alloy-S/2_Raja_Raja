@@ -88,7 +88,7 @@ $sql = mysqli_fetch_array($sql);
 
 
             if ($nama != "" && $nohp != "" && $email != "") {
-                $sql = mysqli_query($conn, "UPDATE penjual SET nama_penjual='$nama', no_hp='$nohp', email='$email'");
+                $sql = mysqli_query($conn, "UPDATE penjual SET nama_penjual='$nama', no_hp='$nohp', email='$email' WHERE id=''$id");
 
                 if ($sql) {
                     echo "<meta http-equiv='refresh' content='0.5; url=./editProfile.php'>";
