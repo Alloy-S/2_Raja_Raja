@@ -73,19 +73,25 @@ $jmlEvent = mysqli_num_rows($event);
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Components</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Custom Components:</h6>
+                        <a class="collapse-item" href="buttons.html">Buttons</a>
+                        <a class="collapse-item" href="cards.html">Cards</a>
+                    </div>
+                </div>
+            </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption" aria-expanded="true" aria-controls="eventOption">
+                <a class="nav-link collapsed" href="showEvent.php">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Event</span>
                 </a>
-                <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Event Options:</h6>
-                        <a class="collapse-item" href="showEvent.php">Show</a>
-                        <a class="collapse-item" href="addEvent.php">Add Event</a>
-                    </div>
-                </div>
             </li>
 
             <li class="nav-item">
@@ -96,20 +102,6 @@ $jmlEvent = mysqli_num_rows($event);
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="showBerita.php">Show</a>
-                        <a class="collapse-item" href="addBerita.php">Add Berita</a>
-                    </div>
-                </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#peserta" aria-expanded="true" aria-controls="peserta">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Peserta Event</span>
-                </a>
-                <div id="peserta" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Peserta Event Options:</h6>
                         <a class="collapse-item" href="showBerita.php">Show</a>
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
@@ -309,9 +301,17 @@ $jmlEvent = mysqli_num_rows($event);
                         </div>
                     </div>
 
-
-
-
+                    <!-- Bar Chart -->
+                    <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                                </div>
+                                <div class="card-body">
+                                    <div class="chart-bar">
+                                        <canvas id="myBarChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
                 </div>
                 <!-- /.container-fluid -->
 
@@ -372,8 +372,9 @@ $jmlEvent = mysqli_num_rows($event);
     <script src="vendor/chart.js/Chart.min.js"></script>
 
     <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+s
+    <script src="chart_bar.js"></script>
+
 
 </body>
 

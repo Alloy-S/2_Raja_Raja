@@ -310,9 +310,7 @@ function getName($n = 10)
                                             }
                                             if ($selesai_timestamp <= $mulai_timestamp) {
                                                 echo "End date is earlier than start date.";
-                                                echo '<script>
-                                                showSweetAlert();
-                                            </script>';
+                                                
                                             } else {
                                                 $file = $target_dir . $randomString . "." . $imageFileType;
                                                 $queryAdd = mysqli_query($conn, "INSERT INTO list_event (nama_event, start_date, end_date, foto) VALUES ('$namaEvent', '$mulai', '$selesai', '$file')");
