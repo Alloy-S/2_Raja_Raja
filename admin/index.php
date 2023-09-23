@@ -118,6 +118,13 @@ $jmlPenjual = mysqli_num_rows($penjual);
                 </div>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#penjual" aria-expanded="true" aria-controls="">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Penjual</span>
+                </a>
+            </li>
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
