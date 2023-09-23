@@ -182,3 +182,23 @@
 .konten-sejarah{
     padding-top: 2vh;
 }
+
+.coverTtgBiogas{
+    color: white;
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.623);
+}
+
+.jdulBio{
+    font-weight: bold;
+    font-size: 300%;
+    width: 100%;
+    border-bottom: 1rem solid #89e852 ;
+}
+
+.descBio{
+    font-size: large;
+    width: 200%;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 7% 20%;
+}

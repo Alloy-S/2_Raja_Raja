@@ -1,4 +1,4 @@
-<?php 
+<?php
 session_start();
 require './session.php';
 ?>
@@ -138,54 +138,55 @@ require './session.php';
                 </div>
                 <!-- Profile -->
                 <?php
-                if( $_SESSION['login'] = true){;?>
+                if ($_SESSION['login'] = true) {
+                    ; ?>
                     <div class="d-flex justify-content-end" id="logo-dropdown">
-                    <div class="dropdown d-flex justify-content-end">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow round-logo" href="#"
-                            id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-regular fa-user fa-2x"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                            <li>
-                                <a class="dropdown-item" href="myprofile.php">My profile</a>
-                            </li>
-                            <li>
-                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
-                            </li>
-                        </ul>
+                        <div class="dropdown d-flex justify-content-end">
+                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow round-logo" href="#"
+                                id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-regular fa-user fa-2x"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                                <li>
+                                    <a class="dropdown-item" href="myprofile.php">My profile</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#logoutModal">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <?php
-                }else{
-                ;?>
-                <console class="log">hai</console>
-                <a href="login.php" class="btn btn-outline-primary">Log in</a>
-                <?php
+                    <?php
+                } else {
+                    ; ?>
+                    <console class="log">hai</console>
+                    <a href="login.php" class="btn btn-outline-primary">Log in</a>
+                    <?php
                 }
-                ;?>
-                
+                ; ?>
+
 
             </div>
         </div>
     </nav>
 
 
-    <header>
-        <div id="background">
-            <div class="jumbotron">
-                <h1>Biogas</h1>
-                <div class="description">
-                    <p>suatu gas yang dihasilkan oleh aktifitas atau kegiatan anaerobik atau juga fermentasi dari
-                        bahan-bahan organik.</p>
-                </div>
+
+    <div id="background" class="coverTtgBiogas">
+        <div class="jumbotron">
+            <div class="row jdulBio">Biogas</div>
+            <div class="row descBio">
+                suatu gas yang dihasilkan oleh aktifitas atau kegiatan anaerobik atau juga fermentasi dari
+                bahan-bahan organik.
             </div>
         </div>
-    </header>
+    </div>
 
     <!-- Benefits -->
     <div class="d-flex row justify-content-center" id="benefits">
         <div class="benefit col-5" id="keuntungan">
-            <h2>Keuntungan</h2>
+            <h2 class="judulList">Keuntungan</h2>
             <ul>
                 <li>Mengurangi limbah organik yang mencemari lingkungan</li>
                 <li>Mengurangi ketergantungan pada bahan bakar fosil</li>
@@ -195,7 +196,7 @@ require './session.php';
             </ul>
         </div>
         <div class="benefit col-5" id="manfaat">
-            <h2>Manfaat</h2>
+            <h2 class="judulList">Manfaat</h2>
             <ul>
                 <li>Pembangkit Listrik</li>
                 <li>Bahan bakar kendaraan berbasis gas</li>
@@ -211,8 +212,7 @@ require './session.php';
             <div class="simulasiTitle">Ingin tahu perhitungan keuntungan?</div>
         </div>
         <div class="row">
-            <div class="col-1"></div>
-            <div class="col-3">
+            <div class="col-4 kiriKalk">
                 <form action="">
                     <div class="mb-4">
                         <label for="investasi" class="form-label textDiForm">Nilai Investasi</label>
@@ -238,7 +238,7 @@ require './session.php';
                 </form>
             </div>
             <div class="col-1"></div>
-            <div class="col-6">
+            <div class="col-6 kananKalk">
                 <div id="aknKmbl"></div>
                 <div id="BEP" class="textDiForm"></div>
                 <div id="keuntunganBio"></div>
@@ -351,7 +351,8 @@ require './session.php';
     </main>
 
     <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
