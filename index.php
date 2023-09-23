@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="tentangKamiStyle.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
+    <!-- graf -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
+    </script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script>
         $(document).ready(function() {
@@ -19,18 +22,51 @@
                 var jmlBulan = $("#jmlBulan").val();
                 var harga = $("#harga").val();
 
-                var BEP = invest / (penggunaanKg * harga);
-                var keuntungan = (penggunaanKg * harga * jmlBulan) - invest;
 
-                var formattedCurrency = keuntungan.toLocaleString('id-ID', {
-                    style: 'currency',
-                    currency: 'IDR'
-                });
+                if (invest != 0 && penggunaanKg != 0 && jmlBulan != 0, harga != 0) {
+                    var BEP = invest / (penggunaanKg * harga);
+                    var keuntungan = (penggunaanKg * harga * jmlBulan) - invest;
 
-                $("#BEP").html(BEP);
-                $("#keuntunganBio").html(formattedCurrency);
+                    var formattedCurrency = keuntungan.toLocaleString('id-ID', {
+                        style: 'currency',
+                        currency: 'IDR'
+                    });
+
+                    var data = [];
+                    var arrBulan = [];
+                    var hasil = -1;
+                    var bulan = 0
+                    while (hasil < 0) {
+                        hasil = (penggunaanKg * harga * bulan) - invest;
+                        data.push(hasil);
+                        arrBulan.push(bulan);
+                        console.log(hasil);
+                        bulan++;
+                    }
+
+                    $("#BEP").html(BEP);
+                    $("#keuntunganBio").html(formattedCurrency);
+                    $('#graf').html("<canvas id='myChart' style='width:100%;max-width:700px'></canvas>");
+
+                    new Chart("myChart", {
+                        type: "line",
+                        data: {
+                            labels: arrBulan,
+                            datasets: [{
+                                data: data,
+                                borderColor: "red",
+                                fill: false,
+                                label: "Keuntungan"
+                            }]
+                        },
+                        options: {
+                            legend: {
+                                display: true
+                            }
+                        }
+                    });
+                }
             });
-
         });
     </script>
 </head>
@@ -161,11 +197,17 @@
                     </div>
                 </form>
             </div>
-            <div class="col-9">
+
+            <div class="col-6">
                 <div>output</div>
                 <div id="BEP"></div>
                 <div id="keuntunganBio"></div>
+                <div>
+                    <div id="graf" class="graf"></div>
+                </div>
             </div>
+
+            <div class="col-3"></div>
         </div>
 
         <!-- Sejarah -->
@@ -255,6 +297,11 @@
             </div>
 
     </main>
+    <script>
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+
 </body>
 
 </html>
