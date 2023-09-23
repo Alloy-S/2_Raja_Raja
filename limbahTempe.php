@@ -17,9 +17,9 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="navbar-content container-fluid">
-            <a class="navbar-brand" href="index.php">
-                <img src="..." alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                KIM Purwoagung
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/logo-kim-purwoagung-removebg-preview.png" alt="Logo" width="80" height="60"
+                    class="d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -32,7 +32,7 @@
                         <a class="nav-link" aria-current="page" href="index.php">Biogas</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="tentang-kami.php">Tentang Kami</a>
+                        <a class="nav-link" href="tentang-kami.php">Tentang Kami</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -40,12 +40,12 @@
                             Berita & Event
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Berita</a></li>
-                            <li><a class="dropdown-item" href="#">Event</a></li>
+                            <li><a class="dropdown-item" href="berita.php">Berita</a></li>
+                            <li><a class="dropdown-item" href="event.php">Event</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    <li class="nav-item active dropdown">
+                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Tempe
                         </a>
@@ -220,6 +220,12 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-center row pendaftaranPenjualLimbah" >
+            <div class="col-6 tombolDaftar" role="button">
+                Daftar sebagai penjual disini!
             </div>
         </div>
 

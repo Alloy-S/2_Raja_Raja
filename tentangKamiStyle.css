@@ -8,7 +8,7 @@
     background-color: aquamarine;
 }
 
-.imgSiapaKami{
+.imgSiapaKami {
     max-height: 40vh;
     width: auto;
     object-fit: cover;
@@ -51,6 +51,7 @@
     padding-top: 3%;
     background-color: rgb(167, 167, 167);
     height: 40vh;
+    max-width: none;
 }
 
 .inginMendapat {

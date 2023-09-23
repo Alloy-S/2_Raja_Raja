@@ -1,11 +1,14 @@
 .card-container {
-    justify-content: center; /* Center horizontally */
-    align-items: center; /* Center vertically */
-    height: 100vh; /* Ensure the container spans the entire viewport height */
+    justify-content: center;
+    /* Center horizontally */
+    align-items: center;
+    /* Center vertically */
+    height: 100vh;
+    /* Ensure the container spans the entire viewport height */
     display: flex;
 }
 
-.judulLimbah{
+.judulLimbah {
     padding-top: 15vh;
     padding-bottom: 1vh;
     font-size: 500%;
@@ -14,8 +17,8 @@
     padding-bottom: 5vh;
 }
 
-.fotoLimbah{
-    width:100%;
+.fotoLimbah {
+    width: 100%;
     height: auto;
     padding: 2vh;
     border-radius: 5px 5px 0 0;
@@ -32,7 +35,7 @@
 }
 
 
-.penjelasanLimbah{
+.penjelasanLimbah {
     padding: 2vh 4vh;
 }
 
@@ -43,24 +46,43 @@
     margin: auto;
 }
 
-.merk{
+.merk {
     font-size: x-large;
 }
 
-.namaPenjual{
+.namaPenjual {
     font-weight: bold;
     font-size: xx-large;
 }
 
-.limbahCards{
+.limbahCards {
     padding: 0vh 5vh;
 }
 
-.infokontak{
+.infokontak {
     font-size: x-large;
 }
 
-.penjelasanLimbahModal{
+.penjelasanLimbahModal {
     padding-top: 1vh;
 }
 
+
+.pendaftaranPenjualLimbah {
+    height: auto;
+    width: 50VW;
+    text-align: center;
+    font-size: xx-large;
+    font-weight: bold;
+    margin: auto;
+    padding: 3vh 0vh;
+}
+
+.tombolDaftar {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    border-radius: 5px;
+    background-color: #4b5320;
+    color: white;
+    padding: 2vh 0vh;
+}
