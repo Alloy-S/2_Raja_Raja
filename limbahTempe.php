@@ -77,7 +77,7 @@ $sql = mysqli_query($conn, "SELECT produk.*, penjual.* FROM produk INNER JOIN pe
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                             <li>
-                                <a class="dropdown-item" href="myprofile.php">My profile</a>
+                                <a class="dropdown-item" href="indexPenjual.php.php">My profile</a>
                             </li>
                             <li>
                                 <a class="dropdown-item" href="logout.php">Logout</a>

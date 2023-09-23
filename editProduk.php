@@ -35,7 +35,7 @@ function getName($n = 10)
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="navbar-content container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="assets/images/logo-kim-purwoagung-removebg-preview.png" alt="Logo" width="80" height="60" class="d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -156,7 +156,7 @@ function getName($n = 10)
             <div class="judulItem">
                 Daftarkan Limbah
             </div>
-            <form id="survey-form">
+            <form id="survey-form" method="post" action="">
                 <div class="form-group">
                     <label id="nameItem" class="nItem "><b>Nama Jenis Limbah</b></label>
                     <div class="form-check">
