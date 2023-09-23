@@ -147,6 +147,12 @@ $queryFotoEvent = mysqli_query($conn, "SELECT * FROM foto_event WHERE id_event='
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="showPenjual.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Penjual</span>
+                </a>
+            </li>
 
 
             <!-- Sidebar Toggler (Sidebar) -->
