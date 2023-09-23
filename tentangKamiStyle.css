@@ -1,0 +1,164 @@
+* {
+    box-sizing: border-box;
+    font-family: Tahoma, sans-serif;
+}
+
+div.navbar-content{
+    padding: 1% 3%;
+    font-size: 24px;
+    color: white;
+}
+
+a.navbar-brand img {
+    padding-right: 20px;
+}
+
+a.navbar-brand {
+    display: flex;
+    padding-right: 30px;
+}
+
+.nav-item {
+    padding-right: 40px;
+}
+
+#search-bar {
+    padding-right: 60px;
+    min-width: 25%;
+}
+
+#pengumuman {
+    display: block;
+}
+
+.coverTentangKami {
+    height: 80vh;
+    background-color: aquamarine;
+}
+
+.introCover {
+    padding-top: 25vh;
+    font-weight: 700;
+    font-size: 70px;
+}
+
+.titleKim {
+    text-align: end;
+}
+
+.titlePurwo {
+    text-align: center;
+    background-color: aliceblue;
+}
+
+.subtitleTentangKami {
+    font-size: 30px;
+    padding: 0% 10%;
+    text-align: center;
+    font-weight: 500;
+}
+
+
+.footerPage {
+    padding-left: 5%;
+    padding-top: 3%;
+    background-color: rgb(167, 167, 167);
+    height: 40vh;
+}
+
+.inginMendapat {
+    text-align: end;
+    font-weight: bold;
+    font-size: large;
+}
+
+.titleInfoPurwo,
+.titleMedsos,
+.titleKontak {
+    font-weight: bold;
+    padding-bottom: 10px;
+
+}
+
+.infoPurwo,
+.infoKontak,
+.infoMedsos {
+    font-size: small;
+}
+
+.isiInfoPurwo2,
+.isiKontakKami2 {
+    padding-top: 1%;
+}
+
+.inputEmail {
+    border-radius: 25px;
+    border: 2px solid #5a5a5a98;
+    padding-bottom: 5px;
+    width: 50vw;
+    height: auto;
+    text-indent: 5%
+}
+
+.tombol {
+    background-color: #5c5c5c;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-right: 30px;
+    padding-left: 30px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    float: right;
+
+}
+
+.titleSiapaKami {
+    padding-top: 5vh;
+    padding-left: 10vw;
+    font-weight: 700;
+    font-size: 70px;
+}
+
+.lineSiap {
+    border: 10px solid rgb(83, 83, 83);
+    border-radius: 5px;
+    width: 55%;
+}
+
+.fotoSiapaKami img{
+    width: 100%;
+    height: auto;
+    padding: 5%;
+}
+
+.tulisanSiapaKami{
+    padding: 5% 0%;
+}
+
+.siapakamiTtgKami{
+    padding-bottom: 2%;
+}
+
+.visiMisi{
+    padding-top: 2%;
+    background-color: #585858;
+    height: 55vh;
+}
+
+.judulVisi, .judulMisi{
+    text-align: center;
+    font-weight: bold;
+    font-size: 50px;
+    padding-bottom: 2%;
+}
+
+.penjelasanVisi, .penjelasanMisi{
+    text-align: justify;
+}
+
+.Visi, .Misi{
+    padding: 0% 5%;
+    align-items: center;
+}
