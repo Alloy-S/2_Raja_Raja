@@ -16,12 +16,12 @@ function getName($n = 10)
 }
 
 $dataPerHalaman = 10;
-$jmlData = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM list_event"));
+$jmlData = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM varian"));
 $banyakHalaman = ceil($jmlData / $dataPerHalaman);
 $halamanAktif = ((isset($_GET["page"]))) ? $_GET["page"] : 1;
 $awalIndex = ($dataPerHalaman * $halamanAktif) - $dataPerHalaman;
 
-$queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $dataPerHalaman");
+$queryVarian = mysqli_query($conn, "SELECT * FROM varian LIMIT $awalIndex, $dataPerHalaman");
 ?>
 
 <!DOCTYPE html>
@@ -124,6 +124,14 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
             </li>
 
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Varian</span>
+                </a>
+            </li>
+
+
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
@@ -221,91 +229,147 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
 
                 <!-- Begin Page Content -->
                 <div class="container-fluid">
+                    <div>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <label for="nama">Nama Varian</label>
+                            <input type="text" id="nama" name="nama" class="form-control">
+                            <label for="foto">Masukan Foto</label>
+                            <input type="file" id="foto" name="foto" class="form-control" />
 
-                    <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Event</h1>
-                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                            <button class="btn btn-primary mt-4 mb-4" id="submit" type="submit" name="submit">Tambah</button>
+                        </form>
+                    </div>
+
+                    <?php if (isset($_POST['submit'])) {
+                        // var_dump($_POST);
+                        // var_dump($_FILES);
+                        $nama = htmlspecialchars($_POST['nama']);
+
+                        $target_dir = "../image/";
+                        $nama_file = basename($_FILES["foto"]["name"]);
+                        $target_file = $target_dir . $nama_file;
+                        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                        $size_file = $_FILES['foto']['size'];
+
+                        $randomString = getName(10);
+                        if ($nama == "") {
+                            echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
+                        } else {
+                            if ($nama_file != "") {
+                                if ($size_file > 5000000) {
+                                    echo "<div class='alert alert-primary mt-3' role='alert'>foto tidak boleh dari 500kb</div>";
+                                } else {
+                                    if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
+                                        echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
+                                    } else {
+                                        if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
+                                        
+                                            $queryExist = mysqli_query($conn, "SELECT * FROM varian WHERE nama='$nama'");
+                                            if (mysqli_num_rows($queryExist) > 0) {
+                                                echo "<div class='alert alert-primary mt-3' role='alert'>Event Sudah Ada</div>";
+                                            } else {
+                                                $file = $target_dir . $randomString . "." . $imageFileType;
+                                                $queryAdd = mysqli_query($conn, "INSERT INTO varian (nama, foto) VALUES ('$nama', '$file')");
+                                                if ($queryAdd) {
+                                                    echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
+                                                    // untuk merefresh halaman
+                                                    echo "<meta http-equiv='refresh' content='1.5; url=./varian.php'>";
+                                                } else {
+                                                    echo mysqli_error($conn);
+                                                }
+                                            }
+                                        } else {
+                                            echo "<div class='alert alert-primary mt-3' role='alert'>Gagal Upload foto</div>";
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    ?>
+                    <div>
+                        <!-- Page Heading -->
+                        <h1 class="h3 mb-2 text-gray-800">Varian</h1>
+                        <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <spa class="m-0 font-weight-bold text-primary">Data Event</spa>
-                        </div>
-                        <div class="card-body">
-                            <!-- Button trigger modal -->
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>End</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>Foto Event</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        
-                                        <?php if (mysqli_num_rows($queryEvent) == 0) : ?>
+                        <!-- DataTales Example -->
+                        <div class="card shadow mb-4">
+                            <div class="card-header py-3">
+                                <spa class="m-0 font-weight-bold text-primary">Data Varian</spa>
+                            </div>
+                            <div class="card-body">
+                                <!-- Button trigger modal -->
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
                                             <tr>
-                                                <td colspan="6" class="text-center">Tidak Ada Data</td>
+                                                <th>No</th>
+                                                <th>Nama Varian</th>
+                                                <th>foto</th>
+                                                <th>Action</th>
                                             </tr>
-                                        <?php else : ?>
-                                            <?php $count = 1; ?>
-                                            <?php while ($row = mysqli_fetch_array($queryEvent)) : ?>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>No</th>
+                                                <th>Nama Varian</th>
+                                                <th>foto</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </tfoot>
+                                        <tbody>
+
+                                            <?php if (mysqli_num_rows($queryVarian) == 0) : ?>
                                                 <tr>
-                                                    <td><?= $count; ?></td>
-                                                    <td><?= $row['nama_event']; ?></td>
-                                                    <td><?= $row['start_date']; ?></td>
-                                                    <td><?= $row['end_date']; ?></td>
-                                                    <td>
-                                                        <a href="./detail-event.php?q=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
-                                                        <a href="./showPeserta.php?q=<?= $row['id']; ?>" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i></a>
-                                                    </td>
-                                                    <?php $count++; ?>
-
+                                                    <td colspan="6" class="text-center">Tidak Ada Data</td>
                                                 </tr>
-                                            <?php endwhile; ?>
-                                        <?php endif; ?>
-
-                                    </tbody>
-                                </table>
-                                <nav aria-label="..." class="d-flex justify-content-end">
-                                    <ul class="pagination">
-                                        <?php if ($halamanAktif > 1) : ?>
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="?page= <?= $halamanAktif - 1 ?>">Previous</a>
-                                            </li>
-                                        <?php endif; ?>
-                                        <?php for ($i = 1; $i <= $banyakHalaman; $i++) : ?>
-                                            <?php if ($i == $halamanAktif) : ?>
-                                                <li class="page-item active">
-                                                    <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
-                                                </li>
                                             <?php else : ?>
-                                                <li class="page-item">
-                                                    <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
+                                                <?php $count = 1; ?>
+                                                <?php while ($row = mysqli_fetch_array($queryVarian)) : ?>
+                                                    <tr>
+                                                        <td><?= $count; ?></td>
+                                                        <td><?= $row['nama']; ?></td>
+                                                        <td>
+                                                            <img src="<?= $row['foto']; ?>" alt="" class="w-25"></td>
+                                                        <td>
+                                                            <a href="./detail-varian.php?q=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                                        </td>
+                                                        <?php $count++; ?>
+
+                                                    </tr>
+                                                <?php endwhile; ?>
+                                            <?php endif; ?>
+
+                                        </tbody>
+                                    </table>
+                                    <nav aria-label="..." class="d-flex justify-content-end">
+                                        <ul class="pagination">
+                                            <?php if ($halamanAktif > 1) : ?>
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="?page= <?= $halamanAktif - 1 ?>">Previous</a>
                                                 </li>
                                             <?php endif; ?>
-                                        <?php endfor; ?>
+                                            <?php for ($i = 1; $i <= $banyakHalaman; $i++) : ?>
+                                                <?php if ($i == $halamanAktif) : ?>
+                                                    <li class="page-item active">
+                                                        <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
+                                                    </li>
+                                                <?php else : ?>
+                                                    <li class="page-item">
+                                                        <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
+                                                    </li>
+                                                <?php endif; ?>
+                                            <?php endfor; ?>
 
-                                        <?php if ($halamanAktif < $banyakHalaman) : ?>
-                                            <li class="page-item">
-                                                <a class="page-link" href="?page= <?= $halamanAktif + 1 ?>">Next</a>
-                                            </li>
-                                        <?php endif; ?>
-                                    </ul>
-                                </nav>
+                                            <?php if ($halamanAktif < $banyakHalaman) : ?>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page= <?= $halamanAktif + 1 ?>">Next</a>
+                                                </li>
+                                            <?php endif; ?>
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
                     </div>

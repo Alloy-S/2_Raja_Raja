@@ -281,10 +281,6 @@ function getName($n = 10)
                                         echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
                                     } else {
                                         if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
-                                            $queryExist = mysqli_query($conn, "SELECT * FROM produk WHERE nama='$$nama'");
-                                            if (mysqli_num_rows($queryExist) > 0) {
-                                                echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
-                                            } else {
                                                 $file = $target_dir . $randomString . "." . $imageFileType;
                                                 $queryUpdate = $queryUpdate = mysqli_query($conn, "UPDATE berita SET nama_artikel='$nama', nama_penulis='$namaPenulis', foto='$file', deskripsi='$detail' WHERE id='$id'");
                                                 if ($queryUpdate) {
@@ -294,7 +290,7 @@ function getName($n = 10)
                                                 } else {
                                                     echo mysqli_error($conn);
                                                 }
-                                            }
+                                            
                                         } else {
                                             echo "<div class='alert alert-primary mt-3' role='alert'>Gagal Upload foto</div>";
                                         }
