@@ -1,8 +1,8 @@
 <?php
 session_start();
-require_once('conn.php');
+require_once('admin/conn.php');
 
-?> 
+ ?> 
 
 <!DOCTYPE html>
 <html lang="en">

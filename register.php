@@ -1,5 +1,5 @@
 <?php
-require_once('conn.php');
+require_once('./conn.php');
 ?> 
 
 <!DOCTYPE html>
@@ -13,7 +13,7 @@ require_once('conn.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>KIM Purwoagung - Login Penjual</title>
+    <title>KIM Purwoagung - Register Penjual</title>
 
     <!-- Custom fonts for this template-->
     <link href="admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -81,7 +81,6 @@ require_once('conn.php');
 
                                     <?php
                             if (isset($_POST['submit'])) {
-
                                 $name_penjual = strtolower(stripslashes($_POST["namaPenjual"]));
                                 $name_toko = strtolower(stripslashes($_POST["namaToko"]));
                                 $telp = $_POST['telp'];
@@ -90,13 +89,15 @@ require_once('conn.php');
                                 $password2 = mysqli_real_escape_string($conn, $_POST["password2"]);
                                 
                                 //cek username
-                                $result = mysqli_query($conn, "SELECT email FROM user WHERE email = '$email';");
+                                $result = mysqli_query($conn, "SELECT email FROM penjual WHERE email = '$email';");
 
                                 if (mysqli_fetch_assoc($result)) {
                                     echo "<script>
                                                 alert('Username sudah terdaftar');
                                         </script>";
-                                    header("Location: login.php");
+                                    // header("Location: ./login.php");
+                                    echo "<meta http-equiv='refresh' content=0; url=./login.php'>";
+                                    exit();
                                 }
 
                                 //cek password
@@ -113,15 +114,16 @@ require_once('conn.php');
                                 $qry = "INSERT INTO penjual (nama_penjual, nama_toko, no_hp, email, password) VALUES ('$name_penjual', '$name_toko', '$telp', '$email', '$password');";
                                 $query = mysqli_query($conn, $qry);
 
-                                if($query) {
-                                    header("Location: login.php");
+                                if ($query) {
+                                    // header("Location: login.php");
+                                    echo "<meta http-equiv='refresh' content=0; url=./login.php'>";
+
                                 } else {
                                     echo "<script>
-            alert('pasword tidak sesuai!');
-        </script>";
+                                        alert('Gagal mendaftar!');
+                                    </script>";
                                 }
                             }
-
                             ?>
                             <hr>
                             <div class="text-center">
@@ -135,11 +137,8 @@ require_once('conn.php');
                         </div>
                     </div>
                 </div>
-
             </div>
-
         </div>
-
     </div>
 
     <!-- Bootstrap core JavaScript-->
