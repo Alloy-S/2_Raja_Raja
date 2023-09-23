@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tentangKamiStyle.css" />
     <link rel="stylesheet" href="eventStyle.css">
-    <link rel="stylesheet" href="fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="./fontawesome/css/fontawesome.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
@@ -20,9 +20,8 @@
 </head>
 
 <body>
-    <div id="pengumuman">Pengumuman</div>
-    <!-- navbar -->
-    <nav class="navbar navbar-expand-lg bg-white fixed-top">
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="navbar-content container-fluid">
             <a class="navbar-brand" href="#">
                 <img src="assets/images/logo-kim-purwoagung-removebg-preview.png" alt="Logo" width="80" height="60"
@@ -36,19 +35,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.php">Biogas</a>
+                        <a class="nav-link active" aria-current="page" href="index.php">Biogas</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tentang-kami.php">Tentang Kami</a>
                     </li>
-                    <li class="nav-item active dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Berita & Event
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Berita</a></li>
-                            <li><a class="dropdown-item" href="#">Event</a></li>
+                            <li><a class="dropdown-item" href="berita.php">Berita</a></li>
+                            <li><a class="dropdown-item active" href="#.php">Event</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -62,22 +61,24 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search" id="search-bar">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari" aria-label="Cari"
-                            aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
-                    </div>
-                </form>
+
+                <!-- Search -->
+                <div class="d-flex align-items-center">
+                    <form class="" role="search" id="search-bar">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Cari" aria-label="cari"
+                                aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="cari" name="cari">Cari</button>
+                        </div>
+                    </form>
+                </div>
 
                 <!-- Profile -->
                 <div class="d-flex justify-content-end" id="logo-dropdown">
                     <div class="dropdown d-flex justify-content-end">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
-                            id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown"
-                            aria-expanded="false">
-                            <img src="assets/images/anonymous.jpg" class="rounded-circle" height="60" alt="Profile"
-                                loading="lazy" />
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow round-logo" href="#"
+                            id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-user fa-2x"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                             <li>

@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="limbahTempe.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tentangKamiStyle.css" />
+    <link rel="stylesheet" href="./fontAwesome/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -44,8 +45,8 @@
                             <li><a class="dropdown-item" href="event.php">Event</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item active dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Tempe
                         </a>
@@ -55,22 +56,24 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search" id="search-bar">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari" aria-label="Cari"
-                            aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
-                    </div>
-                </form>
+
+                <!-- Search -->
+                <div class="d-flex align-items-center">
+                    <form class="" role="search" id="search-bar">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Cari" aria-label="cari"
+                                aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="cari" name="cari">Cari</button>
+                        </div>
+                    </form>
+                </div>
 
                 <!-- Profile -->
                 <div class="d-flex justify-content-end" id="logo-dropdown">
                     <div class="dropdown d-flex justify-content-end">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
-                            id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown"
-                            aria-expanded="false">
-                            <img src="assets/images/anonymous.jpg" class="rounded-circle" height="60" alt="Profile"
-                                loading="lazy" />
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow round-logo" href="#"
+                            id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-user fa-2x"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                             <li>

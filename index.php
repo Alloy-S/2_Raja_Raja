@@ -78,7 +78,6 @@
 </head>
 
 <body>
-    <div id="pengumuman">Pengumuman</div>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="navbar-content container-fluid">
@@ -106,7 +105,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="berita.php">Berita</a></li>
-                            <li><a class="dropdown-item" href="#">Event</a></li>
+                            <li><a class="dropdown-item" href="event.php">Event</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
