@@ -109,7 +109,7 @@ $varian = mysqli_query($conn, "SELECT * FROM varian");
                             <img src="./image/<?= $row['foto']; ?>" class="d-block w-100" alt="...">
                         </div>
                     <?php endif; ?>
-                    <?php $count++;?>
+                    <?php $count++; ?>
                 <?php endwhile; ?>
                 <!-- <div class="carousel-item">
                     <img src="assets/images/biogas.jpg" class="d-block w-100" alt="...">
@@ -131,16 +131,16 @@ $varian = mysqli_query($conn, "SELECT * FROM varian");
         </div>
         <div class="container-fluid">
             <div class="row d-flex justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6" style="margin: 0 2%">
-                <?php while($row = mysqli_fetch_array($varian)):?>
-                <div class="col">
-                    <div class="card h-100">
-                        <img src="./image/<?= $row['foto']; ?>" class="card-img-top imgCard" alt="macaroon tempe">
-                        <div class="card-body">
-                            <h5 class="card-text"><?= $row['nama']; ?></h5>
+                <?php while ($row = mysqli_fetch_array($varian)) : ?>
+                    <div class="col">
+                        <div class="card h-100">
+                            <img src="./image/<?= $row['foto']; ?>" class="card-img-top imgCard" alt="macaroon tempe">
+                            <div class="card-body">
+                                <h5 class="card-text"><?= $row['nama']; ?></h5>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <?php endwhile;?>
+                <?php endwhile; ?>
                 <!-- <div class="col">
                     <div class="card h-100">
                         <img src="assets/images/pudding.jpeg" class="card-img-top" alt="tempe pudding">
@@ -248,41 +248,16 @@ $varian = mysqli_query($conn, "SELECT * FROM varian");
             <h5 class="tanggalDeskripsi">Olahan tempe baru: <span class="teks">Tempe Menjes</span></h5>
             <h2 class="judul" , style="margin-top: -5%">Tanggal</h2>
             <hr class="lineSiap">
-            <h5 class="tanggalDeskripsi">xx November 2023</h5>
+            <h5 class="tanggalDeskripsi"><?= $sql['end_date']; ?></h5>
+
             <div class="d-grid gap-3 col-6 mx-auto">
-                <button class="btn btn-lg btn-secondary mt-1" type="submit" data-bs-toggle="modal" data-bs-target="#daftarModal" style="margin-bottom: 5%">Daftar Sekarang!</button>
+                <button type="button" class="btn btn-secondary m-4" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Daftar sekarang
+                </button>
             </div>
+
+
             <!-- Modal -->
-            <div class="modal fade" id="daftarModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="daftarModalLabel">Daftar Event</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            <form>
-                                <div class="mb-3">
-                                    <label for="namaLengkap" class="form-label">Nama Lengkap</label>
-                                    <input type="text" class="form-control" id="namaLengkap">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="inputEmail" class="form-label">Alamat Email</label>
-                                    <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp">
-                                </div>
-                                <div class="mb-3">
-                                    <label for="inputPhoneNumber" class="form-label">No. Telepon (WA)</label>
-                                    <input type="text" class="form-control" id="inputPhoneNumber" aria-describedby="emailHelp">
-                                </div>
-                            </form>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </form>
 
     </main>
@@ -341,4 +316,55 @@ $varian = mysqli_query($conn, "SELECT * FROM varian");
             </div>
         </div>
     </div>
+
+    <!-- Button trigger modal -->
+
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <form method="post" action="">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Daftar Event</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="mb-3">
+                            <label for="namaLengkap" class="form-label">Nama Lengkap</label>
+                            <input type="text" class="form-control" id="namaLengkap" name="nama">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label">Alamat Email</label>
+                            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" name="email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputPhoneNumber" class="form-label">No. Telepon (WA)</label>
+                            <input type="text" class="form-control" id="inputPhoneNumber" aria-describedby="emailHelp" name="telp">
+                        </div>
+                        <input type="text" name="id" value="<?= $sql['id']; ?>" hidden>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                        <button type="submit" class="btn btn-primary" name="daftar">Daftar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <?php
+    if (isset($_POST['daftar'])) {
+        $nama = htmlspecialchars($_POST['nama']);
+        $email = htmlspecialchars($_POST['email']);
+        $telp = htmlspecialchars($_POST['telp']);
+        $id = htmlspecialchars($_POST['id']);
+
+
+        $insert = mysqli_query($conn, "INSERT INTO peserta_event (id_event, nama, no_telp, email) VALUES ('$id', '$nama', '$telp', '$email');");
+    }
+
+    ?>
 </body>

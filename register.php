@@ -93,23 +93,22 @@ require_once('./conn.php');
                                 $result = mysqli_query($conn, "SELECT email FROM penjual WHERE email = '$email';");
 
                                 if (mysqli_fetch_assoc($result)) {
-                                    // echo "<script>
-                                    //             alert('Username sudah terdaftar');
-                                    //     </script>";
+                                    echo "<script>
+                                                alert('Username sudah terdaftar');
+                                        </script>";
                                     header("Location: ./login.php");
                                     // echo "<meta http-equiv='refresh' content=0; url=./login.php'>";
-                                    echo '<script>console.log("wkwkwkwk");</script>';
                                     exit();
                                 }
 
-                                $result = mysqli_query($conn, "SELECT email FROM user WHERE email = '$email';");
+                                // $result = mysqli_query($conn, "SELECT email FROM user WHERE email = '$email';");
 
-                                if (mysqli_fetch_assoc($result)) {
-                                    echo "<script>
-                                            alert('Username sudah terdaftar');
-                                    </script>";
-                                    header("Location: register.php");
-                                }
+                                // if (mysqli_fetch_assoc($result)) {
+                                //     echo "<script>
+                                //             alert('Username sudah terdaftar');
+                                //     </script>";
+                                //     header("Location: register.php");
+                                // }
 
                                 //cek password
                                 if ($password !== $password2) {

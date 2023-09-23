@@ -17,7 +17,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="navbar-content container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="assets/images/logo-kim-purwoagung-removebg-preview.png" alt="Logo" width="80" height="60"
                     class="d-inline-block align-text-top">
             </a>
