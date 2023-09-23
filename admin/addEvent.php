@@ -215,25 +215,22 @@ function getName($n = 10)
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Detail Produk</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Detail Event</h1>
 
                     <div>
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="modal-body">
-                                <label for="subject">Judul Berita:</label>
-                                <input type="text" class="form-control" name="namaBerita">
-                                <label for="categories">Nama Penulis:</label>
-                                <input type="text" class="form-control" name="namaPenulis">
-                                <!-- <label for="date">Date:</label>
-                                    <input type="date" class="form-control" name="date"> -->
-                                <label for="description">Description:</label>
-                                <textarea name="description" cols="10" rows="25" class="form-control"></textarea>
-
+                                <label for="event">Judul Event:</label>
+                                <input type="text" class="form-control" name="namaEvent">
+                                <label for="mulai">Mulai:</label>
+                                <input type="date" class="form-control" name="mulai">
+                                <label for="selesai">Selesai:</label>
+                                <input type="date" class="form-control" name="selesai">
                                 <label for="foto">Foto</label>
                                 <input type="file" name="foto" id="foto" class="form-control">
                             </div>
                             <div class="modal-footer">
-                                <a href="showBerita.php">
+                                <a href="showEvent.php">
                                     <button type="button" class="btn btn-secondary">Close</button>
                                 </a>
                                 <button type="submit" class="btn btn-primary" name="submitAdd">Add</button>
@@ -250,11 +247,25 @@ function getName($n = 10)
 
                 <!-- End of Main Content -->
                 <?php if (isset($_POST['submitAdd'])) {
+                    
+                    echo '<script>
+                    function showSweetAlert() {
+                        console.log("function called");
+                        Swal.fire({
+                            icon: "error",
+                            title: "Oops...",
+                            text: "Something went wrong!",
+                            footer: \'<a href="">Why do I have this issue?</a>\'
+                        });
+                    }
+                    </script>';
 
-                    $nama = htmlspecialchars($_POST['namaBerita']);
-                    $namaPenulis = htmlspecialchars($_POST['namaPenulis']);
-                    $detail = htmlspecialchars($_POST['description']);
+                    $namaEvent = htmlspecialchars($_POST['namaEvent']);
+                    $mulai = htmlspecialchars($_POST['mulai']);
+                    $selesai = htmlspecialchars($_POST['selesai']);
 
+                    $mulai_timestamp = strtotime($mulai);
+                    $selesai_timestamp = strtotime($selesai);
 
                     $target_dir = "../image/";
                     $nama_file = basename($_FILES["foto"]["name"]);
@@ -263,7 +274,7 @@ function getName($n = 10)
                     $size_file = $_FILES['foto']['size'];
 
                     $randomString = getName(10);
-                    if ($nama == "" || $namaPenulis == "" || $detail == "") {
+                    if ($namaEvent == "" || $mulai == "" || $selesai == "") {
                         echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
                     } else {
                         if ($nama_file != "") {
@@ -274,16 +285,22 @@ function getName($n = 10)
                                     echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
                                 } else {
                                     if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
-                                        $queryExist = mysqli_query($conn, "SELECT * FROM berita WHERE nama_artikel='$nama'");
+                                        $queryExist = mysqli_query($conn, "SELECT * FROM list_event WHERE nama_event='$namaEvent'");
                                         if (mysqli_num_rows($queryExist) > 0) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
+                                            echo "<div class='alert alert-primary mt-3' role='alert'>Event Sudah Ada</div>";
+                                        }
+                                        if ($selesai_timestamp <= $mulai_timestamp) {
+                                            echo "End date is earlier than start date.";
+                                            echo '<script>
+                                                showSweetAlert();
+                                            </script>';
                                         } else {
                                             $file = $target_dir . $randomString . "." . $imageFileType;
-                                            $queryAdd = mysqli_query($conn, "INSERT INTO berita (nama_artikel, nama_penulis, foto, deskripsi) VALUES ('$nama', '$namaPenulis', '$file', '$detail')");
+                                            $queryAdd = mysqli_query($conn, "INSERT INTO list_event (nama_event, start_date, end_date, foto) VALUES ('$namaEvent', '$mulai', '$selesai', '$file')");
                                             if ($queryAdd) {
                                                 echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
                                                 // untuk merefresh halaman
-                                                echo "<meta http-equiv='refresh' content='1.5; url=./showBerita.php'>";
+                                                echo "<meta http-equiv='refresh' content='1.5; url=./showEvent.php'>";
                                             } else {
                                                 echo mysqli_error($conn);
                                             }
@@ -338,6 +355,7 @@ function getName($n = 10)
         </div>
 
         <script src="../fontAwesome/js/all.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
         <!-- Bootstrap core JavaScript-->
         <script src="vendor/jquery/jquery.min.js"></script>
