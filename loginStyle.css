@@ -1,0 +1,7 @@
+.bg-login-image {
+    background-image: url("assets/images/cat.jpeg");
+}
+
+body {
+    background: linear-gradient(#64eaff, #64eabb) !important;
+}
