@@ -236,12 +236,36 @@ function getName($n = 10)
                                     <input type="date" class="form-control" name="date"> -->
                                 <div class="mt-4">
                                     <label for="fotoSekarang">Foto Saat Ini</label>
+                                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                                        <div class="carousel-inner">
+                                            <div class="carousel-item active">
+                                                <img src="../image/3Pnb6zEQkP.png" class="d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="../image/4ACqts6QK6.png" class="d-block w-100" alt="...">
+                                            </div>
+                                            <div class="carousel-item">
+                                                <img src="../image/5c9Wqddxki.png" class="d-block w-100" alt="...">
+                                            </div>
+                                        </div>
+                                        <button class="carousel-control-prev" style="opacity: 0;" type="button" data-target="#carouselExampleControls" data-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" style="opacity: 0;" type="button" data-target="#carouselExampleControls" data-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="sr-only">Next</span>
+                                        </button>
+                                    </div>
                                 </div>
-                                <div>
+                                <!-- <div>
                                     <img src="<?= $detailEvent['foto']; ?>" alt="" class="img-fluid rounded mx-auto d-block">
-                                </div>
-                                <label for="foto" class="mb-4 mt-4">Upload Foto Baru</label>
-                                <input type="file" name="foto" id="foto" class="form-control">
+                                </div> -->
+                                <!-- <label for="foto" class="mb-4 mt-4">Upload Foto Baru</label>
+                                <input type="file" name="foto" id="foto" class="form-control"> -->
+                                <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">
+                                    Upload foto
+                                </button>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteComfirm">
@@ -255,65 +279,65 @@ function getName($n = 10)
                         </form>
                     </div>
                     <?php if (isset($_POST['submitAdd'])) {
-                    $namaEvent = htmlspecialchars($_POST['namaEvent']);
-                    $mulai = htmlspecialchars($_POST['mulai']);
-                    $selesai = htmlspecialchars($_POST['selesai']);
+                        $namaEvent = htmlspecialchars($_POST['namaEvent']);
+                        $mulai = htmlspecialchars($_POST['mulai']);
+                        $selesai = htmlspecialchars($_POST['selesai']);
 
-                    $mulai_timestamp = strtotime($mulai);
-                    $selesai_timestamp = strtotime($selesai);
+                        $mulai_timestamp = strtotime($mulai);
+                        $selesai_timestamp = strtotime($selesai);
 
-                    $target_dir = "../image/";
-                    $nama_file = basename($_FILES["foto"]["name"]);
-                    $target_file = $target_dir . $nama_file;
-                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                    $size_file = $_FILES['foto']['size'];
+                        $target_dir = "../image/";
+                        $nama_file = basename($_FILES["foto"]["name"]);
+                        $target_file = $target_dir . $nama_file;
+                        $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                        $size_file = $_FILES['foto']['size'];
 
-                    $randomString = getName(10);
-                    if ($namaEvent == "" || $mulai == "" || $selesai == "") {
-                        echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
-                    } else {
-                        if ($nama_file != "") {
-                            if ($size_file > 5000000) {
-                                echo "<div class='alert alert-primary mt-3' role='alert'>foto tidak boleh dari 500kb</div>";
-                            } else {
-                                if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
-                                    echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
+                        $randomString = getName(10);
+                        if ($namaEvent == "" || $mulai == "" || $selesai == "") {
+                            echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
+                        } else {
+                            if ($nama_file != "") {
+                                if ($size_file > 5000000) {
+                                    echo "<div class='alert alert-primary mt-3' role='alert'>foto tidak boleh dari 500kb</div>";
                                 } else {
-                                    if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
-                                        $queryExist = mysqli_query($conn, "SELECT * FROM list_event WHERE nama_event='$namaEvent'");
-                                        if (mysqli_num_rows($queryExist) > 0) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>Event Sudah Ada</div>";
-                                        }
-                                        if ($selesai_timestamp <= $mulai_timestamp) {
-                                            echo "End date is earlier than start date.";
-                                            echo '<script>
+                                    if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
+                                        echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
+                                    } else {
+                                        if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
+                                            $queryExist = mysqli_query($conn, "SELECT * FROM list_event WHERE nama_event='$namaEvent'");
+                                            if (mysqli_num_rows($queryExist) > 0) {
+                                                echo "<div class='alert alert-primary mt-3' role='alert'>Event Sudah Ada</div>";
+                                            }
+                                            if ($selesai_timestamp <= $mulai_timestamp) {
+                                                echo "End date is earlier than start date.";
+                                                echo '<script>
                                                 showSweetAlert();
                                             </script>';
-                                        } else {
-                                            $file = $target_dir . $randomString . "." . $imageFileType;
-                                            $queryAdd = mysqli_query($conn, "INSERT INTO list_event (nama_event, start_date, end_date, foto) VALUES ('$namaEvent', '$mulai', '$selesai', '$file')");
-                                            if ($queryAdd) {
-                                                echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
-                                                // untuk merefresh halaman
-                                                echo "<meta http-equiv='refresh' content='1.5; url=./showEvent.php'>";
                                             } else {
-                                                echo mysqli_error($conn);
+                                                $file = $target_dir . $randomString . "." . $imageFileType;
+                                                $queryAdd = mysqli_query($conn, "INSERT INTO list_event (nama_event, start_date, end_date, foto) VALUES ('$namaEvent', '$mulai', '$selesai', '$file')");
+                                                if ($queryAdd) {
+                                                    echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
+                                                    // untuk merefresh halaman
+                                                    echo "<meta http-equiv='refresh' content='1.5; url=./showEvent.php'>";
+                                                } else {
+                                                    echo mysqli_error($conn);
+                                                }
                                             }
-                                        }
-                                    } else {
-                                        $queryUpdate = mysqli_query($conn, "UPDATE list_event SET nama_event='$namaEvent', start_date='$mulai', end_date='$selesai' WHERE id='$id'");
-        
-                                        if ($queryUpdate) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>berhasil diperbarui</div>";
-                                            // untuk merefresh halaman
-                                            echo "<meta http-equiv='refresh' content='1; url=./showEveny.php'>";
+                                        } else {
+                                            $queryUpdate = mysqli_query($conn, "UPDATE list_event SET nama_event='$namaEvent', start_date='$mulai', end_date='$selesai' WHERE id='$id'");
+
+                                            if ($queryUpdate) {
+                                                echo "<div class='alert alert-primary mt-3' role='alert'>berhasil diperbarui</div>";
+                                                // untuk merefresh halaman
+                                                echo "<meta http-equiv='refresh' content='1; url=./showEveny.php'>";
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
                     }
-                }
 
 
                     ?>
@@ -338,6 +362,28 @@ function getName($n = 10)
                                 <form action="" method="post">
                                     <button type="submit" class="btn btn-primary" name="delete">Delete</button>
                                 </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button trigger modal -->
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                ...
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary">Save changes</button>
                             </div>
                         </div>
                     </div>

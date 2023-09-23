@@ -1,4 +1,5 @@
 <?php
+ob_start();
 require_once('./conn.php');
 ?> 
 
@@ -78,7 +79,7 @@ require_once('./conn.php');
                                         </button>
 
                                     </form>
-
+        
                                     <?php
                             if (isset($_POST['submit'])) {
                                 $name_penjual = strtolower(stripslashes($_POST["namaPenjual"]));
@@ -92,11 +93,12 @@ require_once('./conn.php');
                                 $result = mysqli_query($conn, "SELECT email FROM penjual WHERE email = '$email';");
 
                                 if (mysqli_fetch_assoc($result)) {
-                                    echo "<script>
-                                                alert('Username sudah terdaftar');
-                                        </script>";
-                                    // header("Location: ./login.php");
-                                    echo "<meta http-equiv='refresh' content=0; url=./login.php'>";
+                                    // echo "<script>
+                                    //             alert('Username sudah terdaftar');
+                                    //     </script>";
+                                    header("Location: ./login.php");
+                                    // echo "<meta http-equiv='refresh' content=0; url=./login.php'>";
+                                    echo '<script>console.log("wkwkwkwk");</script>';
                                     exit();
                                 }
 
@@ -115,8 +117,8 @@ require_once('./conn.php');
                                 $query = mysqli_query($conn, $qry);
 
                                 if ($query) {
-                                    // header("Location: login.php");
-                                    echo "<meta http-equiv='refresh' content=0; url=./login.php'>";
+                                    header("Location: ./login.php");
+                                    // echo "<meta http-equiv='refresh' content=0; url=./login.php'>";
 
                                 } else {
                                     echo "<script>
