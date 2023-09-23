@@ -33,10 +33,7 @@
                         <a class="nav-link " aria-current="page" href="indexPenjual.php">List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="editItem.php">Daftarkan Item</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" href="editLimbah.php">Daftarkan Limbah</a>
+                        <a class="nav-link active" href="#">Daftarkan Produk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="editProfile.php">Edit Profile</a>
@@ -49,35 +46,39 @@
         </div>
     </nav>
 
-    <div class="judulItem">
-        Daftarkan Limbah
-    </div>
 
-    <body>
-        <div class="container">
+    <div class="d-flex row" style="padding: 0 5%;">
+        <div class="container col-5">
+            <div class="judulItem">
+                Daftarkan Item
+            </div>
+
             <form id="survey-form">
                 <div class="form-group">
-                    <label id="nameItem" class="nItem "><b>Nama Jenis Limbah</b></label>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
-                            checked>
-                        <label class="form-check-label" for="gridRadios1">
-                            Padat
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-                        <label class="form-check-label" for="gridRadios2">
-                            Cair
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
-                        <label class="form-check-label" for="gridRadios3">
-                            Padat dan Cair
-                        </label>
+                    <label id="nameItem" class="nItem "><b>Nama Item</b></label>
+                    <input type="text" id="namaItem" class="form-control" placeholder="Masukkan nama item"
+                        required></input>
+                </div>
+                <div class="form-group">
+                    <label id="descItem" class="dItem"><b>Deskripsi Item</b></label>
+                    <input type="text" id="descItem" class="form-control" placeholder="Masukkan deskripsi item"
+                        required></input>
+                </div>
+
+
+                <div class="input-group mb-3">
+
+                    <label for="foto" class="inputFoto">
+                        <div>
+                            <b>Foto</b>
+                        </div>
+                    </label>
+
+                    <div>
+                        <input type="file" name="foto" id="foto" class="form-control">
                     </div>
                 </div>
+
 
                 <div class="form-group">
                     <button type="submit" id="submit" class="btn btn-secondary btn btn-block submit-button"> Submit
@@ -85,8 +86,31 @@
                 </div>
         </div>
 
+        <div class="container col-2"></div>
 
-    </body>
+        <div class="container col-5">
+            <div class="judulItem">
+                Daftarkan Limbah
+            </div>
+            <form id="survey-form">
+                <div class="form-group">
+                    <label id="nameItem" class="nItem "><b>Nama Jenis Limbah</b></label>
+                    <div class="form-check">
+                        <select name="jenis" id="jenisLimbah">
+                            <option value="padat">Padat</option>
+                            <option value="cair">Cair</option>
+                            <option value="padat-dan-cair">Padat dan Cair</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" id="submit" class="btn btn-secondary btn btn-block submit-button" name="submitAdd"> Submit
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"

@@ -40,10 +40,7 @@ $sql = mysqli_fetch_array($sql);
                         <a class="nav-link " aria-current="page" href="indexPenjual.php">List</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link " href="editItem.php">Daftarkan Item</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="editLimbah.php">Daftarkan Limbah</a>
+                        <a class="nav-link " href="editProduk.php">Daftarkan Produk</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Edit Profile</a>
