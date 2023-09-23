@@ -46,7 +46,7 @@ $sql = mysqli_query($conn, "SELECT * FROM produk WHERE id_penjual='$id'");
                         <a class="nav-link" href="editProfile.php">Edit Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Log Out</a>
+                        <a class="nav-link" href="logout.php">Log Out</a>
                     </li>
                 </ul>
             </div>

@@ -67,7 +67,7 @@ function getName($n = 10)
                 Daftarkan Item
             </div>
 
-            <form id="survey-form" method="post" action="">
+            <form id="survey-form" method="post" action="" enctype="multipart/form-data">
                 <div class="form-group">
                     <label id="nameItem" class="nItem "><b>Nama Item</b></label>
                     <input type="text" id="namaItem" name="nama" class="form-control" placeholder="Masukkan nama item" required></input>
@@ -137,7 +137,6 @@ function getName($n = 10)
                                     if ($queryAdd) {
                                         echo "<div class='alert alert-primary mt-3' role='alert'>Item Berhasil Ditambahkan</div>";
                                         // untuk merefresh halaman
-                                        echo "<meta http-equiv='refresh' content='1.5; url=./editItem.php'>";
                                     } else {
                                         echo mysqli_error($conn);
                                     }

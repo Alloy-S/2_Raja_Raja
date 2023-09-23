@@ -342,7 +342,7 @@ $queryFotoEvent = mysqli_query($conn, "SELECT * FROM foto_event WHERE id_event='
                             if ($selesai_timestamp <= $mulai_timestamp) {
                                 echo "End date is earlier than start date.";
                             } else {
-                                $queryAdd = mysqli_query($conn, "INSERT INTO list_event (nama_event, start_date, end_date, deskripsi) VALUES ('$namaEvent', '$mulai', '$selesai', '$deskripsi')");
+                                $queryAdd = mysqli_query($conn, "UPDATE list_event SET nama_event=''$namaEvent', start_data='$mulai_timestamp', end_data='$selesai_timestamp' WHERE id='$id'");
                                 if ($queryAdd) {
                                     echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
                                     // untuk merefresh halaman
