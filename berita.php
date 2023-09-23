@@ -120,6 +120,11 @@
             </div>
         </div>
 
+        <div class="judul">
+            Berita Lainnya?
+            <hr class="lineSiap">
+        </div>
+
         <div class="card-group">
             <div class="col-12 mb-3">
                 <div class="card mb-3 h-100">
