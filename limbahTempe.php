@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Kim Purwoagung</title>
+    <title>Kim Purwoagung | Jual Limbah Tempe</title>
     <link rel="stylesheet" href="limbahTempe.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tentangKamiStyle.css" />
