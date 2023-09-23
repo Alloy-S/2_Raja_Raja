@@ -47,14 +47,6 @@
 }
 
 
-.footerPage {
-    padding-left: 5%;
-    padding-top: 3%;
-    background-color: rgb(167, 167, 167);
-    height: 40vh;
-    max-width: none;
-}
-
 .inginMendapat {
     text-align: end;
     font-weight: bold;
@@ -174,4 +166,19 @@
 
 .divKalk{
     margin-top: 100vh;
+}
+
+.simulasiTitle{
+    font-weight: bold;
+    font-size: 8vmin;
+    text-align: center;
+    height: auto;
+}
+
+.textDiForm{
+    font-weight: bold;
+}
+
+.konten-sejarah{
+    padding-top: 2vh;
 }

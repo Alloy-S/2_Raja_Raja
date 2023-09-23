@@ -76,12 +76,6 @@ a.navbar-brand {
     ;
 }
 
-#benefits {
-    width: 100%;
-    height: 40vh;
-    color: #fff;
-}
-
 .benefit h2 {
     text-align: center;
     font-size: 64px;
@@ -96,9 +90,17 @@ a.navbar-brand {
     margin: 0 40px;
 }
 
+#benefits {
+    width: 100%;
+    height: auto;
+    margin: auto;
+    margin-top: 5vh;
+    color: #fff;
+}
+
 #keuntungan,
 #manfaat {
-    padding: 5%;
+    padding: 3%;
     background-color: #4b5320;
 }
 
@@ -114,7 +116,8 @@ a.navbar-brand {
 
 #kalkulator {
     margin: 0;
-    margin-top: 50vh;
+    margin-top: 5vh;
+    padding-top: 7vh;
     height: 85vh;
     width: 100%;
     background-color: #a39976;
@@ -122,9 +125,9 @@ a.navbar-brand {
 
 #sejarah {
     margin: 3% auto;
-    height: 85vh;
+    height: auto;
     width: 100%;
-    padding: 5%;
+    padding: 0% 5%;
 }
 
 #sejarah h2 {
@@ -154,16 +157,21 @@ a.navbar-brand {
 
 #limbah-cair-img {
     background-image: url(assets/images/limbah-cair-tempe.JPG);
+    height: auto;
+    object-fit: cover;
+    margin: 0% 2%;
 }
 
 #pakan-kulit-img {
     background-image: url(assets/images/pakan-sapi.JPG);
+    height: auto;
+    object-fit: cover;
+    margin: 0% 2%;
     margin-bottom: 3%;
 }
 
 .isi-sejarah {
-    padding: 2%;
-    font-size: 32px;
+    font-size: 25px;
     text-align: justify;
 }
 
@@ -172,4 +180,20 @@ a.navbar-brand {
     height: fit-content; */
     background-color: white;
     padding: 0;
+}
+
+.konten-sejarah2{
+    padding-top: 3%;
+}
+
+.endPage{
+    padding-bottom: 5vh;
+}
+
+.footerPage {
+    padding-left: 5%;
+    padding-top: 3%;
+    background-color: rgb(167, 167, 167);
+    height: 40vh;
+    max-width: none;
 }
