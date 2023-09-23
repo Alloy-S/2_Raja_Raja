@@ -368,8 +368,8 @@ $varian = mysqli_query($conn, "SELECT * FROM varian");
     if (isset($_POST['daftar'])) {
         $nama = htmlspecialchars($_POST['nama']);
         $email = htmlspecialchars($_POST['email']);
-        $telp = htmlspecialchars($_POST['telp']);
-        $id = htmlspecialchars($_POST['id']);
+        $telp = $_POST['telp'];
+        $id = $_POST['id'];
 
 
         $insert = mysqli_query($conn, "INSERT INTO peserta_event (id_event, nama, no_telp, email) VALUES ('$id', '$nama', '$telp', '$email');");
