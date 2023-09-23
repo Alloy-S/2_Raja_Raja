@@ -1,7 +1,7 @@
 <?php
 require_once('./conn.php');
 
-$sql = mysqli_query($conn, "SELECT produk.*, penjual.* FROM produk INNER JOIN penjual ON produk.id_penjual=penjual.id;");
+$sql = mysqli_query($conn, "SELECT limbah.*, penjual.* FROM limbah INNER JOIN penjual ON limbah.id_penjual=penjual.id;");
 
 ?>
 

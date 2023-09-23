@@ -1,7 +1,8 @@
-<?php 
+<?php
 require './session.php';
 require_once('./conn.php');
 
+$id = $_SESSION['key'];
 function getName($n = 10)
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -130,7 +131,7 @@ function getName($n = 10)
                                 if (mysqli_num_rows($queryExist) > 0) {
                                     echo "<div class='alert alert-primary mt-3' role='alert'>Event Sudah Ada</div>";
                                 } else {
-                                
+
                                     $file = $target_dir . $randomString . "." . $imageFileType;
                                     $id = $_SESSION['key'];
                                     $queryAdd = mysqli_query($conn, "INSERT INTO produk (id_penjual, nama, merek, deskripsi, foto) VALUES ('$id', '$nama', '$merek', '$deskripsi', '$file')");
@@ -169,10 +170,26 @@ function getName($n = 10)
                 </div>
 
                 <div class="form-group">
-                    <button type="submit" id="submit" class="btn btn-secondary btn btn-block submit-button" name="submitAdd"> Submit
+                    <button type="submit" id="submit2" class="btn btn-secondary btn btn-block submit-button" name="submit2"> Submit
                     </button>
                 </div>
             </form>
+            <?php if (isset($_POST['submit2'])) {
+                $jenis = htmlspecialchars($_POST['jenis']);
+
+                if ($jenis == "") {
+                    echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
+                } else {
+                    $queryAdd = mysqli_query($conn, "INSERT INTO limbah (id_penjual, kategori) VALUES ('$id', '$jenis')");
+                    if ($queryAdd) {
+                        echo "<div class='alert alert-primary mt-3' role='alert'>Item Berhasil Ditambahkan</div>";
+                        // untuk merefresh halaman
+                    } else {
+                        echo mysqli_error($conn);
+                    }
+                }
+            }
+            ?>
         </div>
     </div>
 
