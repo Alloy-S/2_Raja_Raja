@@ -78,7 +78,7 @@ require_once('../conn.php');
                                             $data = mysqli_fetch_array($query);
                                             if (password_verify($password, $data['password'])) {
                                                 $_SESSION['nama'] = $data['nama'];
-                                                $_SESSION['login'] = true;
+                                                $_SESSION['admin'] = true;
                                                 header("location: ./");
                                             } else {
                                                 echo "<div class='alert alert-warning mt-4' role='alert'>

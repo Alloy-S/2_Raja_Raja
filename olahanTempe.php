@@ -137,6 +137,10 @@ $sql = mysqli_query($conn, "SELECT produk.*, penjual.* FROM produk INNER JOIN pe
                             </div>
                         </div>
                         <div class="modal-footer">
+
+                            <a href="https://api.whatsapp.com/send?phone=+62<?= $row['no_hp']; ?>&text=Produk:%20<?= $row['nama']; ?>%0ASaya%20ingin%20bertanya%20mengenai%20produk%20ini">
+                                <Button class="btn btn-primary">Kontak Sekarang</Button>
+                            </a>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         </div>
                     </div>
@@ -145,7 +149,7 @@ $sql = mysqli_query($conn, "SELECT produk.*, penjual.* FROM produk INNER JOIN pe
 
         <?php endwhile; ?>
 
-        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
+        <!-- <div class="col-12 col-sm-6 col-md-5 col-lg-4">
             <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#produk2">
                 <img class="fotoProduk" src="assets/images/produk2.jpg.jpeg" alt="foto produk">
                 <div class="container penjelasanProduk">
@@ -188,7 +192,7 @@ $sql = mysqli_query($conn, "SELECT produk.*, penjual.* FROM produk INNER JOIN pe
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="d-flex justify-content-center row pendaftaranPenjualProduk">
             <a href="register.php" class="col-6 tombolDaftar">
