@@ -31,7 +31,9 @@ function getName($n = 10)
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -74,7 +76,8 @@ function getName($n = 10)
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption" aria-expanded="true" aria-controls="eventOption">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption"
+                    aria-expanded="true" aria-controls="eventOption">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Event</span>
                 </a>
@@ -88,7 +91,8 @@ function getName($n = 10)
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true" aria-controls="berita">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true"
+                    aria-controls="berita">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Berita</span>
                 </a>
@@ -143,14 +147,18 @@ function getName($n = 10)
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
@@ -166,12 +174,14 @@ function getName($n = 10)
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
@@ -262,12 +272,12 @@ function getName($n = 10)
                                     if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
                                         $queryExist = mysqli_query($conn, "SELECT * FROM berita WHERE nama_artikel='$nama'");
                                         if (mysqli_num_rows($queryExist) > 0) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
+                                            echo "<div class='alert alert-primary mt-3' role='alert'>Berita Sudah Ada</div>";
                                         } else {
                                             $file = $target_dir . $randomString . "." . $imageFileType;
                                             $queryAdd = mysqli_query($conn, "INSERT INTO berita (nama_artikel, nama_penulis, foto, deskripsi) VALUES ('$nama', '$namaPenulis', '$file', '$detail')");
                                             if ($queryAdd) {
-                                                echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
+                                                echo "<div class='alert alert-primary mt-3' role='alert'>Berita Berhasil Ditambahkan</div>";
                                                 // untuk merefresh halaman
                                                 echo "<meta http-equiv='refresh' content='1.5; url=./showBerita.php'>";
                                             } else {
@@ -305,7 +315,8 @@ function getName($n = 10)
         </a>
 
         <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
