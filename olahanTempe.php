@@ -190,9 +190,9 @@
         </div>
 
         <div class="d-flex justify-content-center row pendaftaranPenjualProduk">
-            <div class="col-6 tombolDaftar" role="button">
+            <a href="indexPenjual.php" class="col-6 tombolDaftar">
                 Daftar sebagai penjual disini!
-            </div>
+            </a>
         </div>
 
         <div class="d-flex row footerPage row">

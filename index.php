@@ -1,3 +1,8 @@
+<?php 
+session_start();
+require './session.php';
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -131,9 +136,10 @@
                         </div>
                     </form>
                 </div>
-
                 <!-- Profile -->
-                <div class="d-flex justify-content-end" id="logo-dropdown">
+                <?php
+                if( $_SESSION['login'] = true){;?>
+                    <div class="d-flex justify-content-end" id="logo-dropdown">
                     <div class="dropdown d-flex justify-content-end">
                         <a class="dropdown-toggle d-flex align-items-center hidden-arrow round-logo" href="#"
                             id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -144,11 +150,21 @@
                                 <a class="dropdown-item" href="myprofile.php">My profile</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="login.php">Logout</a>
+                            <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
                             </li>
                         </ul>
                     </div>
                 </div>
+                <?php
+                }else{
+                ;?>
+                <console class="log">hai</console>
+                <a href="login.php" class="btn btn-outline-primary">Log in</a>
+                <?php
+                }
+                ;?>
+                
+
             </div>
         </div>
     </nav>
@@ -332,6 +348,27 @@
         </div>
     </div>
 
+    </main>
+
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="index.php">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script>
 
     </script>
@@ -340,5 +377,6 @@
         crossorigin="anonymous"></script>
 
 </body>
+
 
 </html>
