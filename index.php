@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Kim Purwoagung</title>
@@ -16,8 +17,7 @@
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="navbar-content container-fluid">
             <a class="navbar-brand" href="#">
-                <img src="..." alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                KIM Purwoagung
+                <img src="assets/images/logo-kim-purwoagung-removebg-preview.png" alt="Logo" width="80" height="60" class="d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -31,27 +31,30 @@
                         <a class="nav-link" href="tentang-kami.php">Tentang Kami</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Berita & Event
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Berita</a></li>
+                            <li><a class="dropdown-item" href="berita.php">Berita</a></li>
                             <li><a class="dropdown-item" href="#">Event</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Tempe
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Limbah Tempe</a></li>
-                            <li><a class="dropdown-item" href="#">Olahan Tempe</a></li>
+                            <li><a class="dropdown-item" href="limbahTempe.php">Limbah Tempe</a></li>
+                            <li><a class="dropdown-item" href="olahanTempe.php">Olahan Tempe</a></li>
                         </ul>
                     </li>
                 </ul>
                 <form class="d-flex" role="search" id="search-bar">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari" aria-label="Cari" aria-describedby="button-addon2">
+                        <input type="text" class="form-control" placeholder="Cari" aria-label="Cari"
+                            aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
                     </div>
                 </form>
@@ -76,12 +79,14 @@
         </div>
     </nav>
 
+
     <header>
         <div id="background">
             <div class="jumbotron">
                 <h1>Biogas</h1>
                 <div class="description">
-                    <p>suatu gas yang dihasilkan oleh aktifitas atau kegiatan anaerobik atau juga fermentasi dari bahan-bahan organik.</p>
+                    <p>suatu gas yang dihasilkan oleh aktifitas atau kegiatan anaerobik atau juga fermentasi dari
+                        bahan-bahan organik.</p>
                 </div>
             </div>
         </div>
@@ -117,7 +122,9 @@
                 
             </div>
             <div class="col-9">
-
+                <div>output</div>
+                <div id="BEP"></div>
+                <div id="keuntunganBio"></div>
             </div>
         </div>
 
@@ -209,5 +216,6 @@
         </div>
 
     </main>
-  </body>
+</body>
+
 </html>
