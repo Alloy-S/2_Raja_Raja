@@ -8,6 +8,9 @@ $jmlBerita = mysqli_num_rows($berita);
 
 $event = mysqli_query($conn, "SELECT * FROM berita");
 $jmlEvent = mysqli_num_rows($event);
+
+$penjual = mysqli_query($conn, "SELECT * FROM penjual");
+$jmlPenjual = mysqli_num_rows($penjual);
 ?>
 
 <!DOCTYPE html>
@@ -88,10 +91,17 @@ $jmlEvent = mysqli_num_rows($event);
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="showEvent.php">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption" aria-expanded="true" aria-controls="eventOption">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Event</span>
                 </a>
+                <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Event Options:</h6>
+                        <a class="collapse-item" href="showEvent.php">Show</a>
+                        <a class="collapse-item" href="addEvent.php">Add Event</a>
+                    </div>
+                </div>
             </li>
 
             <li class="nav-item">
@@ -261,18 +271,9 @@ $jmlEvent = mysqli_num_rows($event);
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Tasks
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Penjual
                                             </div>
-                                            <div class="row no-gutters align-items-center">
-                                                <div class="col-auto">
-                                                    <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">50%</div>
-                                                </div>
-                                                <div class="col">
-                                                    <div class="progress progress-sm mr-2">
-                                                        <div class="progress-bar bg-info" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $jmlPenjual; ?></div>
                                         </div>
                                         <div class="col-auto">
                                             <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
@@ -309,7 +310,7 @@ $jmlEvent = mysqli_num_rows($event);
                                 <div class="card-body">
                                     <div class="chart-bar">
                                         <canvas id="myBarChart"></canvas>
-                                    </div>
+                                    </div>  
                                 </div>
                             </div>
                 </div>

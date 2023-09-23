@@ -19,7 +19,7 @@ var myBarChart = new Chart(ctx, {
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [50, 40, 30, 20, 10, 0], // Ubah data sesuai dengan jumlah orang yang ingin ditampilkan
+      data: [30, 30, 30, 30, 30, 30], // Ubah data sesuai dengan jumlah orang yang ingin ditampilkan
     }],
   },
   options: {
