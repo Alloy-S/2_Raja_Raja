@@ -8,6 +8,7 @@
     <title>Kim Purwoagung</title>
     <link rel="stylesheet" href="olahanTempe.css" />
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="tentangKamiStyle.css" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -187,6 +188,62 @@
                 </div>
 
             </button>
+        </div>
+
+        <div class="d-flex-row footerPage row">
+            <div class="subscriptionInput row">
+                <div class="inginMendapat col-4">
+                    Ingin mendapatkan berita terbaru?
+                </div>
+                <div class="emailSubInput col-6">
+                    <input class="inputEmail" type="text" id="emailSubscription" name="email"
+                        placeholder="Masukkan email anda...">
+                </div>
+                <div class="col-2">
+                    <input class="tombol" type="submit" value="Submit">
+                </div>
+            </div>
+            <div class="footerInformation row">
+                <div class="infoPurwo col-5">
+                    <div class="titleInfoPurwo">
+                        Purwoagung
+                    </div>
+                    <div class="isiInfoPurwo">
+                        Kelurahan Purwantoro - Blimbing
+                    </div>
+                    <div class="isiInfoPurwo">
+                        Kota Malang - Jawa Timur
+                    </div>
+                    <div class="isiInfoPurwo2">
+                        Website Promosi KIM Purwoagung Kota Malang - Jawa Timur
+                    </div>
+                </div>
+                <div class="infoKontak col-3">
+                    <div class="titleKontak">
+                        Kontak Kami
+                    </div>
+                    <div class="isiKontakKami">
+                        JL. Tembaga No 3.
+                    </div>
+                    <div class="isiKontakKami">
+                        Kode Pos 65122
+                    </div>
+                    <div class="isiKontakKami2">
+                        081936876545
+                    </div>
+                    <div class="isiKontakKami">
+                        kimpurwoagungkotamalang@gmail.com
+                    </div>
+                </div>
+                <div class="infoMedsos col-3">
+                    <div class="titleMedsos">
+                        Media Sosial
+                    </div>
+                    <div class="isiMedsos">
+                        Instagram: @kimpurwoagung
+                    </div>
+                </div>
+            </div>
         </div>
 
 

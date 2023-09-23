@@ -1,7 +1,21 @@
 .featured {
-    margin: 7% 5% 0 5% !important;
+    margin: 7% 5% 2% 5% !important;
 }
 
 .card-group {
     margin: 3% 5%;
+}
+
+.judul {
+    padding-bottom: 1vh;
+    font-size: 500%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.lineSiap {
+    border: 10px solid rgb(83, 83, 83);
+    border-radius: 5px;
+    width: 70%;
+    margin: auto;
 }
