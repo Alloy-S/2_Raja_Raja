@@ -1,3 +1,11 @@
+<?php 
+require './session.php';
+require_once("./conn.php");
+
+$id = $_SESSION['key'];
+$sql = mysqli_query($conn, "SELECT * FROM produk WHERE id_penjual='$id'");
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -52,24 +60,27 @@
 
     <div class="d-flex collapse justify-content-center row itemCards ">
 
+    <?php while($row = mysqli_fetch_array($sql)):?>
         <div class="col-12 col-sm-8 col-md-7 col-lg-6">
             <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah1">
                 <div class="row ">
                     <div class="col-5">
-                        <img class="fotoItem" src="assets/images/produk1.jpg.jpeg" alt="foto produk">
+                        
+                        <img class="fotoItem" src="<?= $row['foto']; ?>" alt="foto produk">
                     </div>
                     <div class="col-7 container penjelasanItem">
-                        <div class="namaItem">Keripik Tempe</div>
-                        <div class="toko">Pusat Grosir dan Oleh Oleh khas Malang</div>
+                        <div class="namaItem"><?= $row['nama']; ?></div>
+                        <div class="toko"><?= $row['merek']; ?></div>
                         <hr>
                         <div class="descItem">Deskripsi:</div>
-                        <div class="descItem">Keripik yang terbuat dari tempe</div>
+                        <div class="descItem"><?= $row['deskripsi']; ?></div>
                     </div>
                 </div>
             </button>
         </div>
+        <?php endwhile;?>
 
-        <div class="col-12 col-sm-8 col-md-7 col-lg-6">
+        <!-- <div class="col-12 col-sm-8 col-md-7 col-lg-6">
             <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah1">
                 <div class="row ">
                     <div class="col-5">
@@ -84,7 +95,7 @@
                     </div>
                 </div>
             </button>
-        </div>
+        </div> -->
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
