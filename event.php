@@ -124,36 +124,75 @@
             <hr class="lineSiap">
         </div>
         <div class="container-fluid">
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6" style="margin: 0 2%">
+            <div class="row d-flex justify-content-center row-cols-1 row-cols-sm-2 row-cols-md-4 row-cols-lg-6" style="margin: 0 2%">
                 <div class="col">
                     <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="assets/images/macaroon.jpeg" class="card-img-top imgCard" alt="macaroon tempe">
                     <div class="card-body">
-                        <h5 class="card-text">Card title</h5>
+                        <h5 class="card-text">Macaroon Tempe</h5>
                     </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="assets/images/pudding.jpeg" class="card-img-top" alt="tempe pudding">
                     <div class="card-body">
-                        <h5 class="card-text">Card title</h5>
+                        <h5 class="card-text">Pudding Tempe</h5>
                     </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="assets/images/risol.jpeg" class="card-img-top" alt="risol tempe">
                     <div class="card-body">
-                        <h5 class="card-text">Card title</h5>
+                        <h5 class="card-text">Risol Tempe</h5>
                     </div>
                     </div>
                 </div>
                 <div class="col">
                     <div class="card h-100">
-                    <img src="..." class="card-img-top" alt="...">
+                    <img src="assets/images/kuekering.jpeg" class="card-img-top" alt="kue kering tempe">
                     <div class="card-body">
-                        <h5 class="card-text">Card title</h5>
+                        <h5 class="card-text">Kue Kering Tempe</h5>
+                    </div>
+                    </div>
+                </div><div class="col">
+                    <div class="card h-100">
+                    <img src="assets/images/kue.jpeg" class="card-img-top" alt="kue tempe">
+                    <div class="card-body">
+                        <h5 class="card-text">Kue Tempe</h5>
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                    <img src="assets/images/brownies.jpeg" class="card-img-top" alt="brownies tempe">
+                    <div class="card-body">
+                        <h5 class="card-text">Brownies Tempe</h5>
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                    <img src="assets/images/burger.jpeg" class="card-img-top" alt="burger tempe">
+                    <div class="card-body">
+                        <h5 class="card-text">Burger Tempe</h5>
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                    <img src="assets/images/stick.jpeg" class="card-img-top" alt="stick tempe">
+                    <div class="card-body">
+                        <h5 class="card-text">Stick Tempe</h5>
+                    </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card h-100">
+                    <img src="assets/images/steak.jpeg" class="card-img-top" alt="steak tempe">
+                    <div class="card-body">
+                        <h5 class="card-text">Steak Tempe</h5>
                     </div>
                     </div>
                 </div>

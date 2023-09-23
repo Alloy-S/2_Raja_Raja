@@ -72,3 +72,12 @@ span {
     background-color: black;
     padding: 1%;
 }
+
+.imgCard{
+    height: auto;
+    object-fit: cover;
+}
+
+.col{
+    padding-bottom: 2%;
+}
