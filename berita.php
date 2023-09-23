@@ -121,7 +121,7 @@
         </div>
 
         <div class="judul">
-            Berita Lainnya?
+            Berita Lainnya
             <hr class="lineSiap">
         </div>
 
