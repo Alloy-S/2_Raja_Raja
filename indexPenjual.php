@@ -41,7 +41,7 @@
                         <a class="nav-link" href="editProfile.php">Edit Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tentang-kami.php">Log Out</a>
+                        <a class="nav-link" href="index.php">Log Out</a>
                     </li>
                 </ul>
             </div>
