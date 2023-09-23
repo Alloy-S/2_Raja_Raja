@@ -37,7 +37,9 @@ function getName($n = 10)
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -80,7 +82,8 @@ function getName($n = 10)
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Components</span>
                 </a>
@@ -94,7 +97,8 @@ function getName($n = 10)
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption" aria-expanded="true" aria-controls="eventOption">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption"
+                    aria-expanded="true" aria-controls="eventOption">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Event</span>
                 </a>
@@ -108,7 +112,8 @@ function getName($n = 10)
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true" aria-controls="berita">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true"
+                    aria-controls="berita">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Berita</span>
                 </a>
@@ -151,32 +156,23 @@ function getName($n = 10)
                     <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
                         <i class="fa fa-bars"></i>
                     </button>
-
-                    <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
@@ -192,12 +188,14 @@ function getName($n = 10)
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
@@ -233,11 +231,14 @@ function getName($n = 10)
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <label for="judul">Judul Event:</label>
-                                <input type="text" class="form-control" name="namaEvent" value="<?= $detailEvent['nama_event']; ?>">
+                                <input type="text" class="form-control" name="namaEvent"
+                                    value="<?= $detailEvent['nama_event']; ?>">
                                 <label for="tgl_mulai">Start date:</label>
-                                <input type="date" class="form-control" name="mulai" value="<?= $detailEvent['start_date']; ?>">
+                                <input type="date" class="form-control" name="mulai"
+                                    value="<?= $detailEvent['start_date']; ?>">
                                 <label for="tgl_selesai">End date:</label>
-                                <input type="date" class="form-control" name="selesai" value="<?= $detailEvent['end_date']; ?>">
+                                <input type="date" class="form-control" name="selesai"
+                                    value="<?= $detailEvent['end_date']; ?>">
                                 <!-- <label for="date">Date:</label>
                                     <input type="date" class="form-control" name="date"> -->
                                 <div class="mt-4">
@@ -254,11 +255,13 @@ function getName($n = 10)
                                                 <img src="../image/5c9Wqddxki.png" class="d-block w-100" alt="...">
                                             </div>
                                         </div>
-                                        <button class="carousel-control-prev" style="opacity: 0;" type="button" data-target="#carouselExampleControls" data-slide="prev">
+                                        <button class="carousel-control-prev" style="opacity: 0;" type="button"
+                                            data-target="#carouselExampleControls" data-slide="prev">
                                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Previous</span>
                                         </button>
-                                        <button class="carousel-control-next" style="opacity: 0;" type="button" data-target="#carouselExampleControls" data-slide="next">
+                                        <button class="carousel-control-next" style="opacity: 0;" type="button"
+                                            data-target="#carouselExampleControls" data-slide="next">
                                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                             <span class="sr-only">Next</span>
                                         </button>
@@ -269,12 +272,14 @@ function getName($n = 10)
                                 </div> -->
                                 <!-- <label for="foto" class="mb-4 mt-4">Upload Foto Baru</label>
                                 <input type="file" name="foto" id="foto" class="form-control"> -->
-                                <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#exampleModal">
+                                <button type="button" class="btn btn-primary mt-4" data-toggle="modal"
+                                    data-target="#exampleModal">
                                     Upload foto
                                 </button>
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteComfirm">
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                    data-target="#deleteComfirm">
                                     Delete
                                 </button>
                                 <a href="showEvent.php">
@@ -316,7 +321,7 @@ function getName($n = 10)
                                             }
                                             if ($selesai_timestamp <= $mulai_timestamp) {
                                                 echo "End date is earlier than start date.";
-                                                
+
                                             } else {
                                                 $file = $target_dir . $randomString . "." . $imageFileType;
                                                 $queryAdd = mysqli_query($conn, "INSERT INTO list_event (nama_event, start_date, end_date, foto) VALUES ('$namaEvent', '$mulai', '$selesai', '$file')");
@@ -352,7 +357,8 @@ function getName($n = 10)
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="deleteComfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="deleteComfirm" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -375,12 +381,14 @@ function getName($n = 10)
 
 
                 <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                    aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-dismiss="modal"
+                                    aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 ...
@@ -430,7 +438,8 @@ function getName($n = 10)
         </a>
 
         <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">

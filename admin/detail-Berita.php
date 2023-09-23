@@ -37,7 +37,9 @@ function getName($n = 10)
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
@@ -80,7 +82,8 @@ function getName($n = 10)
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                    aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Components</span>
                 </a>
@@ -94,7 +97,8 @@ function getName($n = 10)
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption" aria-expanded="true" aria-controls="eventOption">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption"
+                    aria-expanded="true" aria-controls="eventOption">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Event</span>
                 </a>
@@ -108,7 +112,8 @@ function getName($n = 10)
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true" aria-controls="berita">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true"
+                    aria-controls="berita">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Berita</span>
                 </a>
@@ -152,31 +157,23 @@ function getName($n = 10)
                         <i class="fa fa-bars"></i>
                     </button>
 
-                    <!-- Topbar Search -->
-                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-                        <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary" type="button">
-                                    <i class="fas fa-search fa-sm"></i>
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
                         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
                         <li class="nav-item dropdown no-arrow d-sm-none">
-                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="fas fa-search fa-fw"></i>
                             </a>
                             <!-- Dropdown - Messages -->
-                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in"
+                                aria-labelledby="searchDropdown">
                                 <form class="form-inline mr-auto w-100 navbar-search">
                                     <div class="input-group">
-                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <input type="text" class="form-control bg-light border-0 small"
+                                            placeholder="Search for..." aria-label="Search"
+                                            aria-describedby="basic-addon2">
                                         <div class="input-group-append">
                                             <button class="btn btn-primary" type="button">
                                                 <i class="fas fa-search fa-sm"></i>
@@ -192,12 +189,14 @@ function getName($n = 10)
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                aria-labelledby="userDropdown">
                                 <a class="dropdown-item" href="#">
                                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
                                     Profile
@@ -233,25 +232,30 @@ function getName($n = 10)
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="modal-body">
                                 <label for="subject">Judul Berita:</label>
-                                <input type="text" class="form-control" name="namaBerita" value="<?= $detailBerita['nama_artikel']; ?>">
+                                <input type="text" class="form-control" name="namaBerita"
+                                    value="<?= $detailBerita['nama_artikel']; ?>">
                                 <label for="categories">Nama Penulis:</label>
-                                <input type="text" class="form-control" name="namaPenulis" value="<?= $detailBerita['nama_penulis']; ?>">
+                                <input type="text" class="form-control" name="namaPenulis"
+                                    value="<?= $detailBerita['nama_penulis']; ?>">
                                 <!-- <label for="date">Date:</label>
                                     <input type="date" class="form-control" name="date"> -->
                                 <label for="description">Description:</label>
-                                <textarea name="description" cols="10" rows="25" class="form-control"><?= $detailBerita['deskripsi']; ?></textarea>
+                                <textarea name="description" cols="10" rows="25"
+                                    class="form-control"><?= $detailBerita['deskripsi']; ?></textarea>
 
                                 <div class="mt-4">
                                     <label for="fotoSekarang">Foto Saat Ini</label>
                                 </div>
                                 <div>
-                                    <img src="<?= $detailBerita['foto']; ?>" alt="" class="img-fluid rounded mx-auto d-block">
+                                    <img src="<?= $detailBerita['foto']; ?>" alt=""
+                                        class="img-fluid rounded mx-auto d-block">
                                 </div>
                                 <label for="foto" class="mb-4 mt-4">Upload Foto Baru</label>
                                 <input type="file" name="foto" id="foto" class="form-control">
                             </div>
                             <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteComfirm">
+                                <button type="button" class="btn btn-danger" data-toggle="modal"
+                                    data-target="#deleteComfirm">
                                     Delete
                                 </button>
                                 <a href="showBerita.php">
@@ -287,16 +291,16 @@ function getName($n = 10)
                                         echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
                                     } else {
                                         if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
-                                                $file = $target_dir . $randomString . "." . $imageFileType;
-                                                $queryUpdate = $queryUpdate = mysqli_query($conn, "UPDATE berita SET nama_artikel='$nama', nama_penulis='$namaPenulis', foto='$file', deskripsi='$detail' WHERE id='$id'");
-                                                if ($queryUpdate) {
-                                                    echo "<div class='alert alert-primary mt-3' role='alert'>berhasil diperbarui</div>";
-                                                    // untuk merefresh halaman
-                                                    echo "<meta http-equiv='refresh' content='1; url=./showBerita.php'>";
-                                                } else {
-                                                    echo mysqli_error($conn);
-                                                }
-                                            
+                                            $file = $target_dir . $randomString . "." . $imageFileType;
+                                            $queryUpdate = $queryUpdate = mysqli_query($conn, "UPDATE berita SET nama_artikel='$nama', nama_penulis='$namaPenulis', foto='$file', deskripsi='$detail' WHERE id='$id'");
+                                            if ($queryUpdate) {
+                                                echo "<div class='alert alert-primary mt-3' role='alert'>berhasil diperbarui</div>";
+                                                // untuk merefresh halaman
+                                                echo "<meta http-equiv='refresh' content='1; url=./showBerita.php'>";
+                                            } else {
+                                                echo mysqli_error($conn);
+                                            }
+
                                         } else {
                                             echo "<div class='alert alert-primary mt-3' role='alert'>Gagal Upload foto</div>";
                                         }
@@ -323,7 +327,8 @@ function getName($n = 10)
                 </div>
 
                 <!-- Modal -->
-                <div class="modal fade" id="deleteComfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal fade" id="deleteComfirm" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -379,7 +384,8 @@ function getName($n = 10)
         </a>
 
         <!-- Logout Modal-->
-        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
