@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
 
     <!-- font awesome style -->
-    <link rel="stylesheet" href="./fontAwesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- Custom styles for this template -->
     <link rel="stylesheet" href="tentangKamiStyle.css" />
     <!-- responsive style -->
@@ -34,7 +34,7 @@
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg bg-white fixed-top">
             <div class="navbar-content container-fluid">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand" href="index.php">
                     <img src="assets/images/logo-kim-purwoagung-removebg-preview.png" alt="Logo" width="80" height="60"
                         class="d-inline-block align-text-top">
                 </a>
