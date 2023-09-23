@@ -14,6 +14,15 @@ function getName($n = 10)
 
     return $randomString;
 }
+
+$id = $_GET['q'];
+$dataPerHalaman = 5;
+$jmlData = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM peserta_event WHERE id_event='$id'"));
+$banyakHalaman = ceil($jmlData / $dataPerHalaman);
+$halamanAktif = ((isset($_GET["page"]))) ? $_GET["page"] : 1;
+$awalIndex = ($dataPerHalaman * $halamanAktif) - $dataPerHalaman;
+
+$queryPesertaEvent = mysqli_query($conn, "SELECT * FROM peserta_event WHERE id_event='$id' LIMIT $awalIndex, $dataPerHalaman");
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +104,7 @@ function getName($n = 10)
                 <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Event Options:</h6>
-                        <a class="collapse-item" href="showEvent.php">Show Event</a>
+                        <a class="collapse-item" href="showEvent.php">Show</a>
                         <a class="collapse-item" href="addEvent.php">Add Event</a>
                     </div>
                 </div>
@@ -109,7 +118,7 @@ function getName($n = 10)
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="showBerita.php">Show Berita</a>
+                        <a class="collapse-item" href="showBerita.php">Show</a>
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
@@ -215,29 +224,14 @@ function getName($n = 10)
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Detail Produk</h1>
-
-                    <div>
-                        <form action="" method="POST" enctype="multipart/form-data">
-                            <div class="modal-body">
-                                <label for="subject">Judul Berita:</label>
-                                <input type="text" class="form-control" name="namaBerita">
-                                <label for="categories">Nama Penulis:</label>
-                                <input type="text" class="form-control" name="namaPenulis">
-                                <!-- <label for="date">Date:</label>
-                                    <input type="date" class="form-control" name="date"> -->
-                                <label for="description">Description:</label>
-                                <textarea name="description" cols="10" rows="25" class="form-control"></textarea>
-
-                                <label for="foto">Foto</label>
-                                <input type="file" name="foto" id="foto" class="form-control">
-                            </div>
-                            <div class="modal-footer">
-                                <a href="showBerita.php">
-                                    <button type="button" class="btn btn-secondary">Close</button>
-                                </a>
-                                <button type="submit" class="btn btn-primary" name="submitAdd">Add</button>
-                            </div>
+                    <?php $event = mysqli_query($conn, "SELECT id, nama_event FROM list_event WHERE id='$id'");
+                    $judulEvent = mysqli_fetch_array($event);
+                    ?>
+                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
+                        <h1 class="h3 mb-2 text-gray-800">Daftar peserta - <?= $judulEvent['nama_event']; ?></h1>
+                        <form action="./outputPeserta.php" method="POST">
+                            <input type="text" name="id" value="<?= $judulEvent['id']; ?>" hidden>
+                            <button href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm" type="submit" name="export"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</button>
                         </form>
                     </div>
 
@@ -245,16 +239,122 @@ function getName($n = 10)
                         For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
                     <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <spa class="m-0 font-weight-bold text-primary">Data Peserta Event</spa>
+                        </div>
+                        <div class="card-body">
+                            <!-- Button trigger modal -->
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>No</th>
+                                            <th>Nama Peserta</th>
+                                            <th>No Telp</th>
+                                            <th>Email</th>
+
+                                        </tr>
+                                    </thead>
+
+                                    <tbody>
+
+                                        <?php if (mysqli_num_rows($queryPesertaEvent) == 0) : ?>
+                                            <tr>
+                                                <td colspan="6" class="text-center">Tidak Ada Data</td>
+                                            </tr>
+                                        <?php else : ?>
+                                            <?php $count = 1; ?>
+                                            <?php while ($row = mysqli_fetch_array($queryPesertaEvent)) : ?>
+                                                <tr>
+                                                    <td><?= $count; ?></td>
+                                                    <td><?= $row['nama']; ?></td>
+                                                    <td><?= $row['no_telp']; ?></td>
+                                                    <td><?= $row['email']; ?></td>
+
+                                                    <?php $count++; ?>
+
+                                                </tr>
+                                            <?php endwhile; ?>
+                                        <?php endif; ?>
+
+                                    </tbody>
+                                </table>
+                                <nav aria-label="..." class="d-flex justify-content-end">
+                                    <ul class="pagination">
+                                        <?php if ($halamanAktif > 1) : ?>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=<?= $halamanAktif - 1 ?>&q=<?= $id; ?>">Previous</a>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php for ($i = 1; $i <= $banyakHalaman; $i++) : ?>
+                                            <?php if ($i == $halamanAktif) : ?>
+                                                <li class="page-item active">
+                                                    <a href="?page=<?= $i; ?>&q=<?= $id; ?>" class="page-link"><?= $i; ?></a>
+                                                </li>
+                                            <?php else : ?>
+                                                <li class="page-item">
+                                                    <a href="?page=<?= $i; ?>&q=<?= $id; ?>" class="page-link"><?= $i; ?></a>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+
+                                        <?php if ($halamanAktif < $banyakHalaman) : ?>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=<?= $halamanAktif + 1 ?>&q=<?= $id; ?>">Next</a>
+                                            </li>
+                                        <?php endif; ?>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
                 </div>
                 <!-- /.container-fluid -->
+                <!-- Modal -->
+                <div class="modal fade" id="addEvents" tabindex="-1" role="dialog" aria-labelledby="addEventsTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="eventModal">Add Event</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                <div class="modal-body">
+                                    <label for="subject">Judul Berita:</label>
+                                    <input type="text" class="form-control" name="namaBerita">
+                                    <label for="categories">Nama Penulis:</label>
+                                    <input type="text" class="form-control" name="namaPenulis">
+                                    <!-- <label for="date">Date:</label>
+                                    <input type="date" class="form-control" name="date"> -->
+                                    <label for="description">Description:</label>
+                                    <textarea name="description" cols="10" rows="25" class="form-control"></textarea>
 
+                                    <label for="foto">Foto</label>
+                                    <input type="file" name="foto" id="foto" class="form-control">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" name="submitAdd">Add</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
                 <!-- End of Main Content -->
                 <?php if (isset($_POST['submitAdd'])) {
 
                     $nama = htmlspecialchars($_POST['namaBerita']);
                     $namaPenulis = htmlspecialchars($_POST['namaPenulis']);
+                    // $harga = htmlspecialchars($_POST['harga']);
                     $detail = htmlspecialchars($_POST['description']);
-
+                    // $ketersediaan = htmlspecialchars($_POST['ketersediaan']);
 
                     $target_dir = "../image/";
                     $nama_file = basename($_FILES["foto"]["name"]);
@@ -276,7 +376,7 @@ function getName($n = 10)
                                     if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
                                         $queryExist = mysqli_query($conn, "SELECT * FROM berita WHERE nama_artikel='$nama'");
                                         if (mysqli_num_rows($queryExist) > 0) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
+                                            echo "<div class='alert alert-primary mt-3' role='alert'>Penjual Sudah Ada</div>";
                                         } else {
                                             $file = $target_dir . $randomString . "." . $imageFileType;
                                             $queryAdd = mysqli_query($conn, "INSERT INTO berita (nama_artikel, nama_penulis, foto, deskripsi) VALUES ('$nama', '$namaPenulis', '$file', '$detail')");

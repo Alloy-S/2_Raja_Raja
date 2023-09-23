@@ -1,5 +1,4 @@
 <?php
-
 require_once("../conn.php");
 ?>
 
@@ -7,7 +6,6 @@ require_once("../conn.php");
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -76,16 +74,16 @@ require_once("../conn.php");
 
                                 if (mysqli_fetch_assoc($result)) {
                                     echo "<script>
-                alert('Username sudah terdaftar');
-        </script>";
+                                            alert('Username sudah terdaftar');
+                                    </script>";
                                     header("Location: login.php");
                                 }
 
                                 //cek password
                                 if ($password !== $password2) {
                                     echo "<script>
-            alert('pasword tidak sesuai!');
-        </script>";
+                                    alert('pasword tidak sesuai!');
+                                </script>";
                                 }
 
                                 //enkripsi password
@@ -99,8 +97,8 @@ require_once("../conn.php");
                                     header("Location: login.php");
                                 } else {
                                     echo "<script>
-            alert('pasword tidak sesuai!');
-        </script>";
+                                    alert('pasword tidak sesuai!');
+                                </script>";
                                 }
                             }
 

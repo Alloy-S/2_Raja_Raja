@@ -28,7 +28,7 @@ function getName($n = 10)
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Admin Purwoagung</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -52,7 +52,7 @@ function getName($n = 10)
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin Purwoagung</sup></div>
             </a>
 
             <!-- Divider -->
@@ -96,7 +96,7 @@ function getName($n = 10)
                 <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Event Options:</h6>
-                        <a class="collapse-item" href="showEvent.php">Show</a>
+                        <a class="collapse-item" href="showEvent.php">Show Event</a>
                         <a class="collapse-item" href="addEvent.php">Add Event</a>
                     </div>
                 </div>
@@ -110,7 +110,7 @@ function getName($n = 10)
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="showBerita.php">Show</a>
+                        <a class="collapse-item" href="showBerita.php">Show Berita</a>
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
@@ -221,13 +221,15 @@ function getName($n = 10)
                     <div>
                         <form action="" method="POST" enctype="multipart/form-data">
                             <div class="modal-body">
-                                <label for="event">Judul Event:</label>
+                                <label for="event" class="form-label">Judul Event:</label>
                                 <input type="text" class="form-control" name="namaEvent">
-                                <label for="mulai">Mulai:</label>
+                                <label for="mulai" class="form-label">Mulai:</label>
                                 <input type="date" class="form-control" name="mulai">
-                                <label for="selesai">Selesai:</label>
+                                <label for="selesai" class="form-label">Selesai:</label>
                                 <input type="date" class="form-control" name="selesai">
-                                <label for="foto">Foto</label>
+                                <label for="dekripsi" class="form-label">Deskripsi</label>
+                                <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="form-control"></textarea>
+                                <label for="foto" class="form-label">Foto</label>
                                 <input type="file" name="foto" id="foto" class="form-control">
                             </div>
                             <div class="modal-footer">
@@ -237,7 +239,7 @@ function getName($n = 10)
                                 <button type="submit" class="btn btn-primary" name="submitAdd">Add</button>
                             </div>
                         </form>
-                    </div>S
+                    </div>
 
                     <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->

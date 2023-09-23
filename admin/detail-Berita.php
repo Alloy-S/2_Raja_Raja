@@ -33,7 +33,7 @@ function getName($n = 10)
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Admin Purwoagung</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -57,7 +57,7 @@ function getName($n = 10)
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin Purwoagung</div>
             </a>
 
             <!-- Divider -->
@@ -94,15 +94,15 @@ function getName($n = 10)
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produkOption" aria-expanded="true" aria-controls="produkOption">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption" aria-expanded="true" aria-controls="eventOption">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Produk</span>
+                    <span>Event</span>
                 </a>
-                <div id="produkOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Produk Options:</h6>
-                        <a class="collapse-item" href="showProduk.php">Show</a>
-                        <a class="collapse-item" href="cards.html">Add Produk</a>
+                        <h6 class="collapse-header">Event Options:</h6>
+                        <a class="collapse-item" href="showProduk.php">Show Event</a>
+                        <a class="collapse-item" href="cards.html">Add Event</a>
                     </div>
                 </div>
             </li>
@@ -115,7 +115,7 @@ function getName($n = 10)
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="showBerita.php">Show</a>
+                        <a class="collapse-item" href="showBerita.php">Show Berita</a>
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>

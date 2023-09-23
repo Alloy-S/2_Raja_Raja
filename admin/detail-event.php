@@ -3,7 +3,7 @@ require './session.php';
 require_once('../conn.php');
 
 
-$id = $_GET['wkwk'];
+$id = $_GET['q'];
 
 $data = mysqli_query($conn, "SELECT * FROM list_event WHERE id='$id'");
 $detailEvent = mysqli_fetch_array($data);
@@ -20,6 +20,14 @@ function getName($n = 10)
 
     return $randomString;
 }
+
+$dataPerHalaman = 5;
+$jmlData = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM foto_event WHERE id_event='$id'"));
+$banyakHalaman = ceil($jmlData / $dataPerHalaman);
+$halamanAktif = ((isset($_GET["page"]))) ? $_GET["page"] : 1;
+$awalIndex = ($dataPerHalaman * $halamanAktif) - $dataPerHalaman;
+
+$queryFotoEvent = mysqli_query($conn, "SELECT * FROM foto_event WHERE id_event='$id' LIMIT $awalIndex, $dataPerHalaman");
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +41,7 @@ function getName($n = 10)
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Admin Purwoagung</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -42,6 +50,25 @@ function getName($n = 10)
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontAwesome/css/fontawesome.min.css">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+            $("body").on('click', '#deleteImg', function() {
+                var id = $(this).attr('idDelete');
+                console.log(id);
+            });
+
+            $("body").on('click', '#previous', function() {
+                // var id = $(this).attr('idDelete');
+                console.log("previous");
+            });
+
+            $("body").on('click', '#next', function() {
+                // var id = $(this).attr('idDelete');
+                console.log("next");
+            });
+        });
+    </script>
 </head>
 
 <body id="page-top">
@@ -57,7 +84,7 @@ function getName($n = 10)
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin Purwoagung</div>
             </a>
 
             <!-- Divider -->
@@ -101,7 +128,7 @@ function getName($n = 10)
                 <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Event Options:</h6>
-                        <a class="collapse-item" href="showEvent.php">Show</a>
+                        <a class="collapse-item" href="showEvent.php">Show Event</a>
                         <a class="collapse-item" href="addEvent.php">Add Event</a>
                     </div>
                 </div>
@@ -115,7 +142,7 @@ function getName($n = 10)
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="showBerita.php">Show</a>
+                        <a class="collapse-item" href="showBerita.php">Show Berita</a>
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
@@ -221,7 +248,7 @@ function getName($n = 10)
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Detail Produk</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Detail Event</h1>
 
                     <div>
                         <form action="" method="POST" enctype="multipart/form-data">
@@ -232,17 +259,93 @@ function getName($n = 10)
                                 <input type="date" class="form-control" name="mulai" value="<?= $detailEvent['start_date']; ?>">
                                 <label for="tgl_selesai">End date:</label>
                                 <input type="date" class="form-control" name="selesai" value="<?= $detailEvent['end_date']; ?>">
+                                <label for="deskripsi" class="">Deskripsi</label>
+                                <textarea name="deskripsi" class="form-control" id="deskripsi" cols="30" rows="10"><?= $detailEvent['deskripsi']; ?></textarea>
                                 <!-- <label for="date">Date:</label>
                                     <input type="date" class="form-control" name="date"> -->
                                 <div class="mt-4">
+                                    <button type="button" class="btn btn-primary mt-4" data-toggle="modal" data-target="#uploadFoto">
+                                        Upload foto
+                                    </button>
+                                </div>
+                                <div class="mt-4">
+
                                     <label for="fotoSekarang">Foto Saat Ini</label>
+
+
+
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Foto</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </thead>
+                                            <tfoot>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Foto</th>
+                                                    <th>Action</th>
+                                                </tr>
+                                            </tfoot>
+                                            <tbody>
+                                                <?php $fotoEvent = mysqli_query($conn, "SELECT * FROM foto_event WHERE id_event='$id'") ?>
+                                                <?php if (mysqli_num_rows($fotoEvent) == 0) : ?>
+                                                    <tr>
+                                                        <td colspan="6" class="text-center">Tidak Ada Data</td>
+                                                    </tr>
+                                                <?php else : ?>
+                                                    <?php $count = 1; ?>
+
+                                                    <?php while ($row = mysqli_fetch_array($fotoEvent)) : ?>
+                                                        <tr>
+                                                            <td><?= $count; ?></td>
+                                                            <td>
+                                                                <img src="<?= $row['foto']; ?>" alt="" class="w-25">
+                                                            </td>
+                                                            <td>
+                                                                <a href="./showPeserta.php?q=<?= $row['id']; ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a>
+                                                            </td>
+                                                            <?php $count++; ?>
+
+                                                        </tr>
+                                                    <?php endwhile; ?>
+                                                <?php endif; ?>
+
+                                            </tbody>
+                                        </table>
+                                        <nav aria-label="..." class="d-flex justify-content-end">
+                                            <ul class="pagination">
+                                                <?php if ($halamanAktif > 1) : ?>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page=<?= $halamanAktif - 1 ?>&q=<?= $id; ?>">Previous</a>
+                                                    </li>
+                                                <?php endif; ?>
+                                                <?php for ($i = 1; $i <= $banyakHalaman; $i++) : ?>
+                                                    <?php if ($i == $halamanAktif) : ?>
+                                                        <li class="page-item active">
+                                                            <a href="?page=<?= $i; ?>&q=<?= $id; ?>" class="page-link"><?= $i; ?></a>
+                                                        </li>
+                                                    <?php else : ?>
+                                                        <li class="page-item">
+                                                            <a href="?page=<?= $i; ?>&q=<?= $id; ?>" class="page-link"><?= $i; ?></a>
+                                                        </li>
+                                                    <?php endif; ?>
+                                                <?php endfor; ?>
+
+                                                <?php if ($halamanAktif < $banyakHalaman) : ?>
+                                                    <li class="page-item">
+                                                        <a class="page-link" href="?page=<?= $halamanAktif + 1 ?>&q=<?= $id; ?>">Next</a>
+                                                    </li>
+                                                <?php endif; ?>
+                                            </ul>
+                                        </nav>
+                                    </div>
                                 </div>
-                                <div>
-                                    <img src="<?= $detailEvent['foto']; ?>" alt="" class="img-fluid rounded mx-auto d-block">
-                                </div>
-                                <label for="foto" class="mb-4 mt-4">Upload Foto Baru</label>
-                                <input type="file" name="foto" id="foto" class="form-control">
                             </div>
+
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteComfirm">
                                     Delete
@@ -255,65 +358,31 @@ function getName($n = 10)
                         </form>
                     </div>
                     <?php if (isset($_POST['submitAdd'])) {
-                    $namaEvent = htmlspecialchars($_POST['namaEvent']);
-                    $mulai = htmlspecialchars($_POST['mulai']);
-                    $selesai = htmlspecialchars($_POST['selesai']);
+                        $namaEvent = htmlspecialchars($_POST['namaEvent']);
+                        $mulai = htmlspecialchars($_POST['mulai']);
+                        $selesai = htmlspecialchars($_POST['selesai']);
+                        $deskripsi = htmlspecialchars($_POST['deskripsi']);
+                        $mulai_timestamp = strtotime($mulai);
+                        $selesai_timestamp = strtotime($selesai);
 
-                    $mulai_timestamp = strtotime($mulai);
-                    $selesai_timestamp = strtotime($selesai);
 
-                    $target_dir = "../image/";
-                    $nama_file = basename($_FILES["foto"]["name"]);
-                    $target_file = $target_dir . $nama_file;
-                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                    $size_file = $_FILES['foto']['size'];
-
-                    $randomString = getName(10);
-                    if ($namaEvent == "" || $mulai == "" || $selesai == "") {
-                        echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
-                    } else {
-                        if ($nama_file != "") {
-                            if ($size_file > 5000000) {
-                                echo "<div class='alert alert-primary mt-3' role='alert'>foto tidak boleh dari 500kb</div>";
+                        if ($namaEvent == "" || $mulai == "" || $selesai == "") {
+                            echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
+                        } else {
+                            if ($selesai_timestamp <= $mulai_timestamp) {
+                                echo "End date is earlier than start date.";
                             } else {
-                                if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
-                                    echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
+                                $queryAdd = mysqli_query($conn, "INSERT INTO list_event (nama_event, start_date, end_date, deskripsi) VALUES ('$namaEvent', '$mulai', '$selesai', '$deskripsi')");
+                                if ($queryAdd) {
+                                    echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
+                                    // untuk merefresh halaman
+                                    echo "<meta http-equiv='refresh' content='1.5; url=./'>";
                                 } else {
-                                    if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
-                                        $queryExist = mysqli_query($conn, "SELECT * FROM list_event WHERE nama_event='$namaEvent'");
-                                        if (mysqli_num_rows($queryExist) > 0) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>Event Sudah Ada</div>";
-                                        }
-                                        if ($selesai_timestamp <= $mulai_timestamp) {
-                                            echo "End date is earlier than start date.";
-                                            echo '<script>
-                                                showSweetAlert();
-                                            </script>';
-                                        } else {
-                                            $file = $target_dir . $randomString . "." . $imageFileType;
-                                            $queryAdd = mysqli_query($conn, "INSERT INTO list_event (nama_event, start_date, end_date, foto) VALUES ('$namaEvent', '$mulai', '$selesai', '$file')");
-                                            if ($queryAdd) {
-                                                echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
-                                                // untuk merefresh halaman
-                                                echo "<meta http-equiv='refresh' content='1.5; url=./showEvent.php'>";
-                                            } else {
-                                                echo mysqli_error($conn);
-                                            }
-                                        }
-                                    } else {
-                                        $queryUpdate = mysqli_query($conn, "UPDATE list_event SET nama_event='$namaEvent', start_date='$mulai', end_date='$selesai' WHERE id='$id'");
-        
-                                        if ($queryUpdate) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>berhasil diperbarui</div>";
-                                            // untuk merefresh halaman
-                                            echo "<meta http-equiv='refresh' content='1; url=./showEveny.php'>";
-                                        }
-                                    }
+                                    echo mysqli_error($conn);
                                 }
                             }
                         }
                     }
-                }
 
 
                     ?>
@@ -343,6 +412,33 @@ function getName($n = 10)
                     </div>
                 </div>
 
+                <!-- Button trigger modal -->
+
+
+                <!-- Modal -->
+                <div class="modal fade" id="uploadFoto" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <form action="" method="post" enctype="multipart/form-data">
+                                <div class="modal-header">
+                                    <h1 class="modal-title fs-5" id="exampleModalLabel">Tambah Foto</h1>
+                                    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div>
+                                        <label for="foto">Upload Foto</label>
+                                        <input type="file" name="foto" id="foto" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" name="upload">Save changes</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+
                 <?php
                 if (isset($_POST['delete'])) {
                     $query = mysqli_query($conn, "DELETE FROM list_event WHERE id='$id'");
@@ -351,6 +447,39 @@ function getName($n = 10)
                         echo "<meta http-equiv='refresh' content='0.5; url=./showEvent.php'>";
                     } else {
                         echo mysqli_error($conn);
+                    }
+                }
+
+                if (isset($_POST['upload'])) {
+                    $target_dir = "../image/";
+                    $nama_file = basename($_FILES["foto"]["name"]);
+                    $target_file = $target_dir . $nama_file;
+                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                    $size_file = $_FILES['foto']['size'];
+
+                    $randomString = getName(10);
+
+                    if ($nama_file != "") {
+                        if ($size_file > 5000000) {
+                            echo "<div class='alert alert-primary mt-3' role='alert'>foto tidak boleh dari 5mb</div>";
+                        } else {
+                            if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
+                                echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
+                            } else {
+                                if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
+
+                                    $file = $target_dir . $randomString . "." . $imageFileType;
+                                    $queryAdd = mysqli_query($conn, "INSERT INTO foto_event (id_event, foto) VALUES ('$id', '$file')");
+                                    if ($queryAdd) {
+                                        echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
+                                        // untuk merefresh halaman
+                                        echo "<meta http-equiv='refresh' content='0.5; url=./showEvent.php'>";
+                                    } else {
+                                        echo mysqli_error($conn);
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 ?>

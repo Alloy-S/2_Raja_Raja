@@ -45,7 +45,7 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Admin Purwoagung</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -69,7 +69,7 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin Purwoagung</sup></div>
             </a>
 
             <!-- Divider -->
@@ -113,7 +113,7 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
                 <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Event Options:</h6>
-                        <a class="collapse-item" href="showEvent.php">Show</a>
+                        <a class="collapse-item" href="showEvent.php">Show Event</a>
                         <a class="collapse-item" href="addEvent.php">Add Event</a>
                     </div>
                 </div>
@@ -127,7 +127,7 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="showBerita.php">Show</a>
+                        <a class="collapse-item" href="showBerita.php">Show Berita</a>
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
@@ -233,14 +233,14 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Produk</h1>
+                    <h1 class="h3 mb-2 text-gray-800">Berita</h1>
                     <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
                     <!-- DataTales Example -->
                     <div class="card shadow mb-4">
                         <div class="card-header py-3">
-                            <spa class="m-0 font-weight-bold text-primary">Data Event</spa>
+                            <spa class="m-0 font-weight-bold text-primary">Data Berita</spa>
                         </div>
                         <div class="card-body">
 
@@ -249,21 +249,12 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
                                     <thead>
                                         <tr>
                                             <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>End</th>
+                                            <th>Nama Artikel</th>
+                                            <th>Nama Penulis</th>
+                                            <th>Tanggal Penulisan</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>Foto Event</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
 
                                         <?php if (mysqli_num_rows($queryBerita) == 0) : ?>

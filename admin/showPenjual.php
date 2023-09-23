@@ -2,15 +2,36 @@
 require './session.php';
 require_once('../conn.php');
 
+function getName($n = 10)
+{
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
 
-$berita = mysqli_query($conn, "SELECT * FROM berita");
-$jmlBerita = mysqli_num_rows($berita);
+    for ($i = 0; $i < $n; $i++) {
+        $index = rand(0, strlen($characters) - 1);
+        $randomString .= $characters[$index];
+    }
 
-$event = mysqli_query($conn, "SELECT * FROM berita");
-$jmlEvent = mysqli_num_rows($event);
+    return $randomString;
+}
 
-$penjual = mysqli_query($conn, "SELECT * FROM penjual");
-$jmlPenjual = mysqli_num_rows($penjual);
+$dataPerHalaman = 1;
+$jmlData = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM penjual"));
+$banyakHalaman = ceil($jmlData / $dataPerHalaman);
+$halamanAktif = ((isset($_GET["page"]))) ? $_GET["page"] : 1;
+$awalIndex = ($dataPerHalaman * $halamanAktif) - $dataPerHalaman;
+
+$queryPenjual = mysqli_query($conn, "SELECT * FROM penjual LIMIT $awalIndex, $dataPerHalaman");
+
+// $keyword = $_POST['keyword'] ?? "";
+// $query = "SELECT * FROM berita 
+//     where 
+//     nama_artikel LIKE '%$keyword%' OR
+//     nama_penulis = '%$keyword%' LIMIT $limitData, $startIndex
+//     ;";
+
+// $queryBerita = mysqli_query($conn, $query);
+
 ?>
 
 <!DOCTYPE html>
@@ -32,8 +53,7 @@ $jmlPenjual = mysqli_num_rows($penjual);
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../fontAwesome/css/all.min.css">
-
+    <link rel="stylesheet" href="../fontAwesome/css/fontawesome.min.css">
 </head>
 
 <body id="page-top">
@@ -60,11 +80,6 @@ $jmlPenjual = mysqli_num_rows($penjual);
                 <a class="nav-link" href="index.php">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="event.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Events</span></a>
             </li>
 
             <!-- Divider -->
@@ -116,13 +131,6 @@ $jmlPenjual = mysqli_num_rows($penjual);
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="showPenjual.php">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Penjual</span>
-                </a>
             </li>
 
 
@@ -191,7 +199,7 @@ $jmlPenjual = mysqli_num_rows($penjual);
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['nama']; ?></span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -225,164 +233,149 @@ $jmlPenjual = mysqli_num_rows($penjual);
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Dashboard</h1>
-                        <a href="#" class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm"><i class="fas fa-download fa-sm text-white-50"></i> Generate Report</a>
-                    </div>
+                    <h1 class="h3 mb-2 text-gray-800">Penjual</h1>
+                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
-                    <!-- Content Row -->
-                    <div class="row">
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Jumlah Berita
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jmlBerita; ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fa-solid fa-newspaper fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Jumlah Event
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jmlEvent; ?></div>
-                                        </div>
-                                        <div class="col-auto">
-
-                                            <i class="fa-solid fa-calendar-days fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Earnings (Monthly) Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-info shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Penjual
-                                            </div>
-                                            <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $jmlPenjual; ?></div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-clipboard-list fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Pending Requests Card Example -->
-                        <div class="col-xl-3 col-md-6 mb-4">
-                            <div class="card border-left-warning shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                                                Pending Requests</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">18</div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Bar Chart -->
+                    <!-- DataTales Example -->
                     <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                                </div>
-                                <div class="card-body">
-                                    <div class="chart-bar">
-                                        <canvas id="myBarChart"></canvas>
-                                    </div>  
-                                </div>
+                        <div class="card-header py-3">
+                            <spa class="m-0 font-weight-bold text-primary">Data Event</spa>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Nama Penjual</th>
+                                            <th>Nama Toko</th>
+                                            <th>No HP</th>
+                                            <th>Email</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php if (mysqli_num_rows($queryPenjual) == 0) : ?>
+                                            <tr>
+                                                <td colspan="6" class="text-center">Tidak Ada Data</td>
+                                            </tr>
+                                        <?php else : ?>
+                                            <?php $count = 1; ?>
+                                            <?php while ($row = mysqli_fetch_array($queryPenjual)) : ?>
+                                                <tr>
+                                                    <td><?= $count; ?></td>
+                                                    <td><?= $row['nama_penjual']; ?></td>
+                                                    <td><?= $row['nama_toko']; ?></td>
+                                                    <td><?= $row['no_hp']; ?></td>
+                                                    <td><?= $row['email']; ?></td>
+                                                    <td>
+                                                        <a href="./detail-penjual.php?wkwk=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                                        <!-- <a href="./delete-Kategori.php?wkwk=<?= $row['id']; ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a> -->
+
+                                                    </td>
+                                                    <?php $count++; ?>
+
+                                                </tr>
+                                            <?php endwhile; ?>
+                                        <?php endif; ?>
+
+                                    </tbody>
+                                </table>
+                                <nav aria-label="..." class="d-flex justify-content-end">
+                                    <ul class="pagination">
+                                        <?php if ($halamanAktif > 1) : ?>
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="?page= <?= $halamanAktif - 1 ?>">Previous</a>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php for ($i = 1; $i <= $banyakHalaman; $i++) : ?>
+                                            <?php if ($i == $halamanAktif) : ?>
+                                                <li class="page-item active">
+                                                    <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
+                                                </li>
+                                                <?php else : ?>
+                                                <li class="page-item">
+                                                    <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                
+                                        <?php if($halamanAktif < $banyakHalaman) :?>
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page= <?= $halamanAktif + 1 ?>">Next</a>
+                                        </li>
+                                        <?php endif;?>
+                                    </ul>
+                                </nav>
                             </div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- /.container-fluid -->
 
-            </div>
-            <!-- End of Main Content -->
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                <!-- End of Main Content -->
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Your Website 2021</span>
+                        </div>
+                    </div>
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
+
+        </div>
+        <!-- End of Page Wrapper -->
+
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
+
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.php">Logout</a>
                     </div>
                 </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.php">Logout</a>
-                </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../fontAwesome/js/all.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level custom scripts -->
-s
-    <script src="chart_bar.js"></script>
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
 
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 

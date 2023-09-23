@@ -31,10 +31,11 @@
     text-align: left;
     background-color: #89e852;
     box-shadow: #585858;
+    display: inline;
 }
 
 .subtitleTentangKami {
-    font-size: 30px;
+    font-size: 3vmin;
     font-weight: 500;
     padding: 0% 10%;
     text-align: center;
@@ -123,7 +124,8 @@
 }
 
 .tulisanSiapaKami {
-    padding: 5% 0%;
+    padding: 3% 0%;
+    text-align: justify;
 }
 
 .siapakamiTtgKami {
