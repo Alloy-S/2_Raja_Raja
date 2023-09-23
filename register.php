@@ -102,6 +102,15 @@ require_once('./conn.php');
                                     exit();
                                 }
 
+                                $result = mysqli_query($conn, "SELECT email FROM user WHERE email = '$email';");
+
+                                if (mysqli_fetch_assoc($result)) {
+                                    echo "<script>
+                                            alert('Username sudah terdaftar');
+                                    </script>";
+                                    header("Location: register.php");
+                                }
+
                                 //cek password
                                 if ($password !== $password2) {
                                     echo "<script>

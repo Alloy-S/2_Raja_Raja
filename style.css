@@ -4,10 +4,10 @@
 }
 
 nav {
-    border-bottom: 1px solid rgba(0,0,0,0.3);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-div.navbar-content{
+div.navbar-content {
     padding: 0 3%;
     /* font-size: 24px; */
 }
@@ -54,7 +54,7 @@ a.navbar-brand {
     width: 20%;
     margin-top: 25%;
 }
-  
+
 #background .jumbotron h1 {
     margin-top: 40vh;
     color: white;
@@ -67,12 +67,13 @@ a.navbar-brand {
 .description {
     margin-top: 5%;
     width: 60vw;
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
     color: white;
     overflow: wrap;
     font-style: italic;
     padding: 10px 20px 2px 20px;
-    font-size: 32px;;
+    font-size: 32px;
+    ;
 }
 
 #benefits {
@@ -81,7 +82,7 @@ a.navbar-brand {
     color: #fff;
 }
 
-.benefit h2{
+.benefit h2 {
     text-align: center;
     font-size: 64px;
     margin: 20px auto 40px auto;
@@ -95,7 +96,8 @@ a.navbar-brand {
     margin: 0 40px;
 }
 
-#keuntungan, #manfaat {
+#keuntungan,
+#manfaat {
     padding: 5%;
     background-color: #4b5320;
 }
@@ -112,7 +114,7 @@ a.navbar-brand {
 
 #kalkulator {
     margin: 0;
-    margin-top: 9%;
+    margin-top: 50vh;
     height: 85vh;
     width: 100%;
     background-color: #a39976;
@@ -125,12 +127,12 @@ a.navbar-brand {
     padding: 5%;
 }
 
-#sejarah h2{
+#sejarah h2 {
     font-size: 64px;
     margin: 20px auto 40px auto;
 }
 
-#sejarah h2 span.teks-highlight{
+#sejarah h2 span.teks-highlight {
     background-color: #89e852;
     padding: 0.3%;
     font-weight: bold;
@@ -171,5 +173,3 @@ a.navbar-brand {
     background-color: white;
     padding: 0;
 }
-
-

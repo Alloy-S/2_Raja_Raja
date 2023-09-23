@@ -143,7 +143,7 @@
                                 <a class="dropdown-item" href="myprofile.php">My profile</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="logout.php">Logout</a>
+                                <a class="dropdown-item" href="login.php">Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -198,11 +198,11 @@
                         <input type="number" name="investast" id="investasi" class="form-control">
                     </div>
                     <div class="mb-4">
-                        <label for="penggunaan" class="form-label">Penggunaan Gas per bulan (KG)</label>
+                        <label for="penggunaan" class="form-label">Penggunaan Gas per bulan (Kg)</label>
                         <input type="number" name="penggunaan" id="penggunaan" class="form-control">
                     </div>
                     <div class="mb-4">
-                        <label for="jmlBulan" class="form-label">Total Penggunaan Biogas(jumlah Bulan)</label>
+                        <label for="jmlBulan" class="form-label">Total Penggunaan Biogas (jumlah Bulan)</label>
                         <input type="number" name="jmlBulan" id="jmlBulan" class="form-control">
                     </div>
                     <div class="mb-4">

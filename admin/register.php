@@ -76,7 +76,7 @@ require_once("../conn.php");
                                     echo "<script>
                                             alert('Username sudah terdaftar');
                                     </script>";
-                                    header("Location: login.php");
+                                    header("Location: register.php");
                                 }
 
                                 //cek password

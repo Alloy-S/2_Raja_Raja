@@ -132,7 +132,6 @@
                             <hr>
                             <div class="infoKontak">
                                 <div>Nomor WA: 081234567890</div>
-                                <div>Alamat Penjual: Malang, Blok 123</div>
                                 <div>Email: penjual@gmail.com</div>
                             </div>
                         </div>
@@ -179,7 +178,6 @@
                             <hr>
                             <div class="infoKontak">
                                 <div>Nomor WA: 081234567890</div>
-                                <div>Alamat Penjual: Malang, Blok 123</div>
                                 <div>Email: penjual@gmail.com</div>
                             </div>
                         </div>
