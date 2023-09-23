@@ -96,10 +96,10 @@
 
         <div class="col-12 col-sm-6 col-md-5 col-lg-4">
             <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#produk1">
-                <img class="fotoProduk" src="image/amber.jpg" alt="foto produk">
+                <img class="fotoProduk" src="assets/images/produk1.jpg.jpeg" alt="foto produk">
                 <div class="container penjelasanProduk">
                     <div class="namaProduk">Keripik Tempe</div>
-                    <div class="merk">Cap Mawar</div>
+                    <div class="merk">fajarmass</div>
                 </div>
 
             </button>
@@ -117,14 +117,14 @@
                     </div>
                     <div class="row modal-body">
                         <div class="col-6">
-                            <img class="fotoProduk" src="image/amber.jpg" alt="foto produk">
+                            <img class="fotoProduk" src="assets/images/produk1.jpg.jpeg" alt="foto produk">
                         </div>
                         <div class="col-6 penjelasanProdukModal">
                             <div class="namaProduk">Keripik Tempe</div>
-                            <div class="merk">Cap Mawar</div>
+                            <div class="merk">fajarmass</div>
                             <hr>
                             <div class="descProduk">
-                                Keripik dari kentang
+                                Keripik yang terbuat dari tempe
                             </div>
                             <hr>
                             <div class="infoKontak">
@@ -142,17 +142,17 @@
         </div>
 
         <div class="col-12 col-sm-6 col-md-5 col-lg-4">
-            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#produk1">
-                <img class="fotoProduk" src="image/amber.jpg" alt="foto produk">
+            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#produk2">
+                <img class="fotoProduk" src="assets/images/produk2.jpg.jpeg" alt="foto produk">
                 <div class="container penjelasanProduk">
-                    <div class="namaProduk">Keripik Tempe</div>
-                    <div class="merk">Cap Mawar</div>
+                    <div class="namaProduk">Keripik Tempe Cokelat</div>
+                    <div class="merk">fajarmass</div>
                 </div>
 
             </button>
         </div>
 
-        <div class="modal fade" id="produk1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="produk2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -164,14 +164,14 @@
                     </div>
                     <div class="row modal-body">
                         <div class="col-6">
-                            <img class="fotoProduk" src="image/amber.jpg" alt="foto produk">
+                            <img class="fotoProduk" src="assets/images/produk2.jpg.jpeg" alt="foto produk">
                         </div>
                         <div class="col-6 penjelasanProdukModal">
-                            <div class="namaProduk">Keripik Tempe</div>
-                            <div class="merk">Cap Mawar</div>
+                            <div class="namaProduk">Keripik Tempe Cokelat</div>
+                            <div class="merk">fajarmass</div>
                             <hr>
                             <div class="descProduk">
-                                Keripik dari kentang
+                                Keripik yang terbuat dari tempe. Memiliki rasa cokelat yang unik
                             </div>
                             <hr>
                             <div class="infoKontak">
@@ -186,16 +186,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
-            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#produk1">
-                <img class="fotoProduk" src="image/amber.jpg" alt="foto produk">
-                <div class="container penjelasanProduk">
-                    <div class="namaProduk">Keripik Tempe</div>
-                    <div class="merk">Cap Mawar</div>
-                </div>
-
-            </button>
         </div>
 
         <div class="d-flex justify-content-center row pendaftaranPenjualProduk">

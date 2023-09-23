@@ -96,10 +96,10 @@
 
         <div class="col-12 col-sm-6 col-md-5 col-lg-4">
             <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah1">
-                <img class="fotoLimbah" src="image/amber.jpg" alt="foto limbah">
+                <img class="fotoLimbah" src="assets/images/limbah1.jpeg" alt="foto limbah">
                 <div class="container penjelasanLimbah">
                     <div class="namaPenjual">Pak Sugianto</div>
-                    <div class="merk">Malang, Blok 123</div>
+                    <div class="merk">Limbah Cair</div>
                 </div>
 
             </button>
@@ -117,14 +117,14 @@
                     </div>
                     <div class="row modal-body">
                         <div class="col-6">
-                            <img class="fotoLimbah" src="image/amber.jpg" alt="foto limbah">
+                            <img class="fotoLimbah" src="assets/images/limbah1.jpeg" alt="foto limbah">
                         </div>
                         <div class="col-6 penjelasanLimbahModal">
                             <div class="namaPenjual">Pak Sugianto</div>
-                            <div class="merk">Malang, Blok 123</div>
+                            <div class="merk">Limbah Cair</div>
                             <hr>
                             <div class="infoKontak">
-                                <div>Nomor WA: 081234567890</div>
+                                <div>Nomor WA: 081234567892</div>
                                 <div>Alamat Penjual: Malang, Blok 123</div>
                                 <div>Email: penjual@gmail.com</div>
                             </div>
@@ -138,17 +138,17 @@
         </div>
 
         <div class="col-12 col-sm-6 col-md-5 col-lg-4">
-            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah1">
-                <img class="fotoLimbah" src="image/amber.jpg" alt="foto limbah">
+            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah2">
+                <img class="fotoLimbah" src="assets/images/limbah2.jpeg" alt="foto limbah">
                 <div class="container penjelasanLimbah">
-                    <div class="namaPenjual">Pak Sugianto</div>
-                    <div class="merk">Malang, Blok 123</div>
+                    <div class="namaPenjual">Pak Heri</div>
+                    <div class="merk">Limbah Padat</div>
                 </div>
 
             </button>
         </div>
 
-        <div class="modal fade" id="limbah1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="limbah2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -160,15 +160,15 @@
                     </div>
                     <div class="row modal-body">
                         <div class="col-6">
-                            <img class="fotoLimbah" src="image/amber.jpg" alt="foto limbah">
+                            <img class="fotoLimbah" src="assets/images/limbah2.jpeg" alt="foto limbah">
                         </div>
                         <div class="col-6 penjelasanLimbahModal">
-                            <div class="namaPenjual">Pak Sugianto</div>
-                            <div class="merk">Malang, Blok 123</div>
+                            <div class="namaPenjual">Pak Heri</div>
+                            <div class="merk">Limbah Padat</div>
                             <hr>
                             <div class="infoKontak">
-                                <div>Nomor WA: 081234567890</div>
-                                <div>Alamat Penjual: Malang, Blok 123</div>
+                                <div>Nomor WA: 081234567891</div>
+                                <div>Alamat Penjual: Malang, Blok 124</div>
                                 <div>Email: penjual@gmail.com</div>
                             </div>
                         </div>
@@ -181,17 +181,17 @@
         </div>
 
         <div class="col-12 col-sm-6 col-md-5 col-lg-4">
-            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah1">
-                <img class="fotoLimbah" src="image/amber.jpg" alt="foto limbah">
+            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah3">
+                <img class="fotoLimbah" src="assets/images/limbah3.jpeg" alt="foto limbah">
                 <div class="container penjelasanLimbah">
-                    <div class="namaPenjual">Pak Sugianto</div>
-                    <div class="merk">Malang, Blok 123</div>
+                    <div class="namaPenjual">Pak Joko</div>
+                    <div class="merk">Limbah Padat dan Cair</div>
                 </div>
 
             </button>
         </div>
 
-        <div class="modal fade" id="limbah1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="limbah3" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -203,15 +203,15 @@
                     </div>
                     <div class="row modal-body">
                         <div class="col-6">
-                            <img class="fotoLimbah" src="image/amber.jpg" alt="foto limbah">
+                            <img class="fotoLimbah" src="assets/images/limbah3.jpeg" alt="foto limbah">
                         </div>
                         <div class="col-6 penjelasanLimbahModal">
-                            <div class="namaPenjual">Pak Sugianto</div>
-                            <div class="merk">Malang, Blok 123</div>
+                            <div class="namaPenjual">Pak Joko</div>
+                            <div class="merk">Limbah Padat dan Cair</div>
                             <hr>
                             <div class="infoKontak">
                                 <div>Nomor WA: 081234567890</div>
-                                <div>Alamat Penjual: Malang, Blok 123</div>
+                                <div>Alamat Penjual: Malang, Blok 126</div>
                                 <div>Email: penjual@gmail.com</div>
                             </div>
                         </div>
@@ -223,7 +223,7 @@
             </div>
         </div>
 
-        <div class="d-flex justify-content-center row pendaftaranPenjualLimbah" >
+        <div class="d-flex justify-content-center row pendaftaranPenjualLimbah">
             <div class="col-6 tombolDaftar" role="button">
                 Daftar sebagai penjual disini!
             </div>
