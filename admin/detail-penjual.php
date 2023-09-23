@@ -302,7 +302,7 @@ function getName($n = 10)
                                         if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
                                             $queryExist = mysqli_query($conn, "SELECT * FROM list_event WHERE nama_event='$namaEvent'");
                                             if (mysqli_num_rows($queryExist) > 0) {
-                                                echo "<div class='alert alert-primary mt-3' role='alert'>Event Sudah Ada</div>";
+                                                echo "<div class='alert alert-primary mt-3' role='alert'>Penjual Sudah Ada</div>";
                                             }
                                             if ($selesai_timestamp <= $mulai_timestamp) {
                                                 echo "End date is earlier than start date.";
