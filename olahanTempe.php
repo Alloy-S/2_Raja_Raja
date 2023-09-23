@@ -123,6 +123,10 @@
                             <div class="namaProduk">Keripik Tempe</div>
                             <div class="merk">Cap Mawar</div>
                             <hr>
+                            <div class="descProduk">
+                                Keripik dari kentang
+                            </div>
+                            <hr>
                             <div class="infoKontak">
                                 <div>Nomor WA: 081234567890</div>
                                 <div>Alamat Penjual: Malang, Blok 123</div>
@@ -165,6 +169,10 @@
                         <div class="col-6 penjelasanProdukModal">
                             <div class="namaProduk">Keripik Tempe</div>
                             <div class="merk">Cap Mawar</div>
+                            <hr>
+                            <div class="descProduk">
+                                Keripik dari kentang
+                            </div>
                             <hr>
                             <div class="infoKontak">
                                 <div>Nomor WA: 081234567890</div>
