@@ -77,7 +77,7 @@ require_once('../conn.php');
                                         if ($countData > 0) {
                                             $data = mysqli_fetch_array($query);
                                             if (password_verify($password, $data['password'])) {
-                                                $_SESSION['username'] = $data['email'];
+                                                $_SESSION['nama'] = $data['nama'];
                                                 $_SESSION['login'] = true;
                                                 header("location: ./");
                                             } else {

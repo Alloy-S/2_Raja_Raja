@@ -3,34 +3,6 @@
     font-family: Tahoma, sans-serif;
 }
 
-div.navbar-content{
-    padding: 1% 3%;
-    font-size: 24px;
-    color: white;
-}
-
-a.navbar-brand img {
-    padding-right: 20px;
-}
-
-a.navbar-brand {
-    display: flex;
-    padding-right: 30px;
-}
-
-.nav-item {
-    padding-right: 40px;
-}
-
-#search-bar {
-    padding-right: 60px;
-    min-width: 25%;
-}
-
-#pengumuman {
-    display: block;
-}
-
 .coverTentangKami {
     height: 80vh;
     background-color: aquamarine;

@@ -1,6 +1,13 @@
 <?php
 require './session.php';
 require_once('../conn.php');
+
+
+$berita = mysqli_query($conn, "SELECT * FROM berita");
+$jmlBerita = mysqli_num_rows($berita);
+
+$event = mysqli_query($conn, "SELECT * FROM berita");
+$jmlEvent = mysqli_num_rows($event);
 ?>
 
 <!DOCTYPE html>
@@ -14,7 +21,7 @@ require_once('../conn.php');
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Admin Purwoagung</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -22,6 +29,7 @@ require_once('../conn.php');
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../fontAwesome/css/all.min.css">
 
 </head>
 
@@ -38,7 +46,7 @@ require_once('../conn.php');
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin Purwoagung</div>
             </a>
 
             <!-- Divider -->
@@ -80,15 +88,15 @@ require_once('../conn.php');
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produkOption" aria-expanded="true" aria-controls="produkOption">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption" aria-expanded="true" aria-controls="eventOption">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>produk</span>
+                    <span>Event</span>
                 </a>
-                <div id="produkOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Produk Options:</h6>
-                        <a class="collapse-item" href="showProduk.php">Show</a>
-                        <a class="collapse-item" href="cards.html">Add Produk</a>
+                        <h6 class="collapse-header">Event Options:</h6>
+                        <a class="collapse-item" href="showEvent.php">Show</a>
+                        <a class="collapse-item" href="addEvent.php">Add Event</a>
                     </div>
                 </div>
             </li>
@@ -173,7 +181,7 @@ require_once('../conn.php');
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Douglas McGee</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?= $_SESSION['nama']; ?></span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
@@ -222,11 +230,12 @@ require_once('../conn.php');
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Earnings (Monthly)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
+                                                Jumlah Berita
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jmlBerita; ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-calendar fa-2x text-gray-300"></i>
+                                            <i class="fa-solid fa-newspaper fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -240,11 +249,13 @@ require_once('../conn.php');
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
                                             <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                                                Earnings (Annual)</div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">$215,000</div>
+                                                Jumlah Event
+                                            </div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jmlEvent; ?></div>
                                         </div>
                                         <div class="col-auto">
-                                            <i class="fas fa-dollar-sign fa-2x text-gray-300"></i>
+
+                                            <i class="fa-solid fa-calendar-days fa-2x text-gray-300"></i>
                                         </div>
                                     </div>
                                 </div>

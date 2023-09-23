@@ -88,6 +88,20 @@ function getName($n = 10)
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption" aria-expanded="true" aria-controls="eventOption">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Event</span>
+                </a>
+                <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Event Options:</h6>
+                        <a class="collapse-item" href="showEvent.php">Show</a>
+                        <a class="collapse-item" href="addEvent.php">Add Event</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true" aria-controls="berita">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Berita</span>
@@ -96,7 +110,7 @@ function getName($n = 10)
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
                         <a class="collapse-item" href="showBerita.php">Show</a>
-                        <a class="collapse-item" href="#">Add Berita</a>
+                        <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
             </li>
