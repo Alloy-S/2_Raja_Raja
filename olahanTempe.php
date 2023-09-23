@@ -1,3 +1,11 @@
+<?php
+
+require_once('./conn.php');
+$sql = mysqli_query($conn, "SELECT produk.*, penjual.* FROM produk INNER JOIN penjual ON produk.id_penjual=penjual.id;");
+
+
+?>
+
 <!DOCTYPE html>
 <html>
 
@@ -10,8 +18,7 @@
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tentangKamiStyle.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
 
 <body>
@@ -19,12 +26,9 @@
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="navbar-content container-fluid">
             <a class="navbar-brand" href="index.php">
-                <img src="assets/images/logo-kim-purwoagung-removebg-preview.png" alt="Logo" width="80" height="60"
-                    class="d-inline-block align-text-top">
+                <img src="assets/images/logo-kim-purwoagung-removebg-preview.png" alt="Logo" width="80" height="60" class="d-inline-block align-text-top">
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -36,8 +40,7 @@
                         <a class="nav-link" href="tentang-kami.php">Tentang Kami</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Berita & Event
                         </a>
                         <ul class="dropdown-menu">
@@ -46,8 +49,7 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
-                            aria-expanded="false">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Tempe
                         </a>
                         <ul class="dropdown-menu">
@@ -61,8 +63,7 @@
                 <div class="d-flex align-items-center">
                     <form class="" role="search" id="search-bar">
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Cari" aria-label="cari"
-                                aria-describedby="button-addon2">
+                            <input type="text" class="form-control" placeholder="Cari" aria-label="cari" aria-describedby="button-addon2">
                             <button class="btn btn-outline-secondary" type="button" id="cari" name="cari">Cari</button>
                         </div>
                     </form>
@@ -71,8 +72,7 @@
                 <!-- Profile -->
                 <div class="d-flex justify-content-end" id="logo-dropdown">
                     <div class="dropdown d-flex justify-content-end">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow round-logo" href="#"
-                            id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow round-logo" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <i class="fa-regular fa-user fa-2x"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
@@ -97,51 +97,53 @@
 
     <div class="d-flex collapse justify-content-center row olahanCards ">
 
-        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
-            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#produk1">
-                <img class="fotoProduk" src="assets/images/produk1.jpg.jpeg" alt="foto produk">
-                <div class="container penjelasanProduk">
-                    <div class="namaProduk">Keripik Tempe</div>
-                    <div class="merk">fajarmass</div>
-                </div>
-
-            </button>
-        </div>
-
-        <div class="modal fade" id="produk1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-lg" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="modal-title" id="exampleModalLabel">Kontak Penjual</h1>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+        <?php while ($row = mysqli_fetch_array($sql)) : ?>
+            <div class="col-12 col-sm-6 col-md-5 col-lg-4">
+                <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah<?= $row['id']; ?>">
+                    <img class="fotoProduk" src="<?= $row['foto']; ?>" alt="foto limbah">
+                    <div class="container penjelasanProduk">
+                        <div class="namaProduk"><?= $row['nama']; ?></div>
+                        <div class="merk"><?= $row['merek']; ?></div>
                     </div>
-                    <div class="row modal-body">
-                        <div class="col-6">
-                            <img class="fotoProduk" src="assets/images/produk1.jpg.jpeg" alt="foto produk">
+
+                </button>
+            </div>
+
+            <div class="modal fade" id="limbah<?= $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title" id="exampleModalLabel">Kontak Penjual</h1>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div class="col-6 penjelasanProdukModal">
-                            <div class="namaProduk">Keripik Tempe</div>
-                            <div class="merk">fajarmass</div>
-                            <hr>
-                            <div class="descProduk">
-                                Keripik yang terbuat dari tempe
+                        <div class="row modal-body">
+                            <div class="col-6">
+                                <img class="fotoProduk" src="<?= $row['foto']; ?>" alt="foto limbah">
                             </div>
-                            <hr>
-                            <div class="infoKontak">
-                                <div>Nomor WA: 081234567890</div>
-                                <div>Email: penjual@gmail.com</div>
+                            <div class="col-6 penjelasanProdukModal">
+                                <div class="namaProduk"><?= $row['nama']; ?></div>
+                                <div class="merk"><?= $row['merek']; ?></div>
+                                <hr>
+                                <div class="descProduk">
+                                    <?= $row['deskripsi']; ?>
+                                </div>
+                                <hr>
+                                <div class="infoKontak">
+                                    <div>Nomor WA: <?= $row['no_hp']; ?></div>
+                                    <div>Email: <?= $row['email']; ?></div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+
+        <?php endwhile; ?>
 
         <div class="col-12 col-sm-6 col-md-5 col-lg-4">
             <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#produk2">
@@ -154,8 +156,7 @@
             </button>
         </div>
 
-        <div class="modal fade" id="produk2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+        <div class="modal fade" id="produk2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -201,8 +202,7 @@
                     Ingin mendapatkan berita terbaru?
                 </div>
                 <div class="emailSubInput col-6">
-                    <input class="inputEmail" type="text" id="emailSubscription" name="email"
-                        placeholder="Masukkan email anda...">
+                    <input class="inputEmail" type="text" id="emailSubscription" name="email" placeholder="Masukkan email anda...">
                 </div>
                 <div class="col-2">
                     <input class="tombol" type="submit" value="Submit">
@@ -252,9 +252,7 @@
         </div>
 
 
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
 </body>
 
 </html>

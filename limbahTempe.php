@@ -1,3 +1,11 @@
+<?php 
+require_once('./conn.php');
+
+$sql = mysqli_query($conn, "SELECT produk.*, penjual.* FROM produk INNER JOIN penjual ON produk.id_penjual=penjual.id;");
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 
@@ -97,18 +105,20 @@
 
     <div class="d-flex collapse justify-content-center row limbahCards ">
 
+   <?php while ($row = mysqli_fetch_array($sql)):?>
+    
         <div class="col-12 col-sm-6 col-md-5 col-lg-4">
-            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah1">
-                <img class="fotoLimbah" src="assets/images/limbah1.jpeg" alt="foto limbah">
+            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah<?= $row['id']; ?>">
+                <img class="fotoLimbah" src="<?= $row['foto']; ?>" alt="foto limbah">
                 <div class="container penjelasanLimbah">
-                    <div class="namaPenjual">Pak Sugianto</div>
-                    <div class="merk">Limbah Cair</div>
+                    <div class="namaPenjual"><?= $row['nama_penjual']; ?></div>
+                    <div class="merk"><?= $row['merek']; ?></div>
                 </div>
 
             </button>
         </div>
 
-        <div class="modal fade" id="limbah1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="limbah<?= $row['id']; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -120,15 +130,15 @@
                     </div>
                     <div class="row modal-body">
                         <div class="col-6">
-                            <img class="fotoLimbah" src="assets/images/limbah1.jpeg" alt="foto limbah">
+                            <img class="fotoLimbah" src="<?= $row['foto']; ?>" alt="foto limbah">
                         </div>
                         <div class="col-6 penjelasanLimbahModal">
-                            <div class="namaPenjual">Pak Sugianto</div>
-                            <div class="merk">Limbah Cair</div>
+                            <div class="namaPenjual"><?= $row['nama_penjual']; ?></div>
+                            <div class="merk"><?= $row['merek']; ?></div>
                             <hr>
                             <div class="infoKontak">
-                                <div>Nomor WA: 081234567892</div>
-                                <div>Email: penjual@gmail.com</div>
+                                <div>Nomor WA: <?= $row['no_hp']; ?></div>
+                                <div>Email: <?= $row['email']; ?></div>
                             </div>
                         </div>
                     </div>
@@ -139,7 +149,9 @@
             </div>
         </div>
 
-        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
+        <?php endwhile;?>
+
+        <!-- <div class="col-12 col-sm-6 col-md-5 col-lg-4">
             <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah2">
                 <img class="fotoLimbah" src="assets/images/limbah2.jpeg" alt="foto limbah">
                 <div class="container penjelasanLimbah">
@@ -221,7 +233,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="d-flex justify-content-center row pendaftaranPenjualLimbah">
             <div class="col-6 tombolDaftar" role="button">
