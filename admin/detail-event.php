@@ -51,24 +51,7 @@ $queryFotoEvent = mysqli_query($conn, "SELECT * FROM foto_event WHERE id_event='
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../fontAwesome/css/fontawesome.min.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function() {
-            $("body").on('click', '#deleteImg', function() {
-                var id = $(this).attr('idDelete');
-                console.log(id);
-            });
-
-            $("body").on('click', '#previous', function() {
-                // var id = $(this).attr('idDelete');
-                console.log("previous");
-            });
-
-            $("body").on('click', '#next', function() {
-                // var id = $(this).attr('idDelete');
-                console.log("next");
-            });
-        });
-    </script>
+   
 </head>
 
 <body id="page-top">
@@ -340,11 +323,11 @@ $queryFotoEvent = mysqli_query($conn, "SELECT * FROM foto_event WHERE id_event='
                                 <a href="showEvent.php">
                                     <button type="button" class="btn btn-secondary">Close</button>
                                 </a>
-                                <button type="submit" class="btn btn-primary" name="submitUpdate">Add</button>
+                                <button type="submit" class="btn btn-primary" name="submitUpdate">Simpan</button>
                             </div>
                         </form>
                     </div>
-                    <?php if (isset($_POST['submitAdd'])) {
+                    <?php if (isset($_POST['submitUpdate'])) {
                         $namaEvent = htmlspecialchars($_POST['namaEvent']);
                         $mulai = htmlspecialchars($_POST['mulai']);
                         $selesai = htmlspecialchars($_POST['selesai']);

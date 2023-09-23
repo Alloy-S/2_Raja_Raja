@@ -212,7 +212,8 @@ $queryVarian = mysqli_fetch_array($Varian);
                             <label for="nama">Nama Varian</label>
                             <input type="text" id="nama" name="nama" class="form-control" value="<?= $queryVarian['nama']; ?>">
                             <label for="foto">Foto saat ini</label>
-                            <img src="<?= $queryVarian['foto']; ?>" alt="">
+                            <div><img src="<?= $queryVarian['foto']; ?>" alt="" class="w-50"></div>
+                            
                             <label for="foto">Masukan Foto</label>
                             <input type="file" id="foto" name="foto" class="form-control">
 
