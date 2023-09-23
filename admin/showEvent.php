@@ -269,7 +269,7 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
                                                     <td><?= $row['start_date']; ?></td>
                                                     <td><?= $row['end_date']; ?></td>
                                                     <td>
-                                                        <a href="./detail-event.php?wkwk=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                                        <a href="./detail-event.php?q=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
                                                         <a href="./showPeserta.php?q=<?= $row['id']; ?>" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i></a>
                                                     </td>
                                                     <?php $count++; ?>
