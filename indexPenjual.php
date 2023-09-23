@@ -35,6 +35,9 @@
                         <a class="nav-link" href="editItem.php">Daftarkan Item</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="editLimbah.php">Daftarkan Limbah</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="editProfile.php">Edit Profile</a>
                     </li>
                     <li class="nav-item">

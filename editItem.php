@@ -36,10 +36,13 @@
                         <a class="nav-link active" href="#">Daftarkan Item</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="editLimbah.php">Daftarkan Limbah</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="editProfile.php">Edit Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tentang-kami.php">Log Out</a>
+                        <a class="nav-link" href="index.php">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -54,17 +57,12 @@
         <div class="container">
             <form id="survey-form">
                 <div class="form-group">
-                    <label id="nameItem" class="nItem ">Nama Item</label>
+                    <label id="nameItem" class="nItem "><b>Nama Item</b></label>
                     <input type="text" id="namaItem" class="form-control" placeholder="Masukkan nama item"
                         required></input>
                 </div>
                 <div class="form-group">
-                    <label id="tokoItem" class="tItem">Toko Item</label>
-                    <input type="text" id="namaItem" class="form-control" placeholder="Masukkan nama toko"
-                        required></input>
-                </div>
-                <div class="form-group">
-                    <label id="descItem" class="dItem">Deskripsi Item</label>
+                    <label id="descItem" class="dItem"><b>Deskripsi Item</b></label>
                     <input type="text" id="descItem" class="form-control" placeholder="Masukkan deskripsi item"
                         required></input>
                 </div>
@@ -74,7 +72,7 @@
 
                     <label for="foto" class="inputFoto">
                         <div>
-                            Foto
+                            <b>Foto</b>
                         </div>
                     </label>
 

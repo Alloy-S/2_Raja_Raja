@@ -36,10 +36,10 @@
                         <a class="nav-link " href="editItem.php">Daftarkan Item</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="editLimbah.php">Daftarkan Limbah</a>
+                        <a class="nav-link active" href="editLimbah.php">Daftarkan Limbah</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Edit Profile</a>
+                        <a class="nav-link" href="editProfile.php">Edit Profile</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php">Log Out</a>
@@ -50,36 +50,33 @@
     </nav>
 
     <div class="judulItem">
-        Masukkan Informasi Anda
+        Daftarkan Item
     </div>
 
     <body>
         <div class="container">
             <form id="survey-form">
                 <div class="form-group">
-                    <label id="namaAnda" class="nAnda">Nama Anda</label>
-                    <input type="text" id="namaAnda" class="form-control" placeholder="Masukkan Nama Anda"
-                        required></input>
-                </div>
-                <div class="form-group">
-                    <label id="noTelp" class="nTelp">Nomor Telepon</label>
-                    <input type="text" id="noTelp" class="form-control" placeholder="Masukkan Nomor Telepon"
-                        required></input>
-                </div>
-                <div class="form-group">
-                    <label id="email" class="eml">Email</label>
-                    <input type="text" id="email" class="form-control" placeholder="Masukkan Email Anda"
-                        required></input>
-                </div>
-                <div class="form-group">
-                    <label id="merk" class="mrk">Merk</label>
-                    <input type="text" id="merk" class="form-control" placeholder="Masukkan Merk Produk Anda"
-                        required></input>
-                </div>
-                <div class="form-group">
-                    <label id="alamat" class="alm">Alamat</label>
-                    <input type="text" id="alamat" class="form-control" placeholder="Masukkan Alamat Anda"
-                        required></input>
+                    <label id="nameItem" class="nItem "><b>Nama Jenis Limbah</b></label>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1"
+                            checked>
+                        <label class="form-check-label" for="gridRadios1">
+                            Padat
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
+                        <label class="form-check-label" for="gridRadios2">
+                            Cair
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3">
+                        <label class="form-check-label" for="gridRadios3">
+                            Padat dan Cair
+                        </label>
+                    </div>
                 </div>
 
                 <div class="form-group">
