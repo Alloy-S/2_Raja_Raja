@@ -54,7 +54,7 @@
         <div class="container">
             <form id="survey-form">
                 <div class="form-group">
-                    <label id="nameItem" class="nItem">Nama Item</label>
+                    <label id="nameItem" class="nItem ">Nama Item</label>
                     <input type="text" id="namaItem" class="form-control" placeholder="Masukkan nama item"
                         required></input>
                 </div>
@@ -65,14 +65,29 @@
                 </div>
                 <div class="form-group">
                     <label id="descItem" class="dItem">Deskripsi Item</label>
+                    <input type="text" id="descItem" class="form-control" placeholder="Masukkan deskripsi item"
+                        required></input>
+                </div>
+
+
+                <div class="input-group mb-3">
+
+                    <label for="foto" class="inputFoto">
+                        <div>
+                            Foto
+                        </div>
+                    </label>
+
                     <div>
-                        <textarea id="descItem" class="input-textarea" name="desc"
-                            placeholder="Masukkan Deskripsi Item"></textarea>
+                        <input type="file" name="foto" id="foto" class="form-control">
                     </div>
                 </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" id="submit" class="submit-button"> Submit </button>
+
+
+                <div class="form-group">
+                    <button type="submit" id="submit" class="btn btn-secondary btn btn-block submit-button"> Submit
+                    </button>
+                </div>
         </div>
 
 

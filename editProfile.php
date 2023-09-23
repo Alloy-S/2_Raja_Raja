@@ -75,14 +75,14 @@
                 </div>
                 <div class="form-group">
                     <label id="alamat" class="alm">Alamat</label>
-                    <div>
-                        <textarea id="descItem" class="input-textarea" name="desc"
-                            placeholder="Masukkan Alamat Anda"></textarea>
-                    </div>
+                    <input type="text" id="alamat" class="form-control" placeholder="Masukkan Alamat Anda"
+                        required></input>
                 </div>
-        </div>
-        <div class="form-group">
-            <button type="submit" id="submit" class="submit-button"> Submit </button>
+
+                <div class="form-group">
+                    <button type="submit" id="submit" class="btn btn-secondary btn btn-block submit-button"> Submit
+                    </button>
+                </div>
         </div>
 
 
