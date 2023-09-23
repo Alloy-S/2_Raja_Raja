@@ -114,6 +114,7 @@ $sql = mysqli_query($conn, "SELECT * FROM berita ORDER BY tanggal_penulisan");
                 <h5 class="card-title"><?= $row['nama_artikel']; ?></h5>
 
                 <p class="card-text"><small><?= $row['tanggal_penulisan']; ?></small></p>
+                <p class="card-text"><small><?= $row['deskripsi']; ?></small></p>
             </div>
         </div>
 

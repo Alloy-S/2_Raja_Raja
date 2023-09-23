@@ -15,7 +15,7 @@ function getName($n = 10)
     return $randomString;
 }
 
-$dataPerHalaman = 10;
+$dataPerHalaman = 5;
 $jmlData = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM berita"));
 $banyakHalaman = ceil($jmlData / $dataPerHalaman);
 $halamanAktif = ((isset($_GET["page"]))) ? $_GET["page"] : 1;

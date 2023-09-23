@@ -116,6 +116,12 @@ function getName($n = 10)
                     <span>Penjual</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="varian.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Varian</span>
+                </a>
+            </li>
 
 
             <!-- Sidebar Toggler (Sidebar) -->
