@@ -46,7 +46,7 @@ $sql = mysqli_fetch_array($sql);
                         <a class="nav-link active" href="#">Edit Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Log Out</a>
+                        <a class="nav-link" href="logout.php">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -81,16 +81,17 @@ $sql = mysqli_fetch_array($sql);
 
         <?php
         if (isset($_POST['submit'])) {
+            var_dump($_POST);
             $nama = htmlspecialchars($_POST['nama']);
-            $nohp = htmlspecialchars($_POST['no_hp']);
+            $nohp = $_POST['no_hp'];
             $email = htmlspecialchars($_POST['email']);
 
 
             if ($nama != "" && $nohp != "" && $email != "") {
-                $sql = mysqli_query($conn, "UPDATE penjual SET nama='$nama', no_hp='$nohp', email='$email'");
+                $sql = mysqli_query($conn, "UPDATE penjual SET nama_penjual='$nama', no_hp='$nohp', email='$email'");
 
                 if ($sql) {
-                    echo "<meta http-equiv='refresh' content='0.5; url=./showBerita.php'>";
+                    echo "<meta http-equiv='refresh' content='0.5; url=./editProfile.php'>";
                 } else {
                     echo "<div class='alert alert-warning mt-3' role='alert'>gagal diperbarui</div>";
                 }
