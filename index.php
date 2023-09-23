@@ -80,7 +80,7 @@
                 <img src="assets/images/logo-kim-purwoagung-removebg-preview.png" alt="Logo" width="80" height="60" class="d-inline-block align-text-top">
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -91,7 +91,8 @@
                         <a class="nav-link" href="tentang-kami.php">Tentang Kami</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Berita & Event
                         </a>
                         <ul class="dropdown-menu">
@@ -100,18 +101,20 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Tempe
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Limbah Tempe</a></li>
-                            <li><a class="dropdown-item" href="#">Olahan Tempe</a></li>
+                            <li><a class="dropdown-item" href="limbahTempe.php">Limbah Tempe</a></li>
+                            <li><a class="dropdown-item" href="olahanTempe.php">Olahan Tempe</a></li>
                         </ul>
                     </li>
                 </ul>
                 <form class="d-flex" role="search" id="search-bar">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari" aria-label="Cari" aria-describedby="button-addon2">
+                        <input type="text" class="form-control" placeholder="Cari" aria-label="Cari"
+                            aria-describedby="button-addon2">
                         <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
                     </div>
                 </form>
@@ -120,7 +123,7 @@
                 <div class="d-flex justify-content-end" id="logo-dropdown">
                     <div class="dropdown d-flex justify-content-end">
                         <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#" id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown" aria-expanded="false">
-                            <img src="assets/images/anonymous.jpg" class="rounded-circle" height="60" alt="Profile" loading="lazy" />
+                            <img src="assets/images/anonymous.jpg" class="rounded-circle" height="60" alt="Profile" loading="lazy"/>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                             <li>
@@ -142,7 +145,8 @@
             <div class="jumbotron">
                 <h1>Biogas</h1>
                 <div class="description">
-                    <p>suatu gas yang dihasilkan oleh aktifitas atau kegiatan anaerobik atau juga fermentasi dari bahan-bahan organik.</p>
+                    <p>suatu gas yang dihasilkan oleh aktifitas atau kegiatan anaerobik atau juga fermentasi dari
+                        bahan-bahan organik.</p>
                 </div>
             </div>
         </div>
@@ -175,27 +179,7 @@
         <!-- kalkulator keuntungan -->
         <div class="d-flex row" id="kalkulator">
             <div class="col-3">
-                <form action="">
-                    <div class="mb-4">
-                        <label for="investasi" class="form-label">Nilai Investasi</label>
-                        <input type="number" name="investast" id="investasi" class="form-control">
-                    </div>
-                    <div class="mb-4">
-                        <label for="penggunaan" class="form-label">Penggunaan Gas per bulan (KG)</label>
-                        <input type="number" name="penggunaan" id="penggunaan" class="form-control">
-                    </div>
-                    <div class="mb-4">
-                        <label for="jmlBulan" class="form-label">Total Penggunaan Biogas(jumlah Bulan)</label>
-                        <input type="number" name="jmlBulan" id="jmlBulan" class="form-control">
-                    </div>
-                    <div class="mb-4">
-                        <label for="harga" class="form-label">Harga Gas LPG</label>
-                        <input type="number" name="harga" id="harga" class="form-control">
-                    </div>
-                    <div class="mb-4 ">
-                        <button class="btn btn-primary" id="kalkulasi" name="kalkulasi" type="button">Kalkulasi</button>
-                    </div>
-                </form>
+                
             </div>
 
             <div class="col-6">
@@ -219,82 +203,83 @@
                 <div class="col-5 gambar-sejarah" id="limbah-cair-img"></div>
                 <div class="col-1"></div>
                 <div class="col-6 isi-sejarah">
-                    Purwoagung dikenal oleh industri utamanya yaitu pembuatan tempe. Olahan tempe yang mereka miliki pun bervariasi
-                    mulai dari kripik tempe, brownies tempe, cokelat tempe, dan lain-lain. Akan tetapi, limbah tempe baik berupa air cucian kedelai maupun
-                    kulit ari kedelai ternyata memiliki kandungan gizi yang sangat tinggi. Limbah cair tempe memiliki kandungan gizi di antaranya protein (0,42%),
-                    lemak (0,113%), karbohidrat (0,11%), air (0,98,87%), kalsium (13,60 ppm), forfor (1,74 ppm), besi (4,55 ppm). Selain itu, limbah kulit ari yang
+                    Purwoagung dikenal oleh industri utamanya yaitu pembuatan tempe. Olahan tempe yang mereka miliki pun bervariasi 
+                    mulai dari kripik tempe, brownies tempe, cokelat tempe, dan lain-lain. Akan tetapi, limbah tempe baik berupa air cucian kedelai maupun 
+                    kulit ari kedelai ternyata memiliki kandungan gizi yang sangat tinggi. Limbah cair tempe memiliki kandungan gizi di antaranya protein (0,42%), 
+                    lemak (0,113%), karbohidrat (0,11%), air (0,98,87%), kalsium (13,60 ppm), forfor (1,74 ppm), besi (4,55 ppm). Selain itu, limbah kulit ari yang 
                     merupakan 10% dari total kedelai yang diolah juga memiliki kandungan gizi protein (14,45%), lemak (3,15%), serat pangan (47,01%).
                 </div>
-                <div class="d-flex row konten-sejarah">
-                    <h2 class="right">Menjadi <span class="teks-highlight">Limbah Sapi</span></h2>
-                </div>
-                <div class="d-flex row">
-                    <div class="col-6 isi-sejarah">
-                        Oleh karena kandungan proteinnya yang tinggi, limbah hasil pengolahan tempe digunakan untuk pakan sapi
-                        untuk mengurangi limbah biologi pencemaran Sungai. Pertama, limbah hasil pengolahan tempe itu dikumpulkan melalui
-                        tempat penggemukan sapi. Setelah itu, kotoran sapi yang dihasilkan akan dimasukkan reactor gas sehingga
-                        terjadilah fermentasi anaerobic serta pengumpulan dan penyimpanan gas lalu akhirnya melalui selang-selang, setelah
-                        itu gas-gas tersebut pun dialirkan ke masing-masing kompor gas rumah tangga.
-                    </div>
-                    <div class="col-1"></div>
-                    <div class="col-5 gambar-sejarah" id="pakan-kulit-img"></div>
-                </div>
+            <div class="d-flex row konten-sejarah">
+                <h2 class="right">Menjadi <span class="teks-highlight">Limbah Sapi</span></h2>
             </div>
+            <div class="d-flex row">
+                <div class="col-6 isi-sejarah">
+                    Oleh karena kandungan proteinnya yang tinggi, limbah hasil pengolahan tempe digunakan untuk pakan sapi 
+                    untuk mengurangi limbah biologi pencemaran Sungai. Pertama, limbah hasil pengolahan tempe itu dikumpulkan melalui 
+                    tempat penggemukan sapi. Setelah itu, kotoran sapi yang dihasilkan akan dimasukkan reactor gas sehingga 
+                    terjadilah fermentasi anaerobic serta pengumpulan dan penyimpanan gas lalu akhirnya melalui selang-selang, setelah 
+                    itu gas-gas tersebut pun dialirkan ke masing-masing kompor gas rumah tangga.
+                </div>
+                <div class="col-1"></div>
+                <div class="col-5 gambar-sejarah" id="pakan-kulit-img"></div>
+            </div>
+        </div>
 
-            <div class="d-flex-row footerPage row">
-                <div class="subscriptionInput row">
-                    <div class="inginMendapat col-4">
-                        Ingin mendapatkan berita terbaru?
+        <div class="d-flex-row footerPage row">
+            <div class="subscriptionInput row">
+                <div class="inginMendapat col-4">
+                    Ingin mendapatkan berita terbaru?
+                </div>
+                <div class="emailSubInput col-6">
+                    <input class="inputEmail" type="text" id="emailSubscription" name="email"
+                        placeholder="Masukkan email anda...">
+                </div>
+                <div class="col-2">
+                    <input class="tombol" type="submit" value="Submit">
+                </div>
+            </div>
+            <div class="footerInformation row">
+                <div class="infoPurwo col-5">
+                    <div class="titleInfoPurwo">
+                        Purwoagung
                     </div>
-                    <div class="emailSubInput col-6">
-                        <input class="inputEmail" type="text" id="emailSubscription" name="email" placeholder="Masukkan email anda...">
+                    <div class="isiInfoPurwo">
+                        Kelurahan Purwantoro - Blimbing
                     </div>
-                    <div class="col-2">
-                        <input class="tombol" type="submit" value="Submit">
+                    <div class="isiInfoPurwo">
+                        Kota Malang - Jawa Timur
+                    </div>
+                    <div class="isiInfoPurwo2">
+                        Website Promosi KIM Purwoagung Kota Malang - Jawa Timur
                     </div>
                 </div>
-                <div class="footerInformation row">
-                    <div class="infoPurwo col-5">
-                        <div class="titleInfoPurwo">
-                            Purwoagung
-                        </div>
-                        <div class="isiInfoPurwo">
-                            Kelurahan Purwantoro - Blimbing
-                        </div>
-                        <div class="isiInfoPurwo">
-                            Kota Malang - Jawa Timur
-                        </div>
-                        <div class="isiInfoPurwo2">
-                            Website Promosi KIM Purwoagung Kota Malang - Jawa Timur
-                        </div>
+                <div class="infoKontak col-3">
+                    <div class="titleKontak">
+                        Kontak Kami
                     </div>
-                    <div class="infoKontak col-3">
-                        <div class="titleKontak">
-                            Kontak Kami
-                        </div>
-                        <div class="isiKontakKami">
-                            JL. Tembaga No 3.
-                        </div>
-                        <div class="isiKontakKami">
-                            Kode Pos 65122
-                        </div>
-                        <div class="isiKontakKami2">
-                            081936876545
-                        </div>
-                        <div class="isiKontakKami">
-                            kimpurwoagungkotamalang@gmail.com
-                        </div>
+                    <div class="isiKontakKami">
+                        JL. Tembaga No 3.
                     </div>
-                    <div class="infoMedsos col-3">
-                        <div class="titleMedsos">
-                            Media Sosial
-                        </div>
-                        <div class="isiMedsos">
-                            Instagram: @kimpurwoagung
-                        </div>
+                    <div class="isiKontakKami">
+                        Kode Pos 65122
+                    </div>
+                    <div class="isiKontakKami2">
+                        081936876545
+                    </div>
+                    <div class="isiKontakKami">
+                        kimpurwoagungkotamalang@gmail.com
+                    </div>
+                </div>
+                <div class="infoMedsos col-3">
+                    <div class="titleMedsos">
+                        Media Sosial
+                    </div>
+                    <div class="isiMedsos">
+                        Instagram: @kimpurwoagung
                     </div>
                 </div>
             </div>
+        </div>
 
     </main>
     <script>
