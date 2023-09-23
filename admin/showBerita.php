@@ -14,6 +14,24 @@ function getName($n = 10)
 
     return $randomString;
 }
+
+$dataPerHalaman = 1;
+$jmlData = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM berita"));
+$banyakHalaman = ceil($jmlData / $dataPerHalaman);
+$halamanAktif = ((isset($_GET["page"]))) ? $_GET["page"] : 1;
+$awalIndex = ($dataPerHalaman * $halamanAktif) - $dataPerHalaman;
+
+$queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $dataPerHalaman");
+
+// $keyword = $_POST['keyword'] ?? "";
+// $query = "SELECT * FROM berita 
+//     where 
+//     nama_artikel LIKE '%$keyword%' OR
+//     nama_penulis = '%$keyword%' LIMIT $limitData, $startIndex
+//     ;";
+
+// $queryBerita = mysqli_query($conn, $query);
+
 ?>
 
 <!DOCTYPE html>
@@ -225,7 +243,7 @@ function getName($n = 10)
                             <spa class="m-0 font-weight-bold text-primary">Data Event</spa>
                         </div>
                         <div class="card-body">
-                        
+
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -247,14 +265,14 @@ function getName($n = 10)
                                         </tr>
                                     </tfoot>
                                     <tbody>
-                                        <?php $queryEvent = mysqli_query($conn, "SELECT * FROM berita"); ?>
-                                        <?php if (mysqli_num_rows($queryEvent) == 0) : ?>
+
+                                        <?php if (mysqli_num_rows($queryBerita) == 0) : ?>
                                             <tr>
                                                 <td colspan="6" class="text-center">Tidak Ada Data</td>
                                             </tr>
                                         <?php else : ?>
                                             <?php $count = 1; ?>
-                                            <?php while ($row = mysqli_fetch_array($queryEvent)) : ?>
+                                            <?php while ($row = mysqli_fetch_array($queryBerita)) : ?>
                                                 <tr>
                                                     <td><?= $count; ?></td>
                                                     <td><?= $row['nama_artikel']; ?></td>
@@ -263,7 +281,7 @@ function getName($n = 10)
                                                     <td>
                                                         <a href="./detail-berita.php?wkwk=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
                                                         <!-- <a href="./delete-Kategori.php?wkwk=<?= $row['id']; ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a> -->
-                                                        
+
                                                     </td>
                                                     <?php $count++; ?>
 
@@ -273,14 +291,40 @@ function getName($n = 10)
 
                                     </tbody>
                                 </table>
+                                <nav aria-label="..." class="d-flex justify-content-end">
+                                    <ul class="pagination">
+                                        <?php if ($halamanAktif > 1) : ?>
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="?page= <?= $halamanAktif - 1 ?>">Previous</a>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php for ($i = 1; $i <= $banyakHalaman; $i++) : ?>
+                                            <?php if ($i == $halamanAktif) : ?>
+                                                <li class="page-item active">
+                                                    <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
+                                                </li>
+                                                <?php else : ?>
+                                                <li class="page-item">
+                                                    <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                
+                                        <?php if($halamanAktif < $banyakHalaman) :?>
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page= <?= $halamanAktif + 1 ?>">Next</a>
+                                        </li>
+                                        <?php endif;?>
+                                    </ul>
+                                </nav>
                             </div>
                         </div>
                     </div>
 
                 </div>
                 <!-- /.container-fluid -->
-              
-                
+
+
                 <!-- End of Main Content -->
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
