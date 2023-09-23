@@ -1,6 +1,19 @@
 <?php
 require './session.php';
 require_once('../conn.php');
+
+function getName($n = 10)
+{
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $randomString = '';
+
+    for ($i = 0; $i < $n; $i++) {
+        $index = rand(0, strlen($characters) - 1);
+        $randomString .= $characters[$index];
+    }
+
+    return $randomString;
+}
 ?>
 
 <!DOCTYPE html>
@@ -22,7 +35,7 @@ require_once('../conn.php');
 
     <!-- Custom styles for this template-->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="../fontAwesome/css/fontawesome.min.css">
 </head>
 
 <body id="page-top">
@@ -75,15 +88,29 @@ require_once('../conn.php');
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#produkOption" aria-expanded="true" aria-controls="produkOption">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#eventOption" aria-expanded="true" aria-controls="eventOption">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Produk</span>
+                    <span>Event</span>
                 </a>
-                <div id="produkOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Produk Options:</h6>
-                        <a class="collapse-item" href="showProduk.php">Show</a>
-                        <a class="collapse-item" href="cards.html">Add Produk</a>
+                        <h6 class="collapse-header">Event Options:</h6>
+                        <a class="collapse-item" href="showEvent.php">Show</a>
+                        <a class="collapse-item" href="addEvent.php">Add Event</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true" aria-controls="berita">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Berita</span>
+                </a>
+                <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Berita Options:</h6>
+                        <a class="collapse-item" href="showBerita.php">Show</a>
+                        <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
             </li>
@@ -198,10 +225,7 @@ require_once('../conn.php');
                             <spa class="m-0 font-weight-bold text-primary">Data Event</spa>
                         </div>
                         <div class="card-body">
-                        <!-- Button trigger modal -->
-                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addEvents">
-                        Add Event
-                        </button>
+                            <!-- Button trigger modal -->
                             <div class="table-responsive">
                                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                                     <thead>
@@ -257,91 +281,146 @@ require_once('../conn.php');
 
                 </div>
                 <!-- /.container-fluid -->
-            <!-- Modal -->
-            <div class="modal fade" id="addEvents" tabindex="-1" role="dialog" aria-labelledby="addEventsTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
-                            <div class="modal-content">
+                <!-- Modal -->
+                <div class="modal fade" id="addEvents" tabindex="-1" role="dialog" aria-labelledby="addEventsTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="eventModal">Add Event</h5>
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
+                                    <span aria-hidden="true">&times;</span>
                                 </button>
                             </div>
-                            <div class="modal-body">
-                                <label for="subject">Subject:</label>
-                                <input type="text" class="form-control" name="subject">
-                                <label for="categories">Categories:</label>
-                                <input type="text" class="form-control" name="categories">
-                                <label for="date">Date:</label>
-                                <input type="date" class="form-control" name="date">
-                                <label for="description">Description:</label>
-                                <textarea name="description" cols="1" rows="1" class="form-control"></textarea>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary">Add</button>
-                            </div>
+                            <form action="" method="POST" enctype="multipart/form-data">
+                                <div class="modal-body">
+                                    <label for="subject">Judul Berita:</label>
+                                    <input type="text" class="form-control" name="namaBerita">
+                                    <label for="categories">Nama Penulis:</label>
+                                    <input type="text" class="form-control" name="namaPenulis">
+                                    <!-- <label for="date">Date:</label>
+                                    <input type="date" class="form-control" name="date"> -->
+                                    <label for="description">Description:</label>
+                                    <textarea name="description" cols="10" rows="25" class="form-control"></textarea>
+
+                                    <label for="foto">Foto</label>
+                                    <input type="file" name="foto" id="foto" class="form-control">
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-primary" name="submitAdd">Add</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
-            <!-- End of Main Content -->
+                <!-- End of Main Content -->
+                <?php if (isset($_POST['submitAdd'])) {
 
-            <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
+                    $nama = htmlspecialchars($_POST['namaBerita']);
+                    $namaPenulis = htmlspecialchars($_POST['namaPenulis']);
+                    // $harga = htmlspecialchars($_POST['harga']);
+                    $detail = htmlspecialchars($_POST['description']);
+                    // $ketersediaan = htmlspecialchars($_POST['ketersediaan']);
+
+                    $target_dir = "../image/";
+                    $nama_file = basename($_FILES["foto"]["name"]);
+                    $target_file = $target_dir . $nama_file;
+                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+                    $size_file = $_FILES['foto']['size'];
+
+                    $randomString = getName(10);
+                    if ($nama == "" || $namaPenulis == "" || $detail == "") {
+                        echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
+                    } else {
+                        if ($nama_file != "") {
+                            if ($size_file > 5000000) {
+                                echo "<div class='alert alert-primary mt-3' role='alert'>foto tidak boleh dari 500kb</div>";
+                            } else {
+                                if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
+                                    echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
+                                } else {
+                                    if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
+                                        $queryExist = mysqli_query($conn, "SELECT * FROM berita WHERE nama_artikel='$nama'");
+                                        if (mysqli_num_rows($queryExist) > 0) {
+                                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
+                                        } else {
+                                            $file = $target_dir . $randomString . "." . $imageFileType;
+                                            $queryAdd = mysqli_query($conn, "INSERT INTO berita (nama_artikel, nama_penulis, foto, deskripsi) VALUES ('$nama', '$namaPenulis', '$file', '$detail')");
+                                            if ($queryAdd) {
+                                                echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
+                                                // untuk merefresh halaman
+                                                echo "<meta http-equiv='refresh' content='1.5; url=./showBerita.php'>";
+                                            } else {
+                                                echo mysqli_error($conn);
+                                            }
+                                        }
+                                    } else {
+                                        echo "<div class='alert alert-primary mt-3' role='alert'>Gagal Upload foto</div>";
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                ?>
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Your Website 2021</span>
+                        </div>
                     </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+                </footer>
+                <!-- End of Footer -->
+
+            </div>
+            <!-- End of Content Wrapper -->
 
         </div>
-        <!-- End of Content Wrapper -->
+        <!-- End of Page Wrapper -->
 
-    </div>
-    <!-- End of Page Wrapper -->
+        <!-- Scroll to Top Button-->
+        <a class="scroll-to-top rounded" href="#page-top">
+            <i class="fas fa-angle-up"></i>
+        </a>
 
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.php">Logout</a>
+        <!-- Logout Modal-->
+        <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                        <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">×</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                    <div class="modal-footer">
+                        <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                        <a class="btn btn-primary" href="login.php">Logout</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <!-- Bootstrap core JavaScript-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+        <script src="../fontAwesome/js/all.min.js"></script>
 
-    <!-- Core plugin JavaScript-->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+        <!-- Bootstrap core JavaScript-->
+        <script src="vendor/jquery/jquery.min.js"></script>
+        <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom scripts for all pages-->
-    <script src="js/sb-admin-2.min.js"></script>
+        <!-- Core plugin JavaScript-->
+        <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
-    <!-- Page level plugins -->
-    <script src="vendor/chart.js/Chart.min.js"></script>
+        <!-- Custom scripts for all pages-->
+        <script src="js/sb-admin-2.min.js"></script>
 
-    <!-- Page level custom scripts -->
-    <script src="js/demo/chart-area-demo.js"></script>
-    <script src="js/demo/chart-pie-demo.js"></script>
+        <!-- Page level plugins -->
+        <script src="vendor/chart.js/Chart.min.js"></script>
+
+        <!-- Page level custom scripts -->
+        <script src="js/demo/chart-area-demo.js"></script>
+        <script src="js/demo/chart-pie-demo.js"></script>
 
 </body>
 
