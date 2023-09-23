@@ -144,7 +144,7 @@
                                 <a class="dropdown-item" href="myprofile.php">My profile</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="logout.php">Logout</a>
+                                <a class="dropdown-item" href="login.php">Logout</a>
                             </li>
                         </ul>
                     </div>

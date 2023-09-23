@@ -123,6 +123,12 @@ $queryPesertaEvent = mysqli_query($conn, "SELECT * FROM peserta_event WHERE id_e
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="showPenjual.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Penjual</span>
+                </a>
+            </li>
 
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -253,10 +259,8 @@ $queryPesertaEvent = mysqli_query($conn, "SELECT * FROM peserta_event WHERE id_e
                                             <th>Nama Peserta</th>
                                             <th>No Telp</th>
                                             <th>Email</th>
-
                                         </tr>
                                     </thead>
-
                                     <tbody>
 
                                         <?php if (mysqli_num_rows($queryPesertaEvent) == 0) : ?>
@@ -271,7 +275,6 @@ $queryPesertaEvent = mysqli_query($conn, "SELECT * FROM peserta_event WHERE id_e
                                                     <td><?= $row['nama']; ?></td>
                                                     <td><?= $row['no_telp']; ?></td>
                                                     <td><?= $row['email']; ?></td>
-
                                                     <?php $count++; ?>
 
                                                 </tr>
