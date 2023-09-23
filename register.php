@@ -1,8 +1,6 @@
 <?php
-// session_start();
-// require_once('admin/conn.php');
-
-// ?> 
+require_once('conn.php');
+?> 
 
 <!DOCTYPE html>
 <html lang="en">
@@ -49,16 +47,24 @@
                                     <hr>
                                     <form class="user" method="POST" action="">
                                         <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="nama-lengkap" placeholder="Masukkan nama lengkap" name="nama-lengkap">
+                                            <input type="text" class="form-control form-control-user" id="namaPenjual" placeholder="Masukkan nama lengkap" name="namaPenjual">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="text" class="form-control form-control-user" id="namaToko" placeholder="Masukkan nama toko" name="namaToko">
+                                        </div>
+                                        <div class="form-group">
+                                            <input type="number" class="form-control form-control-user" id="telp" placeholder="Telp number" name="telp">
                                         </div>
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user" id="email" aria-describedby="emailHelp" placeholder="Masukkan alamat email" name="email">
                                         </div>
-                                        <div class="form-group">
-                                            <input type="text" class="form-control form-control-user" id="no-telpon" placeholder="Masukkan nomor handphone" name="nama-lengkap">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" class="form-control form-control-user" id="password" placeholder="Masukkan password" name="password">
+                                        <div class="form-group row">
+                                            <div class="col-sm-6 mb-3 mb-sm-0">
+                                                <input type="password" class="form-control form-control-user" id="password" placeholder="Password" name="password">
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <input type="password" class="form-control form-control-user" id="password2" placeholder="Repeat Password" name="password2">
+                                            </div>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-control custom-checkbox small">
@@ -74,40 +80,56 @@
                                     </form>
 
                                     <?php
+                            if (isset($_POST['submit'])) {
 
-                                    if (isset($_POST['submit'])) {
-                                        $email = htmlspecialchars($_POST['email']);
-                                        $password = htmlspecialchars($_POST['password']);
+                                $name_penjual = strtolower(stripslashes($_POST["namaPenjual"]));
+                                $name_toko = strtolower(stripslashes($_POST["namaToko"]));
+                                $telp = $_POST['telp'];
+                                $email = strtolower(stripslashes($_POST["email"]));
+                                $password = mysqli_real_escape_string($conn, $_POST["password"]);
+                                $password2 = mysqli_real_escape_string($conn, $_POST["password2"]);
+                                
+                                //cek username
+                                $result = mysqli_query($conn, "SELECT email FROM user WHERE email = '$email';");
 
-                                        $query = mysqli_query($conn, "SELECT * FROM user WHERE email='$email'");
-                                        $countData = mysqli_num_rows($query);
-                                        if ($countData > 0) {
-                                            $data = mysqli_fetch_array($query);
-                                            if (password_verify($password, $data['password'])) {
-                                                $_SESSION['username'] = $data['email'];
-                                                $_SESSION['login'] = true;
-                                                header("location: ./");
-                                            } else {
-                                                echo "<div class='alert alert-warning mt-4' role='alert'>
-            Username/Password salah
-        </div>";
-                                            }
-                                        } else {
+                                if (mysqli_fetch_assoc($result)) {
+                                    echo "<script>
+                                                alert('Username sudah terdaftar');
+                                        </script>";
+                                    header("Location: login.php");
+                                }
 
-                                    ?>
-                                            <div class="alert alert-warning" role="alert">
-                                                Username/Password salah
-                                            </div>
-                                    <?php
-                                        }
-                                    }
-                                    ?>
-                                    <div class="text-center mt-4">
-                                        <a class="small" href="forgot-password.html">Lupa Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="register.php">Sudah Punya Akun?</a>
-                                    </div>
+                                //cek password
+                                if ($password !== $password2) {
+                                    echo "<script>
+                                            alert('pasword tidak sesuai!');
+                                        </script>";
+                                }
+
+                                //enkripsi password
+                                $password = password_hash($password, PASSWORD_DEFAULT);
+
+                                //tambah user baru ke data base
+                                $qry = "INSERT INTO penjual (nama_penjual, nama_toko, no_hp, email, password) VALUES ('$name_penjual', '$name_toko', '$telp', '$email', '$password');";
+                                $query = mysqli_query($conn, $qry);
+
+                                if($query) {
+                                    header("Location: login.php");
+                                } else {
+                                    echo "<script>
+            alert('pasword tidak sesuai!');
+        </script>";
+                                }
+                            }
+
+                            ?>
+                            <hr>
+                            <div class="text-center">
+                                <a class="small" href="forgot-password.php">Forgot Password?</a>
+                            </div>
+                            <div class="text-center">
+                                <a class="small" href="login.php">Already have an account? Login!</a>
+                            </div>
                                 </div>
                             </div>
                         </div>

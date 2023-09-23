@@ -44,7 +44,7 @@ require_once("../conn.php");
                                     <input type="text" class="form-control form-control-user" id="name" placeholder="Full name" name="name">
                                 </div>
                                 <div class="form-group">
-                                    <input type="number" class="form-control form-control-user" id="name" placeholder="Telp number" name="telp">
+                                    <input type="number" class="form-control form-control-user" id="telp" placeholder="Telp number" name="telp">
                                 </div>
                                 <div class="form-group">
                                     <input type="email" class="form-control form-control-user" id="email" placeholder="Email Address" name="email">
