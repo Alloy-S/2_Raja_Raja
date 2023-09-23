@@ -22,8 +22,12 @@
     <link href="css/responsive.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
 
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -103,13 +107,15 @@
     <div class="coverTentangKami" id="bg">
         <div class="jumbotron">
             <div class="coverTulisan">
-                <div class="introCover d-flex justify-content-center row">
-                    <div class="col-2 titleKim">
+                <div class="introCover d-flex justify-content-center collapse row">
+                    <div class="col-lg-2"></div>
+                    <div class="col-lg-2 col-md-3 col-sm-5 titleKim">
                         KIM
                     </div>
-                    <div class="col-5 titlePurwo">
+                    <div class="col-lg-6 col-md-8 col-sm-10 titlePurwo">
                         Purwoagung
                     </div>
+                    <div class="col-lg-2"></div>
                 </div>
                 <div class="d-flex justify-content-center row">
                     <div class="col-6 align-items-center subtitleTentangKami">
@@ -129,15 +135,18 @@
             <div class="col-7 fotoSiapaKami">
                 <img class="imgSiapaKami" src="assets/images/fotosement.jpg">
             </div>
-            <div class="col-5 tulisanSiapaKami">
-                lkasjdlk alskdjlak alksdjlaknlaksd lakjsdlkasdlkadnn asljd aljnasdlka sdansd asdmnlajsndl asdljnasld
-                ascjlansldna sdlajsnd mmlaksjd
-                aslkdjalksdasdj laksdjl laksjd lk asdkjaksdklajsd liasj dlaksjdlak jdlkajs dlk jaskldjlkajd lkajs
-                lkjaslkdj lakjslkd jlkas jdlkja lajslkdjaksjdlak jdlka jdaklsdjlaksd kasjd askdjlad asdj laksdjl laksjd
-                lk asdkjaksdklajsd liasj dlaksjdlak jdlkajs dlk jaskldjlkajd lkajs lkjaslkdj lakjslkd jlkas jdlkja
-                lajslkdjaksjdlak jdlka jdaklsdjlaksd kasjd askdjlad
-                as;dka;sdklasdk;lakd;lakd;la
-                a;sldk;alksdjlaknlaksdasd;laskd;l ;kasd;kad ;lkasd ;k ;lk;alsdk ;lk ;laksdl;k ;lklkasdlk;asd
+            <div class="col-5 ">
+                <div class="tulisanSiapaKami">
+                    KIM adalah organisasi dari masyarakat, oleh masyarakat, untuk masyarakat. Tujuan utama KIM adalah
+                    untuk
+                    penyaluran informasi, baik antar masyarakat, dari masyarakat ke pemerintah, dan sebaliknya.
+                </div>
+                <div class="tulisanSiapaKami">
+                    KIM Purwoagung berfokus pada biogas. Mereka memegang kunci dalam penyebaran ilmu mengenai pengolahan
+                    limbah tempe sebagai pakan sapi, menjadi biogas dari limbah yang sapi hasilkan. Biogas yang
+                    dihasilkan terbukti memnghabiskan dana yang jauh lebih kecil daripada gas tabung umumnya. Kim
+                    Purwoagung menyediakan edukasi bagi desa desa yang berminat untuk menerapkan hal ini.
+                </div>
             </div>
         </div>
     </div>
@@ -152,7 +161,7 @@
             <div class="row penjelasanVisi">
                 Visi dari Komunitas Informasi Masyarakat Purwoagung adalah terwujudnya Komunitas Informasi Masyarakat
                 yang inovatif dalam meningkatkan nilai tambah bagi masyarakat melakui pendayagunaan informasi dan
-                komunikasi dalam rangka mencapai masyarakat informasi yang sejahtera
+                komunikasi dalam rangka mencapai masyarakat informasi yang sejahtera.
             </div>
         </div>
         <div class="col-6 Misi">
@@ -162,12 +171,12 @@
             <div class="row penjelasanMisi">
                 <ol>
                     <li>Meningkatkan peranan KIM dalam memperlancar arus informasi antar anggota masyarakat, antara
-                        pemerintah dengan masyarakat serta pemerintah dengan masyarakat</li>
+                        pemerintah dengan masyarakat serta pemerintah dengan masyarakat.</li>
                     <li>Meningkatkan kemampuan anggota KIM dan masyarakat dalam mengakses dan mengelola informasi untuk
                         mengatasi kesenjangan informasi.</li>
                     <li>Mengembangkan dan meningkatkan aktivitas KIM dalam mendayagunakan informasi guna meningkatkan
-                        nilai tambah bagi masyarakat dan menyerap serta menyalurkan aspirasi masyarakat</li>
-                    <li>Meningkatkan aktivitas KIM dalam menyerap dan menyalurkan aspirasi masyarakat</li>
+                        nilai tambah bagi masyarakat dan menyerap serta menyalurkan aspirasi masyarakat.</li>
+                    <li>Meningkatkan aktivitas KIM dalam menyerap dan menyalurkan aspirasi masyarakat.</li>
                     </li>
             </div>
         </div>
