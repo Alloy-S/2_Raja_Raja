@@ -108,14 +108,20 @@ $queryVarian = mysqli_query($conn, "SELECT * FROM varian LIMIT $awalIndex, $data
                     </div>
                 </div>
             </li>
-
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="showPenjual.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Penjual</span>
+                </a>
+            </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#">
+                <a class="nav-link collapsed" href="varian.php">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Varian</span>
                 </a>
             </li>
+
 
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -284,14 +290,6 @@ $queryVarian = mysqli_query($conn, "SELECT * FROM varian LIMIT $awalIndex, $data
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
-                                        <tfoot>
-                                            <tr>
-                                                <th>No</th>
-                                                <th>Nama Varian</th>
-                                                <th>foto</th>
-                                                <th>Action</th>
-                                            </tr>
-                                        </tfoot>
                                         <tbody>
 
                                             <?php if (mysqli_num_rows($queryVarian) == 0) : ?>
@@ -320,8 +318,8 @@ $queryVarian = mysqli_query($conn, "SELECT * FROM varian LIMIT $awalIndex, $data
                                     <nav aria-label="..." class="d-flex justify-content-end">
                                         <ul class="pagination">
                                             <?php if ($halamanAktif > 1) : ?>
-                                                <li class="page-item disabled">
-                                                    <a class="page-link" href="?page= <?= $halamanAktif - 1 ?>">Previous</a>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="?page=<?= $halamanAktif - 1 ?>">Previous</a>
                                                 </li>
                                             <?php endif; ?>
                                             <?php for ($i = 1; $i <= $banyakHalaman; $i++) : ?>
@@ -338,7 +336,7 @@ $queryVarian = mysqli_query($conn, "SELECT * FROM varian LIMIT $awalIndex, $data
 
                                             <?php if ($halamanAktif < $banyakHalaman) : ?>
                                                 <li class="page-item">
-                                                    <a class="page-link" href="?page= <?= $halamanAktif + 1 ?>">Next</a>
+                                                    <a class="page-link" href="?page=<?= $halamanAktif + 1 ?>">Next</a>
                                                 </li>
                                             <?php endif; ?>
                                         </ul>

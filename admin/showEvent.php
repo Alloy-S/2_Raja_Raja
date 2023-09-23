@@ -115,6 +115,13 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="varian.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Varian</span>
+                </a>
+            </li>
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -254,8 +261,8 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
                                 <nav aria-label="..." class="d-flex justify-content-end">
                                     <ul class="pagination">
                                         <?php if ($halamanAktif > 1) : ?>
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="?page= <?= $halamanAktif - 1 ?>">Previous</a>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=<?= $halamanAktif - 1 ?>">Previous</a>
                                             </li>
                                         <?php endif; ?>
                                         <?php for ($i = 1; $i <= $banyakHalaman; $i++) : ?>
@@ -272,7 +279,7 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
 
                                         <?php if ($halamanAktif < $banyakHalaman) : ?>
                                             <li class="page-item">
-                                                <a class="page-link" href="?page= <?= $halamanAktif + 1 ?>">Next</a>
+                                                <a class="page-link" href="?page=<?= $halamanAktif + 1 ?>">Next</a>
                                             </li>
                                         <?php endif; ?>
                                     </ul>

@@ -89,15 +89,14 @@ function getName($n = 10)
                 <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Event Options:</h6>
-                        <a class="collapse-item" href="showProduk.php">Show Event</a>
-                        <a class="collapse-item" href="cards.html">Add Event</a>
+                        <a class="collapse-item" href="showEvent.php">Show Event</a>
+                        <a class="collapse-item" href="addEvent.php">Add Event</a>
                     </div>
                 </div>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true"
-                    aria-controls="berita">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#berita" aria-expanded="true" aria-controls="berita">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Berita</span>
                 </a>
@@ -115,14 +114,14 @@ function getName($n = 10)
                     <span>Penjual</span>
                 </a>
             </li>
+
             <li class="nav-item">
                 <a class="nav-link collapsed" href="varian.php">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Varian</span>
                 </a>
             </li>
-
-
+            
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>

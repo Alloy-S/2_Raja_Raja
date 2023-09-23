@@ -99,7 +99,7 @@ $queryPenjual = mysqli_query($conn, "SELECT * FROM penjual LIMIT $awalIndex, $da
                 <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Event Options:</h6>
-                        <a class="collapse-item" href="showEvent.php">Show</a>
+                        <a class="collapse-item" href="showEvent.php">Show Event</a>
                         <a class="collapse-item" href="addEvent.php">Add Event</a>
                     </div>
                 </div>
@@ -113,7 +113,7 @@ $queryPenjual = mysqli_query($conn, "SELECT * FROM penjual LIMIT $awalIndex, $da
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="showBerita.php">Show</a>
+                        <a class="collapse-item" href="showBerita.php">Show Berita</a>
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
@@ -122,6 +122,13 @@ $queryPenjual = mysqli_query($conn, "SELECT * FROM penjual LIMIT $awalIndex, $da
                 <a class="nav-link collapsed" href="showPenjual.php">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Penjual</span>
+                </a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="varian.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Varian</span>
                 </a>
             </li>
 
@@ -266,8 +273,8 @@ $queryPenjual = mysqli_query($conn, "SELECT * FROM penjual LIMIT $awalIndex, $da
                                 <nav aria-label="..." class="d-flex justify-content-end">
                                     <ul class="pagination">
                                         <?php if ($halamanAktif > 1) : ?>
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="?page= <?= $halamanAktif - 1 ?>">Previous</a>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=<?= $halamanAktif - 1 ?>">Previous</a>
                                             </li>
                                         <?php endif; ?>
                                         <?php for ($i = 1; $i <= $banyakHalaman; $i++) : ?>
@@ -275,18 +282,18 @@ $queryPenjual = mysqli_query($conn, "SELECT * FROM penjual LIMIT $awalIndex, $da
                                                 <li class="page-item active">
                                                     <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
                                                 </li>
-                                                <?php else : ?>
+                                            <?php else : ?>
                                                 <li class="page-item">
                                                     <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
                                                 </li>
                                             <?php endif; ?>
                                         <?php endfor; ?>
-                
-                                        <?php if($halamanAktif < $banyakHalaman) :?>
-                                        <li class="page-item">
-                                            <a class="page-link" href="?page= <?= $halamanAktif + 1 ?>">Next</a>
-                                        </li>
-                                        <?php endif;?>
+
+                                        <?php if ($halamanAktif < $banyakHalaman) : ?>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=<?= $halamanAktif + 1 ?>">Next</a>
+                                            </li>
+                                        <?php endif; ?>
                                     </ul>
                                 </nav>
                             </div>

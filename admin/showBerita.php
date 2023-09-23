@@ -125,6 +125,13 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="varian.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Varian</span>
+                </a>
+            </li>
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -265,8 +272,8 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
                                 <nav aria-label="..." class="d-flex justify-content-end">
                                     <ul class="pagination">
                                         <?php if ($halamanAktif > 1) : ?>
-                                            <li class="page-item disabled">
-                                                <a class="page-link" href="?page= <?= $halamanAktif - 1 ?>">Previous</a>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=<?= $halamanAktif - 1 ?>">Previous</a>
                                             </li>
                                         <?php endif; ?>
                                         <?php for ($i = 1; $i <= $banyakHalaman; $i++) : ?>
@@ -274,18 +281,18 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
                                                 <li class="page-item active">
                                                     <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
                                                 </li>
-                                                <?php else : ?>
+                                            <?php else : ?>
                                                 <li class="page-item">
                                                     <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
                                                 </li>
                                             <?php endif; ?>
                                         <?php endfor; ?>
-                
-                                        <?php if($halamanAktif < $banyakHalaman) :?>
-                                        <li class="page-item">
-                                            <a class="page-link" href="?page= <?= $halamanAktif + 1 ?>">Next</a>
-                                        </li>
-                                        <?php endif;?>
+
+                                        <?php if ($halamanAktif < $banyakHalaman) : ?>
+                                            <li class="page-item">
+                                                <a class="page-link" href="?page=<?= $halamanAktif + 1 ?>">Next</a>
+                                            </li>
+                                        <?php endif; ?>
                                     </ul>
                                 </nav>
                             </div>

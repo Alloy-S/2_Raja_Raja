@@ -140,6 +140,13 @@ $queryFotoEvent = mysqli_query($conn, "SELECT * FROM foto_event WHERE id_event='
                 </a>
             </li>
 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="varian.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Varian</span>
+                </a>
+            </li>
+
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">

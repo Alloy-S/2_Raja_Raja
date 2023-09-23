@@ -11,6 +11,9 @@ $jmlEvent = mysqli_num_rows($event);
 
 $penjual = mysqli_query($conn, "SELECT * FROM penjual");
 $jmlPenjual = mysqli_num_rows($penjual);
+
+$varian = mysqli_query($conn, "SELECT * FROM varian");
+$jmlVarian = mysqli_num_rows($varian);
 ?>
 
 <!DOCTYPE html>
@@ -61,11 +64,6 @@ $jmlPenjual = mysqli_num_rows($penjual);
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="event.php">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Events</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -84,7 +82,7 @@ $jmlPenjual = mysqli_num_rows($penjual);
                 <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Event Options:</h6>
-                        <a class="collapse-item" href="showEvent.php">Show</a>
+                        <a class="collapse-item" href="showEvent.php">Show Event</a>
                         <a class="collapse-item" href="addEvent.php">Add Event</a>
                     </div>
                 </div>
@@ -98,23 +96,22 @@ $jmlPenjual = mysqli_num_rows($penjual);
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="showBerita.php">Show</a>
+                        <a class="collapse-item" href="showBerita.php">Show Berita</a>
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="showPenjual.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Penjual</span>
+                </a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link collapsed" href="varian.php">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Varian</span>
-                </a>
-            </li>
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#penjual" aria-expanded="true" aria-controls="">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Penjual</span>
                 </a>
             </li>
 
@@ -214,7 +211,7 @@ $jmlPenjual = mysqli_num_rows($penjual);
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Jumlah Berita -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
@@ -233,7 +230,7 @@ $jmlPenjual = mysqli_num_rows($penjual);
                             </div>
                         </div>
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Jumlah Event -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
@@ -253,13 +250,13 @@ $jmlPenjual = mysqli_num_rows($penjual);
                             </div>
                         </div>
 
-                        <!-- Earnings (Monthly) Card Example -->
+                        <!-- Jumlah Penjual -->
                         <div class="col-xl-3 col-md-6 mb-4">
                             <div class="card border-left-info shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Penjual
+                                            <div class="text-xs font-weight-bold text-info text-uppercase mb-1">Jumlah Penjual
                                             </div>
                                             <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800"><?= $jmlPenjual; ?></div>
                                         </div>
@@ -271,18 +268,37 @@ $jmlPenjual = mysqli_num_rows($penjual);
                             </div>
                         </div>
 
-                    <!-- Bar Chart -->
-                    <div class="card shadow mb-4">
-                                <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
-                                </div>
+                        <!-- Varians item -->
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card border-left-warning shadow h-100 py-2">
                                 <div class="card-body">
-                                    <div class="chart-bar">
-                                        <canvas id="myBarChart"></canvas>
-                                    </div>  
+                                    <div class="row no-gutters align-items-center">
+                                        <div class="col mr-2">
+                                            <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
+                                                Varians</div>
+                                            <div class="h5 mb-0 font-weight-bold text-gray-800"><?= $jmlVarian; ?></div>
+                                        </div>
+                                        <div class="col-auto">
+                                            <i class="fas fa-comments fa-2x text-gray-300"></i>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                </div>
+                        </div>
+                    </div>
+
+                    <!-- Bar Chart -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <h6 class="m-0 font-weight-bold text-primary">Bar Chart</h6>
+                        </div>
+                            <div class="card-body">
+                                <div class="chart-bar">
+                                    <canvas id="myBarChart"></canvas>
+                                </div>  
+                            </div>
+                        </div>
+                    </div>
                 <!-- /.container-fluid -->
 
             </div>
