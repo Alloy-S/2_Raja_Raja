@@ -1,25 +1,23 @@
 // Set new default font family and font color to mimic Bootstrap's default styling
 Chart.defaults.global.defaultFontFamily = 'Nunito', '-apple-system,system-ui,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif';
 Chart.defaults.global.defaultFontColor = '#858796';
-
 function number_format_people(number) {
     // Contoh: number_format_people(75) akan mengembalikan '75 orang'
     return number + ' orang';
   }
   
-
 // Bar Chart Example
 var ctx = document.getElementById("myBarChart");
 var myBarChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["January", "February", "March", "April", "May", "June"],
+    labels: ["Sept 2020", "Sept 2021", "Sept 2022", "Sept 2023"],
     datasets: [{
       label: "Jumlah Orang",
       backgroundColor: "#4e73df",
       hoverBackgroundColor: "#2e59d9",
       borderColor: "#4e73df",
-      data: [30, 30, 30, 30, 30, 30], // Ubah data sesuai dengan jumlah orang yang ingin ditampilkan
+      data: [53, 53, 53, 0], // Ubah data sesuai dengan jumlah orang yang ingin ditampilkan
     }],
   },
   options: {

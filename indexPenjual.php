@@ -35,10 +35,13 @@
                         <a class="nav-link" href="editItem.php">Daftarkan Item</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="editLimbah.php">Daftarkan Limbah</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="editProfile.php">Edit Profile</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tentang-kami.php">Log Out</a>
+                        <a class="nav-link" href="index.php">Log Out</a>
                     </li>
                 </ul>
             </div>
@@ -56,14 +59,14 @@
             <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah1">
                 <div class="row ">
                     <div class="col-5">
-                        <img class="fotoItem" src="image/amber.jpg" alt="foto limbah">
+                        <img class="fotoItem" src="assets/images/produk1.jpg.jpeg" alt="foto produk">
                     </div>
                     <div class="col-7 container penjelasanItem">
                         <div class="namaItem">Keripik Tempe</div>
-                        <div class="toko">Uniqlo</div>
+                        <div class="toko">Pusat Grosir dan Oleh Oleh khas Malang</div>
                         <hr>
                         <div class="descItem">Deskripsi:</div>
-                        <div class="descItem">Keripik yang terbuat dari kentang</div>
+                        <div class="descItem">Keripik yang terbuat dari tempe</div>
                     </div>
                 </div>
             </button>
@@ -73,14 +76,14 @@
             <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#limbah1">
                 <div class="row ">
                     <div class="col-5">
-                        <img class="fotoItem" src="image/amber.jpg" alt="foto limbah">
+                        <img class="fotoItem" src="assets/images/produk2.jpg.jpeg" alt="foto limbah">
                     </div>
                     <div class="col-7 container penjelasanItem">
-                        <div class="namaItem">Keripik Tempe2</div>
-                        <div class="toko">Uniqlo</div>
+                        <div class="namaItem">Keripik Tempe Cokelat</div>
+                        <div class="toko">Pusat Oleh Oleh khas Malang</div>
                         <hr>
                         <div class="descItem">Deskripsi:</div>
-                        <div class="descItem">Keripik yang terbuat dari Ayam</div>
+                        <div class="descItem">Keripik yang terbuat dari tempe. Memiliki rasa cokelat yang unik</div>
                     </div>
                 </div>
             </button>

@@ -132,6 +132,12 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="showPenjual.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Penjual</span>
+                </a>
+            </li>
 
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -255,15 +261,6 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                        <th>id</th>
-                                            <th>Nama Artikel</th>
-                                            <th>Nama Penulis</th>
-                                            <th>Tanggal Penulisan</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
 
                                         <?php if (mysqli_num_rows($queryBerita) == 0) : ?>

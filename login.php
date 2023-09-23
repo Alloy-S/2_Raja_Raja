@@ -73,7 +73,7 @@ require_once('./conn.php');
                                         $email = htmlspecialchars($_POST['email']);
                                         $password = htmlspecialchars($_POST['password']);
 
-                                        $query = mysqli_query($conn, "SELECT * FROM user WHERE email='$email'");
+                                        $query = mysqli_query($conn, "SELECT * FROM penjual WHERE email='$email'");
                                         $countData = mysqli_num_rows($query);
                                         if ($countData > 0) {
                                             $data = mysqli_fetch_array($query);
@@ -83,8 +83,8 @@ require_once('./conn.php');
                                                 header("location: ./");
                                             } else {
                                                 echo "<div class='alert alert-warning mt-4' role='alert'>
-            Username/Password salah
-        </div>";
+                                                        Username/Password salah
+                                                    </div>";
                                             }
                                         } else {
 

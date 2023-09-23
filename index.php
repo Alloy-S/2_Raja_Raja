@@ -13,7 +13,7 @@
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
         crossorigin="anonymous"></script>
 
-    <link rel="stylesheet" href="./fontAwesome/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <!-- graf -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js">
     </script>
@@ -78,7 +78,6 @@
 </head>
 
 <body>
-    <div id="pengumuman">Pengumuman</div>
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="navbar-content container-fluid">
@@ -106,7 +105,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="berita.php">Berita</a></li>
-                            <li><a class="dropdown-item" href="#">Event</a></li>
+                            <li><a class="dropdown-item" href="event.php">Event</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -144,7 +143,7 @@
                                 <a class="dropdown-item" href="myprofile.php">My profile</a>
                             </li>
                             <li>
-                                <a class="dropdown-item" href="logout.php">Logout</a>
+                                <a class="dropdown-item" href="login.php">Logout</a>
                             </li>
                         </ul>
                     </div>
@@ -199,11 +198,11 @@
                         <input type="number" name="investast" id="investasi" class="form-control">
                     </div>
                     <div class="mb-4">
-                        <label for="penggunaan" class="form-label">Penggunaan Gas per bulan (KG)</label>
+                        <label for="penggunaan" class="form-label">Penggunaan Gas per bulan (Kg)</label>
                         <input type="number" name="penggunaan" id="penggunaan" class="form-control">
                     </div>
                     <div class="mb-4">
-                        <label for="jmlBulan" class="form-label">Total Penggunaan Biogas(jumlah Bulan)</label>
+                        <label for="jmlBulan" class="form-label">Total Penggunaan Biogas (jumlah Bulan)</label>
                         <input type="number" name="jmlBulan" id="jmlBulan" class="form-control">
                     </div>
                     <div class="mb-4">

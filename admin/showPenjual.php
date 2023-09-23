@@ -132,6 +132,12 @@ $queryPenjual = mysqli_query($conn, "SELECT * FROM penjual LIMIT $awalIndex, $da
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="showPenjual.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Penjual</span>
+                </a>
+            </li>
 
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -253,18 +259,9 @@ $queryPenjual = mysqli_query($conn, "SELECT * FROM penjual LIMIT $awalIndex, $da
                                             <th>Nama Toko</th>
                                             <th>No HP</th>
                                             <th>Email</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Penjual</th>
-                                            <th>Nama Toko</th>
-                                            <th>No HP</th>
-                                            <th>Email</th>
-                                        </tr>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                         <?php if (mysqli_num_rows($queryPenjual) == 0) : ?>
                                             <tr>
@@ -279,7 +276,6 @@ $queryPenjual = mysqli_query($conn, "SELECT * FROM penjual LIMIT $awalIndex, $da
                                                     <td><?= $row['nama_toko']; ?></td>
                                                     <td><?= $row['no_hp']; ?></td>
                                                     <td><?= $row['email']; ?></td>
-                                                    <th>Action</th>
                                                     <td>
                                                         <a href="./detail-penjual.php?wkwk=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
                                                         <!-- <a href="./delete-Kategori.php?wkwk=<?= $row['id']; ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a> -->

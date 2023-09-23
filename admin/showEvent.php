@@ -122,6 +122,12 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
                     </div>
                 </div>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="showPenjual.php">
+                    <i class="fas fa-fw fa-cog"></i>
+                    <span>Penjual</span>
+                </a>
+            </li>
 
 
             <!-- Sidebar Toggler (Sidebar) -->
@@ -245,15 +251,6 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>Foto Event</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                         
                                         <?php if (mysqli_num_rows($queryEvent) == 0) : ?>

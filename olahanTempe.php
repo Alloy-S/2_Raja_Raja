@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="olahanTempe.css" />
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="tentangKamiStyle.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 </head>
@@ -17,7 +18,7 @@
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg bg-white fixed-top">
         <div class="navbar-content container-fluid">
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="index.php">
                 <img src="assets/images/logo-kim-purwoagung-removebg-preview.png" alt="Logo" width="80" height="60"
                     class="d-inline-block align-text-top">
             </a>
@@ -44,33 +45,35 @@
                             <li><a class="dropdown-item" href="event.php">Event</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item active dropdown">
-                        <a class="nav-link active dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle active" href="#" role="button" data-bs-toggle="dropdown"
                             aria-expanded="false">
                             Tempe
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="limbahTempe.php">Limbah Tempe</a></li>
-                            <li><a class="dropdown-item" href="olahanTempe.php">Olahan Tempe</a></li>
+                            <li><a class="dropdown-item" href="#">Olahan Tempe</a></li>
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search" id="search-bar">
-                    <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Cari" aria-label="Cari"
-                            aria-describedby="button-addon2">
-                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
-                    </div>
-                </form>
+
+                <!-- Search -->
+                <div class="d-flex align-items-center">
+                    <form class="" role="search" id="search-bar">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Cari" aria-label="cari"
+                                aria-describedby="button-addon2">
+                            <button class="btn btn-outline-secondary" type="button" id="cari" name="cari">Cari</button>
+                        </div>
+                    </form>
+                </div>
 
                 <!-- Profile -->
                 <div class="d-flex justify-content-end" id="logo-dropdown">
                     <div class="dropdown d-flex justify-content-end">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow" href="#"
-                            id="navbarDropdownMenuAvatar" role="button" data-mdb-toggle="dropdown"
-                            aria-expanded="false">
-                            <img src="assets/images/anonymous.jpg" class="rounded-circle" height="60" alt="Profile"
-                                loading="lazy" />
+                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow round-logo" href="#"
+                            id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fa-regular fa-user fa-2x"></i>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
                             <li>
@@ -96,10 +99,10 @@
 
         <div class="col-12 col-sm-6 col-md-5 col-lg-4">
             <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#produk1">
-                <img class="fotoProduk" src="image/amber.jpg" alt="foto produk">
+                <img class="fotoProduk" src="assets/images/produk1.jpg.jpeg" alt="foto produk">
                 <div class="container penjelasanProduk">
                     <div class="namaProduk">Keripik Tempe</div>
-                    <div class="merk">Cap Mawar</div>
+                    <div class="merk">fajarmass</div>
                 </div>
 
             </button>
@@ -117,19 +120,18 @@
                     </div>
                     <div class="row modal-body">
                         <div class="col-6">
-                            <img class="fotoProduk" src="image/amber.jpg" alt="foto produk">
+                            <img class="fotoProduk" src="assets/images/produk1.jpg.jpeg" alt="foto produk">
                         </div>
                         <div class="col-6 penjelasanProdukModal">
                             <div class="namaProduk">Keripik Tempe</div>
-                            <div class="merk">Cap Mawar</div>
+                            <div class="merk">fajarmass</div>
                             <hr>
                             <div class="descProduk">
-                                Keripik dari kentang
+                                Keripik yang terbuat dari tempe
                             </div>
                             <hr>
                             <div class="infoKontak">
                                 <div>Nomor WA: 081234567890</div>
-                                <div>Alamat Penjual: Malang, Blok 123</div>
                                 <div>Email: penjual@gmail.com</div>
                             </div>
                         </div>
@@ -142,17 +144,17 @@
         </div>
 
         <div class="col-12 col-sm-6 col-md-5 col-lg-4">
-            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#produk1">
-                <img class="fotoProduk" src="image/amber.jpg" alt="foto produk">
+            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#produk2">
+                <img class="fotoProduk" src="assets/images/produk2.jpg.jpeg" alt="foto produk">
                 <div class="container penjelasanProduk">
-                    <div class="namaProduk">Keripik Tempe</div>
-                    <div class="merk">Cap Mawar</div>
+                    <div class="namaProduk">Keripik Tempe Cokelat</div>
+                    <div class="merk">fajarmass</div>
                 </div>
 
             </button>
         </div>
 
-        <div class="modal fade" id="produk1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="produk2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
@@ -164,19 +166,18 @@
                     </div>
                     <div class="row modal-body">
                         <div class="col-6">
-                            <img class="fotoProduk" src="image/amber.jpg" alt="foto produk">
+                            <img class="fotoProduk" src="assets/images/produk2.jpg.jpeg" alt="foto produk">
                         </div>
                         <div class="col-6 penjelasanProdukModal">
-                            <div class="namaProduk">Keripik Tempe</div>
-                            <div class="merk">Cap Mawar</div>
+                            <div class="namaProduk">Keripik Tempe Cokelat</div>
+                            <div class="merk">fajarmass</div>
                             <hr>
                             <div class="descProduk">
-                                Keripik dari kentang
+                                Keripik yang terbuat dari tempe. Memiliki rasa cokelat yang unik
                             </div>
                             <hr>
                             <div class="infoKontak">
                                 <div>Nomor WA: 081234567890</div>
-                                <div>Alamat Penjual: Malang, Blok 123</div>
                                 <div>Email: penjual@gmail.com</div>
                             </div>
                         </div>
@@ -186,16 +187,6 @@
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-5 col-lg-4">
-            <button class="btn cardd" data-bs-toggle="modal" data-bs-target="#produk1">
-                <img class="fotoProduk" src="image/amber.jpg" alt="foto produk">
-                <div class="container penjelasanProduk">
-                    <div class="namaProduk">Keripik Tempe</div>
-                    <div class="merk">Cap Mawar</div>
-                </div>
-
-            </button>
         </div>
 
         <div class="d-flex justify-content-center row pendaftaranPenjualProduk">

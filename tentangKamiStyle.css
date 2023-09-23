@@ -162,7 +162,7 @@
 
 #bg {
     margin-top: -120px;
-    background-image: url(assets/images/fotosement.jpg);
+    background-image: url(assets/images/fotoPageTtg.jpeg);
     background-size: cover;
     opacity: 1;
     padding-top: 111px;
@@ -170,4 +170,8 @@
     height: 105vh;
     background-repeat: no-repeat;
     background-position: center top;
+}
+
+.divKalk{
+    margin-top: 100vh;
 }
