@@ -245,15 +245,6 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>Foto Event</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
                                         
                                         <?php if (mysqli_num_rows($queryEvent) == 0) : ?>

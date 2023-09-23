@@ -256,14 +256,7 @@ $queryPesertaEvent = mysqli_query($conn, "SELECT * FROM peserta_event WHERE id_e
 
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>No</th>
-                                            <th>Nama Peserta</th>
-                                            <th>No Telp</th>
-                                            <th>Email</th>
-                                        </tr>
-                                    </tfoot>
+
                                     <tbody>
 
                                         <?php if (mysqli_num_rows($queryPesertaEvent) == 0) : ?>

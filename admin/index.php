@@ -119,7 +119,7 @@ $jmlPenjual = mysqli_num_rows($penjual);
             </li>
 
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#penjual" aria-expanded="true" aria-controls="">
+                <a class="nav-link collapsed" href="showPenjual.php">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Penjual</span>
                 </a>

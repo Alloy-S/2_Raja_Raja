@@ -255,15 +255,6 @@ $queryBerita = mysqli_query($conn, "SELECT * FROM berita LIMIT $awalIndex, $data
                                             <th>Action</th>
                                         </tr>
                                     </thead>
-                                    <tfoot>
-                                        <tr>
-                                        <th>id</th>
-                                            <th>Nama Artikel</th>
-                                            <th>Nama Penulis</th>
-                                            <th>Tanggal Penulisan</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
                                     <tbody>
 
                                         <?php if (mysqli_num_rows($queryBerita) == 0) : ?>
