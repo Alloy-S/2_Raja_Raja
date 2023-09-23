@@ -14,58 +14,64 @@
     <!-- fonts style -->
     <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700&display=swap" rel="stylesheet" />
 
-        <!-- font awesome style -->
-        <link href="css/font-awesome.min.css" rel="stylesheet" />
-        <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="tentangKamiStyle.css" />
-        <!-- responsive style -->
-        <link href="css/responsive.css" rel="stylesheet" />
-    </head>
+    <!-- font awesome style -->
+    <link href="css/font-awesome.min.css" rel="stylesheet" />
+    <!-- Custom styles for this template -->
+    <link rel="stylesheet" href="tentangKamiStyle.css" />
+    <!-- responsive style -->
+    <link href="css/responsive.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+</head>
 
-    <body>
-        <!-- navbar -->
-        <nav class="navbar navbar-expand-lg bg-dark fixed-top">
-            <div class="navbar-content container-fluid">
-                <a class="navbar-brand" href="index.php">
-                    <img src="..." alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-                    KIM Purwoagung
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+<body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg bg-white fixed-top">
+        <div class="navbar-content container-fluid">
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/logo-kim-purwoagung-removebg-preview.png" alt="Logo" width="80" height="60"
+                    class="d-inline-block align-text-top">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link" aria-current="page" href="index.php">Biogas</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="#">Tentang Kami</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Berita & Event
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Berita</a></li>
-                                <li><a class="dropdown-item" href="#">Event</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Tempe
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Limbah Tempe</a></li>
-                                <li><a class="dropdown-item" href="#">Olahan Tempe</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                    <form class="d-flex" role="search" id="search-bar">
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control" placeholder="Cari" aria-label="Cari" aria-describedby="button-addon2">
-                            <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
-                        </div>
-                    </form>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" href="index.php">Biogas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="tentang-kami.php">Tentang Kami</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Berita & Event
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="berita.php">Berita</a></li>
+                            <li><a class="dropdown-item" href="#">Event</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Tempe
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="limbahTempe.php">Limbah Tempe</a></li>
+                            <li><a class="dropdown-item" href="olahanTempe.php">Olahan Tempe</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search" id="search-bar">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Cari" aria-label="Cari"
+                            aria-describedby="button-addon2">
+                        <button class="btn btn-outline-secondary" type="button" id="button-addon2">Cari</button>
+                    </div>
+                </form>
 
                 <!-- Profile -->
                 <div class="d-flex justify-content-end" id="logo-dropdown">
@@ -89,20 +95,23 @@
             </div>
         </div>
     </nav>
+    </nav>
 
-    <div class="coverTentangKami">
-        <div class="coverTulisan">
-            <div class="introCover row">
-                <div class="col-4 titleKim">
-                    KIM
+    <div class="coverTentangKami" id="bg">
+        <div class="jumbotron">
+            <div class="coverTulisan">
+                <div class="introCover d-flex justify-content-center row">
+                    <div class="col-2 titleKim">
+                        KIM
+                    </div>
+                    <div class="col-5 titlePurwo">
+                        Purwoagung
+                    </div>
                 </div>
-                <div class="col-5 titlePurwo">
-                    Purwoagung
-                </div>
-            </div>
-            <div class="row">
-                <div class="subtitleTentangKami">
-                    Kelurahan Purwantoro - Malang
+                <div class="d-flex justify-content-center row">
+                    <div class="col-6 align-items-center subtitleTentangKami">
+                        Kelurahan Purwantoro - Malang
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,7 +124,7 @@
         <hr class="lineSiap">
         <div class="row penjelasanSiapaKami">
             <div class="col-7 fotoSiapaKami">
-                <img src="amber.jpg">
+                <img class="imgSiapaKami" src="assets/images/fotosement.jpg">
             </div>
             <div class="col-5 tulisanSiapaKami">
                 lkasjdlk alskdjlak alksdjlaknlaksd lakjsdlkasdlkadnn asljd aljnasdlka sdansd asdmnlajsndl asdljnasld
@@ -130,7 +139,7 @@
         </div>
     </div>
 
-    
+
 
     <div class="row visiMisi">
         <div class="col-6 Visi">
@@ -138,12 +147,9 @@
                 Visi
             </div>
             <div class="row penjelasanVisi">
-                asdj laksdjl laksjd lk asdkjaksdklajsd liasj dlaksjdlak jdlkajs dlk jaskldjlkajd lkajs lkjaslkdj
-                lakjslkd jlkas jdlkja lajslkdjaksjdlak jdlka jdaklsdjlaksd kasjd askdjlad asdj laksdjl laksjd lk
-                asdkjaksdklajsd liasj dlaksjdlak jdlkajs dlk jaskldjlkajd lkajs lkjaslkdj lakjslkd jlkas jdlkja
-                lajslkdjaksjdlak jdlka jdaklsdjlaksd kasjd askdjlad asdj laksdjl laksjd lk asdkjaksdklajsd liasj
-                dlaksjdlak jdlkajs dlk jaskldjlkajd lkajs lkjaslkdj lakjslkd jlkas jdlkja lajslkdjaksjdlak jdlka
-                jdaklsdjlaksd kasjd askdjlad
+                Visi dari Komunitas Informasi Masyarakat Purwoagung adalah terwujudnya Komunitas Informasi Masyarakat
+                yang inovatif dalam meningkatkan nilai tambah bagi masyarakat melakui pendayagunaan informasi dan
+                komunikasi dalam rangka mencapai masyarakat informasi yang sejahtera
             </div>
         </div>
         <div class="col-6 Misi">
@@ -151,12 +157,15 @@
                 Misi
             </div>
             <div class="row penjelasanMisi">
-                asdj laksdjl laksjd lk asdkjaksdklajsd liasj dlaksjdlak jdlkajs dlk jaskldjlkajd lkajs lkjaslkdj
-                lakjslkd jlkas jdlkja lajslkdjaksjdlak jdlka jdaklsdjlaksd kasjd askdjlad asdj laksdjl laksjd lk
-                asdkjaksdklajsd liasj dlaksjdlak jdlkajs dlk jaskldjlkajd lkajs lkjaslkdj lakjslkd jlkas jdlkja
-                lajslkdjaksjdlak jdlka jdaklsdjlaksd kasjd askdjlad asdj laksdjl laksjd lk asdkjaksdklajsd liasj
-                dlaksjdlak jdlkajs dlk jaskldjlkajd lkajs lkjaslkdj lakjslkd jlkas jdlkja lajslkdjaksjdlak jdlka
-                jdaklsdjlaksd kasjd askdjlad
+                <ol>
+                    <li>Meningkatkan peranan KIM dalam memperlancar arus informasi antar anggota masyarakat, antara
+                        pemerintah dengan masyarakat serta pemerintah dengan masyarakat</li>
+                    <li>Meningkatkan kemampuan anggota KIM dan masyarakat dalam mengakses dan mengelola informasi untuk
+                        mengatasi kesenjangan informasi.</li>
+                    <li>Mengembangkan dan meningkatkan aktivitas KIM dalam mendayagunakan informasi guna meningkatkan
+                        nilai tambah bagi masyarakat dan menyerap serta menyalurkan aspirasi masyarakat</li>
+                    <li>Meningkatkan aktivitas KIM dalam menyerap dan menyalurkan aspirasi masyarakat</li>
+                </li>
             </div>
         </div>
     </div>
