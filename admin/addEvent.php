@@ -2,6 +2,7 @@
 require './session.php';
 require_once('../conn.php');
 
+
 function getName($n = 10)
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -236,7 +237,7 @@ function getName($n = 10)
                                 <button type="submit" class="btn btn-primary" name="submitAdd">Add</button>
                             </div>
                         </form>
-                    </div>
+                    </div>S
 
                     <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
@@ -247,19 +248,6 @@ function getName($n = 10)
 
                 <!-- End of Main Content -->
                 <?php if (isset($_POST['submitAdd'])) {
-                    
-                    echo '<script>
-                    function showSweetAlert() {
-                        console.log("function called");
-                        Swal.fire({
-                            icon: "error",
-                            title: "Oops...",
-                            text: "Something went wrong!",
-                            footer: \'<a href="">Why do I have this issue?</a>\'
-                        });
-                    }
-                    </script>';
-
                     $namaEvent = htmlspecialchars($_POST['namaEvent']);
                     $mulai = htmlspecialchars($_POST['mulai']);
                     $selesai = htmlspecialchars($_POST['selesai']);

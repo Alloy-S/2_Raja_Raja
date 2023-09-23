@@ -2,6 +2,12 @@
 require './session.php';
 require_once('../conn.php');
 
+
+$id = $_GET['wkwk'];
+
+$data = mysqli_query($conn, "SELECT * FROM list_event WHERE id='$id'");
+$detailEvent = mysqli_fetch_array($data);
+
 function getName($n = 10)
 {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -215,112 +221,46 @@ function getName($n = 10)
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Produk</h1>
-                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-                        For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
+                    <h1 class="h3 mb-2 text-gray-800">Detail Produk</h1>
 
-                    <!-- DataTales Example -->
-                    <div class="card shadow mb-4">
-                        <div class="card-header py-3">
-                            <spa class="m-0 font-weight-bold text-primary">Data Event</spa>
-                        </div>
-                        <div class="card-body">
-                            <!-- Button trigger modal -->
-                            <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                                    <thead>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>End</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </thead>
-                                    <tfoot>
-                                        <tr>
-                                            <th>id</th>
-                                            <th>Nama Event</th>
-                                            <th>Start Date</th>
-                                            <th>Foto Event</th>
-                                            <th>Action</th>
-                                        </tr>
-                                    </tfoot>
-                                    <tbody>
-                                        <?php $queryEvent = mysqli_query($conn, "SELECT * FROM list_event"); ?>
-                                        <?php if (mysqli_num_rows($queryEvent) == 0) : ?>
-                                            <tr>
-                                                <td colspan="6" class="text-center">Tidak Ada Data</td>
-                                            </tr>
-                                        <?php else : ?>
-                                            <?php $count = 1; ?>
-                                            <?php while ($row = mysqli_fetch_array($queryEvent)) : ?>
-                                                <tr>
-                                                    <td><?= $count; ?></td>
-                                                    <td><?= $row['nama_event']; ?></td>
-                                                    <td><?= $row['start_date']; ?></td>
-                                                    <td><?= $row['end_date']; ?></td>
-                                                    <td>
-                                                        <a href="./detail-event.php?wkwk=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
-                                                        <!-- <a href="./delete-Kategori.php?wkwk=<?= $row['id']; ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a> -->
-                                                    </td>
-                                                    <?php $count++; ?>
-
-                                                </tr>
-                                            <?php endwhile; ?>
-                                        <?php endif; ?>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                </div>
-                <!-- /.container-fluid -->
-                <!-- Modal -->
-                <div class="modal fade" id="addEvents" tabindex="-1" role="dialog" aria-labelledby="addEventsTitle" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="eventModal">Add Event</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
-                            </div>
-                            <form action="" method="POST" enctype="multipart/form-data">
-                                <div class="modal-body">
-                                    <label for="subject">Judul Berita:</label>
-                                    <input type="text" class="form-control" name="namaBerita">
-                                    <label for="categories">Nama Penulis:</label>
-                                    <input type="text" class="form-control" name="namaPenulis">
-                                    <!-- <label for="date">Date:</label>
+                    <div>
+                        <form action="" method="POST" enctype="multipart/form-data">
+                            <div class="modal-body">
+                                <label for="judul">Judul Event:</label>
+                                <input type="text" class="form-control" name="namaEvent" value="<?= $detailEvent['nama_event']; ?>">
+                                <label for="tgl_mulai">Start date:</label>
+                                <input type="date" class="form-control" name="mulai" value="<?= $detailEvent['start_date']; ?>">
+                                <label for="tgl_selesai">End date:</label>
+                                <input type="date" class="form-control" name="selesai" value="<?= $detailEvent['end_date']; ?>">
+                                <!-- <label for="date">Date:</label>
                                     <input type="date" class="form-control" name="date"> -->
-                                    <label for="description">Description:</label>
-                                    <textarea name="description" cols="10" rows="25" class="form-control"></textarea>
-
-                                    <label for="foto">Foto</label>
-                                    <input type="file" name="foto" id="foto" class="form-control">
+                                <div class="mt-4">
+                                    <label for="fotoSekarang">Foto Saat Ini</label>
                                 </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary" name="submitAdd">Add</button>
+                                <div>
+                                    <img src="<?= $detailEvent['foto']; ?>" alt="" class="img-fluid rounded mx-auto d-block">
                                 </div>
-                            </form>
-                        </div>
+                                <label for="foto" class="mb-4 mt-4">Upload Foto Baru</label>
+                                <input type="file" name="foto" id="foto" class="form-control">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteComfirm">
+                                    Delete
+                                </button>
+                                <a href="showEvent.php">
+                                    <button type="button" class="btn btn-secondary">Close</button>
+                                </a>
+                                <button type="submit" class="btn btn-primary" name="submitUpdate">Add</button>
+                            </div>
+                        </form>
                     </div>
-                </div>
-                <!-- End of Main Content -->
-                <?php if (isset($_POST['submitAdd'])) {
+                    <?php if (isset($_POST['submitAdd'])) {
+                    $namaEvent = htmlspecialchars($_POST['namaEvent']);
+                    $mulai = htmlspecialchars($_POST['mulai']);
+                    $selesai = htmlspecialchars($_POST['selesai']);
 
-                    $nama = htmlspecialchars($_POST['namaBerita']);
-                    $namaPenulis = htmlspecialchars($_POST['namaPenulis']);
-                    // $harga = htmlspecialchars($_POST['harga']);
-                    $detail = htmlspecialchars($_POST['description']);
-                    // $ketersediaan = htmlspecialchars($_POST['ketersediaan']);
+                    $mulai_timestamp = strtotime($mulai);
+                    $selesai_timestamp = strtotime($selesai);
 
                     $target_dir = "../image/";
                     $nama_file = basename($_FILES["foto"]["name"]);
@@ -329,7 +269,7 @@ function getName($n = 10)
                     $size_file = $_FILES['foto']['size'];
 
                     $randomString = getName(10);
-                    if ($nama == "" || $namaPenulis == "" || $detail == "") {
+                    if ($namaEvent == "" || $mulai == "" || $selesai == "") {
                         echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
                     } else {
                         if ($nama_file != "") {
@@ -340,29 +280,84 @@ function getName($n = 10)
                                     echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
                                 } else {
                                     if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
-                                        $queryExist = mysqli_query($conn, "SELECT * FROM berita WHERE nama_artikel='$nama'");
+                                        $queryExist = mysqli_query($conn, "SELECT * FROM list_event WHERE nama_event='$namaEvent'");
                                         if (mysqli_num_rows($queryExist) > 0) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
-                                        } else {                                           
+                                            echo "<div class='alert alert-primary mt-3' role='alert'>Event Sudah Ada</div>";
+                                        }
+                                        if ($selesai_timestamp <= $mulai_timestamp) {
+                                            echo "End date is earlier than start date.";
+                                            echo '<script>
+                                                showSweetAlert();
+                                            </script>';
+                                        } else {
                                             $file = $target_dir . $randomString . "." . $imageFileType;
-                                            $queryAdd = mysqli_query($conn, "INSERT INTO berita (nama_artikel, nama_penulis, foto, deskripsi) VALUES ('$nama', '$namaPenulis', '$file', '$detail')");
+                                            $queryAdd = mysqli_query($conn, "INSERT INTO list_event (nama_event, start_date, end_date, foto) VALUES ('$namaEvent', '$mulai', '$selesai', '$file')");
                                             if ($queryAdd) {
                                                 echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
                                                 // untuk merefresh halaman
-                                                echo "<meta http-equiv='refresh' content='1.5; url=./showBerita.php'>";
+                                                echo "<meta http-equiv='refresh' content='1.5; url=./showEvent.php'>";
                                             } else {
                                                 echo mysqli_error($conn);
                                             }
                                         }
                                     } else {
-                                        echo "<div class='alert alert-primary mt-3' role='alert'>Gagal Upload foto</div>";
+                                        $queryUpdate = mysqli_query($conn, "UPDATE list_event SET nama_event='$namaEvent', start_date='$mulai', end_date='$selesai' WHERE id='$id'");
+        
+                                        if ($queryUpdate) {
+                                            echo "<div class='alert alert-primary mt-3' role='alert'>berhasil diperbarui</div>";
+                                            // untuk merefresh halaman
+                                            echo "<meta http-equiv='refresh' content='1; url=./showEveny.php'>";
+                                        }
                                     }
                                 }
                             }
                         }
                     }
                 }
+
+
+                    ?>
+                    <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
+                        For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
+
+                    <!-- DataTales Example -->
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="deleteComfirm" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h1 class="modal-title fs-5" id="staticBackdropLabel">Delete Even</h1>
+                            </div>
+                            <div class="modal-body">
+                                Anda yakin ingin mendelete event ini?
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                <form action="" method="post">
+                                    <button type="submit" class="btn btn-primary" name="delete">Delete</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <?php
+                if (isset($_POST['delete'])) {
+                    $query = mysqli_query($conn, "DELETE FROM list_event WHERE id='$id'");
+                    if ($query) {
+                        echo "<div class='alert alert-primary mt-3' role='alert'>Event Berhasil Dihapus</div>";
+                        echo "<meta http-equiv='refresh' content='0.5; url=./showEvent.php'>";
+                    } else {
+                        echo mysqli_error($conn);
+                    }
+                }
                 ?>
+                <!-- /.container-fluid -->
+
+                <!-- End of Main Content -->
+
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">
