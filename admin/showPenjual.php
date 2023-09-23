@@ -14,6 +14,24 @@ function getName($n = 10)
 
     return $randomString;
 }
+
+$dataPerHalaman = 1;
+$jmlData = mysqli_num_rows(mysqli_query($conn, "SELECT * FROM penjual"));
+$banyakHalaman = ceil($jmlData / $dataPerHalaman);
+$halamanAktif = ((isset($_GET["page"]))) ? $_GET["page"] : 1;
+$awalIndex = ($dataPerHalaman * $halamanAktif) - $dataPerHalaman;
+
+$queryPenjual = mysqli_query($conn, "SELECT * FROM penjual LIMIT $awalIndex, $dataPerHalaman");
+
+// $keyword = $_POST['keyword'] ?? "";
+// $query = "SELECT * FROM berita 
+//     where 
+//     nama_artikel LIKE '%$keyword%' OR
+//     nama_penulis = '%$keyword%' LIMIT $limitData, $startIndex
+//     ;";
+
+// $queryBerita = mysqli_query($conn, $query);
+
 ?>
 
 <!DOCTYPE html>
@@ -95,7 +113,7 @@ function getName($n = 10)
                 <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Event Options:</h6>
-                        <a class="collapse-item" href="showEvent.php">Show Event</a>
+                        <a class="collapse-item" href="showEvent.php">Show</a>
                         <a class="collapse-item" href="addEvent.php">Add Event</a>
                     </div>
                 </div>
@@ -109,7 +127,7 @@ function getName($n = 10)
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="showBerita.php">Show Berita</a>
+                        <a class="collapse-item" href="showBerita.php">Show</a>
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
@@ -215,88 +233,101 @@ function getName($n = 10)
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-2 text-gray-800">Detail Produk</h1>
-
-                    <div>
-                        <form action="" method="POST" enctype="multipart/form-data">
-                            <div class="modal-body">
-                                <label for="subject">Judul Berita:</label>
-                                <input type="text" class="form-control" name="namaBerita">
-                                <label for="categories">Nama Penulis:</label>
-                                <input type="text" class="form-control" name="namaPenulis">
-                                <!-- <label for="date">Date:</label>
-                                    <input type="date" class="form-control" name="date"> -->
-                                <label for="description">Description:</label>
-                                <textarea name="description" cols="10" rows="25" class="form-control"></textarea>
-
-                                <label for="foto">Foto</label>
-                                <input type="file" name="foto" id="foto" class="form-control">
-                            </div>
-                            <div class="modal-footer">
-                                <a href="showBerita.php">
-                                    <button type="button" class="btn btn-secondary">Close</button>
-                                </a>
-                                <button type="submit" class="btn btn-primary" name="submitAdd">Add</button>
-                            </div>
-                        </form>
-                    </div>
-
+                    <h1 class="h3 mb-2 text-gray-800">Penjual</h1>
                     <!-- <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
                         For more information about DataTables, please visit the <a target="_blank" href="https://datatables.net">official DataTables documentation</a>.</p> -->
 
                     <!-- DataTales Example -->
+                    <div class="card shadow mb-4">
+                        <div class="card-header py-3">
+                            <spa class="m-0 font-weight-bold text-primary">Data Event</spa>
+                        </div>
+                        <div class="card-body">
+
+                            <div class="table-responsive">
+                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Nama Penjual</th>
+                                            <th>Nama Toko</th>
+                                            <th>No HP</th>
+                                            <th>Email</th>
+                                        </tr>
+                                    </thead>
+                                    <tfoot>
+                                        <tr>
+                                            <th>id</th>
+                                            <th>Nama Penjual</th>
+                                            <th>Nama Toko</th>
+                                            <th>No HP</th>
+                                            <th>Email</th>
+                                        </tr>
+                                        </tr>
+                                    </tfoot>
+                                    <tbody>
+                                        <?php if (mysqli_num_rows($queryPenjual) == 0) : ?>
+                                            <tr>
+                                                <td colspan="6" class="text-center">Tidak Ada Data</td>
+                                            </tr>
+                                        <?php else : ?>
+                                            <?php $count = 1; ?>
+                                            <?php while ($row = mysqli_fetch_array($queryPenjual)) : ?>
+                                                <tr>
+                                                    <td><?= $count; ?></td>
+                                                    <td><?= $row['nama_penjual']; ?></td>
+                                                    <td><?= $row['nama_toko']; ?></td>
+                                                    <td><?= $row['no_hp']; ?></td>
+                                                    <td><?= $row['email']; ?></td>
+                                                    <th>Action</th>
+                                                    <td>
+                                                        <a href="./detail-penjual.php?wkwk=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
+                                                        <!-- <a href="./delete-Kategori.php?wkwk=<?= $row['id']; ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a> -->
+
+                                                    </td>
+                                                    <?php $count++; ?>
+
+                                                </tr>
+                                            <?php endwhile; ?>
+                                        <?php endif; ?>
+
+                                    </tbody>
+                                </table>
+                                <nav aria-label="..." class="d-flex justify-content-end">
+                                    <ul class="pagination">
+                                        <?php if ($halamanAktif > 1) : ?>
+                                            <li class="page-item disabled">
+                                                <a class="page-link" href="?page= <?= $halamanAktif - 1 ?>">Previous</a>
+                                            </li>
+                                        <?php endif; ?>
+                                        <?php for ($i = 1; $i <= $banyakHalaman; $i++) : ?>
+                                            <?php if ($i == $halamanAktif) : ?>
+                                                <li class="page-item active">
+                                                    <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
+                                                </li>
+                                                <?php else : ?>
+                                                <li class="page-item">
+                                                    <a href="?page=<?= $i; ?>" class="page-link"><?= $i; ?></a>
+                                                </li>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+                
+                                        <?php if($halamanAktif < $banyakHalaman) :?>
+                                        <li class="page-item">
+                                            <a class="page-link" href="?page= <?= $halamanAktif + 1 ?>">Next</a>
+                                        </li>
+                                        <?php endif;?>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <!-- /.container-fluid -->
 
+
                 <!-- End of Main Content -->
-                <?php if (isset($_POST['submitAdd'])) {
-
-                    $nama = htmlspecialchars($_POST['namaBerita']);
-                    $namaPenulis = htmlspecialchars($_POST['namaPenulis']);
-                    $detail = htmlspecialchars($_POST['description']);
-
-
-                    $target_dir = "../image/";
-                    $nama_file = basename($_FILES["foto"]["name"]);
-                    $target_file = $target_dir . $nama_file;
-                    $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
-                    $size_file = $_FILES['foto']['size'];
-
-                    $randomString = getName(10);
-                    if ($nama == "" || $namaPenulis == "" || $detail == "") {
-                        echo "<div class='alert alert-primary mt-3' role='alert'>harap Lengkapi Form</div>";
-                    } else {
-                        if ($nama_file != "") {
-                            if ($size_file > 5000000) {
-                                echo "<div class='alert alert-primary mt-3' role='alert'>foto tidak boleh dari 500kb</div>";
-                            } else {
-                                if ($imageFileType != 'jpg' && $imageFileType != 'png' && $imageFileType != 'jpeg') {
-                                    echo "<div class='alert alert-primary mt-3' role='alert'>File harus bertipe JPG, PNG atau JPEG</div>";
-                                } else {
-                                    if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
-                                        $queryExist = mysqli_query($conn, "SELECT * FROM berita WHERE nama_artikel='$nama'");
-                                        if (mysqli_num_rows($queryExist) > 0) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
-                                        } else {
-                                            $file = $target_dir . $randomString . "." . $imageFileType;
-                                            $queryAdd = mysqli_query($conn, "INSERT INTO berita (nama_artikel, nama_penulis, foto, deskripsi) VALUES ('$nama', '$namaPenulis', '$file', '$detail')");
-                                            if ($queryAdd) {
-                                                echo "<div class='alert alert-primary mt-3' role='alert'>Kategori Berhasil Ditambahkan</div>";
-                                                // untuk merefresh halaman
-                                                echo "<meta http-equiv='refresh' content='1.5; url=./showBerita.php'>";
-                                            } else {
-                                                echo mysqli_error($conn);
-                                            }
-                                        }
-                                    } else {
-                                        echo "<div class='alert alert-primary mt-3' role='alert'>Gagal Upload foto</div>";
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                ?>
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
                     <div class="container my-auto">

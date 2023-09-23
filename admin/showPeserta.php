@@ -36,7 +36,7 @@ $queryPesertaEvent = mysqli_query($conn, "SELECT * FROM peserta_event WHERE id_e
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Admin Purwoagung</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -60,7 +60,7 @@ $queryPesertaEvent = mysqli_query($conn, "SELECT * FROM peserta_event WHERE id_e
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin Purwoagung</div>
             </a>
 
             <!-- Divider -->
@@ -383,7 +383,7 @@ $queryPesertaEvent = mysqli_query($conn, "SELECT * FROM peserta_event WHERE id_e
                                     if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
                                         $queryExist = mysqli_query($conn, "SELECT * FROM berita WHERE nama_artikel='$nama'");
                                         if (mysqli_num_rows($queryExist) > 0) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
+                                            echo "<div class='alert alert-primary mt-3' role='alert'>Penjual Sudah Ada</div>";
                                         } else {
                                             $file = $target_dir . $randomString . "." . $imageFileType;
                                             $queryAdd = mysqli_query($conn, "INSERT INTO berita (nama_artikel, nama_penulis, foto, deskripsi) VALUES ('$nama', '$namaPenulis', '$file', '$detail')");

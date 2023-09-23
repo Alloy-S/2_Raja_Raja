@@ -35,7 +35,7 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Dashboard</title>
+    <title>Admin Purwoagung</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -59,7 +59,7 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Admin Purwoagung</sup></div>
             </a>
 
             <!-- Divider -->
@@ -103,7 +103,7 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
                 <div id="eventOption" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Event Options:</h6>
-                        <a class="collapse-item" href="showEvent.php">Show</a>
+                        <a class="collapse-item" href="showEvent.php">Show Event</a>
                         <a class="collapse-item" href="addEvent.php">Add Event</a>
                     </div>
                 </div>
@@ -117,7 +117,7 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
                 <div id="berita" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Berita Options:</h6>
-                        <a class="collapse-item" href="showBerita.php">Show</a>
+                        <a class="collapse-item" href="showBerita.php">Show Berita</a>
                         <a class="collapse-item" href="addBerita.php">Add Berita</a>
                     </div>
                 </div>
@@ -372,7 +372,7 @@ $queryEvent = mysqli_query($conn, "SELECT * FROM list_event LIMIT $awalIndex, $d
                                     if (move_uploaded_file($_FILES["foto"]["tmp_name"], $target_dir . $randomString . "." . $imageFileType)) {
                                         $queryExist = mysqli_query($conn, "SELECT * FROM berita WHERE nama_artikel='$nama'");
                                         if (mysqli_num_rows($queryExist) > 0) {
-                                            echo "<div class='alert alert-primary mt-3' role='alert'>Produk Sudah Ada</div>";
+                                            echo "<div class='alert alert-primary mt-3' role='alert'>Event Sudah Ada</div>";
                                         } else {
                                             $file = $target_dir . $randomString . "." . $imageFileType;
                                             $queryAdd = mysqli_query($conn, "INSERT INTO berita (nama_artikel, nama_penulis, foto, deskripsi) VALUES ('$nama', '$namaPenulis', '$file', '$detail')");
