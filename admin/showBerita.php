@@ -263,6 +263,7 @@ function getName($n = 10)
                                                     <td>
                                                         <a href="./detail-berita.php?wkwk=<?= $row['id']; ?>" class="btn btn-info"><i class="fa-solid fa-magnifying-glass"></i></a>
                                                         <!-- <a href="./delete-Kategori.php?wkwk=<?= $row['id']; ?>" class="btn btn-danger"><i class="fa-solid fa-trash"></i></a> -->
+                                                        
                                                     </td>
                                                     <?php $count++; ?>
 
