@@ -52,13 +52,6 @@ require_once('../conn.php');
                                         <div class="form-group">
                                             <input type="password" class="form-control form-control-user" id="password" placeholder="Password" name="password">
                                         </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck">
-                                                <label class="custom-control-label" for="customCheck">Remember
-                                                    Me</label>
-                                            </div>
-                                        </div>
 
                                         <button class="btn btn-primary btn-user btn-block" name="submit" type="submit">
                                             Login
@@ -96,12 +89,6 @@ require_once('../conn.php');
                                     }
                                     ?>
                                     <hr>
-                                    <div class="text-center">
-                                        <a class="small" href="forgot-password.html">Forgot Password?</a>
-                                    </div>
-                                    <div class="text-center">
-                                        <a class="small" href="register.php">Create an Account!</a>
-                                    </div>
                                 </div>
                             </div>
                         </div>

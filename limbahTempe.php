@@ -70,21 +70,30 @@ $sql = mysqli_query($conn, "SELECT produk.*, penjual.* FROM produk INNER JOIN pe
                 </div>
 
                 <!-- Profile -->
-                <div class="d-flex justify-content-end" id="logo-dropdown">
-                    <div class="dropdown d-flex justify-content-end">
-                        <a class="dropdown-toggle d-flex align-items-center hidden-arrow round-logo" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-regular fa-user fa-2x"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
-                            <li>
-                                <a class="dropdown-item" href="indexPenjual.php.php">My profile</a>
-                            </li>
-                            <li>
-                                <a class="dropdown-item" href="logout.php">Logout</a>
-                            </li>
-                        </ul>
+                <?php
+                if (isset($_SESSION['login'])) { ?>
+                    <div class="d-flex justify-content-end" id="logo-dropdown">
+                        <div class="dropdown d-flex justify-content-end">
+                            <a class="dropdown-toggle d-flex align-items-center hidden-arrow round-logo" href="#" id="navbarDropdownMenuAvatar" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fa-regular fa-user fa-2x"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuAvatar">
+                                <li>
+                                    <a class="dropdown-item" href="indexPenjual.php">My profile</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#logoutModal">Logout</a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
+                <?php
+                } else {
+                ?>
+                    <a href="login.php" class="btn btn-outline-secondary">Log in</a>
+                <?php
+                }
+                ?>
             </div>
         </div>
     </nav>
