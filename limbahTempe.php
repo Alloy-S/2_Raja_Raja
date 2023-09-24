@@ -244,17 +244,7 @@ $sql = mysqli_query($conn, "SELECT limbah.*, penjual.* FROM limbah INNER JOIN pe
 
 
         <div class="d-flex-row footerPage row">
-            <div class="subscriptionInput row">
-                <div class="inginMendapat col-4">
-                    Ingin mendapatkan berita terbaru?
-                </div>
-                <div class="emailSubInput col-6">
-                    <input class="inputEmail" type="text" id="emailSubscription" name="email" placeholder="Masukkan email anda...">
-                </div>
-                <div class="col-2">
-                    <input class="tombol" type="submit" value="Submit">
-                </div>
-            </div>
+            
             <div class="footerInformation row">
                 <div class="infoPurwo col-5">
                     <div class="titleInfoPurwo">
